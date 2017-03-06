@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, Output} from '@angular/core';
 
-import { Food } from './food'
+import {Food} from './food'
 
 @Component({
   selector: 'food-selector',
   template: `
+<form (ngSubmit)="selectFood">
   <div>
       <label>Name</label>
       <input [(ngModel)]="food.name" >
@@ -16,10 +17,15 @@ import { Food } from './food'
   <div>
       <label>Protéines</label>
       <input [(ngModel)]="food.proteins"  >
-  </div>`
+  </div>
+  </form>`
 })
-export class FoodComponent  {
+export class FoodComponent {
 
-food = new Food("test",0,0,0,0);
+  food = new Food("test", 0, 0, 0, 0);
+  @Output() onFoodSelected = new EventEmmitter<Food>();
 
+  selectFood():void {
+    this.onFoodSelected(food);
+  }
 }

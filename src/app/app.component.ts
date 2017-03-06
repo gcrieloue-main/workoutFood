@@ -25,7 +25,7 @@ export class Profile {
       <label>Poids</label>
       <input [(ngModel)]="profile.weight" (change)="onChange()" >
   </div>
-  <food-selector></food-selector>
+  <food-selector (onFoodSelected)="onFoodSelected($event))"></food-selector>
   <meal [foods]="mealFoods"></meal>
   `
 })
@@ -37,8 +37,8 @@ export class AppComponent {
   };
   calories = 0;
 
-  mealFoods:Food[]= [
-    new Food("poulet",5,10,15,20)
+  mealFoods:Food[] = [
+    new Food("poulet", 5, 10, 15, 20)
   ]
 
   computeCalories():void {
@@ -50,6 +50,10 @@ export class AppComponent {
 
   onChange():void {
     this.computeCalories();
+  }
+
+  onFoodSelected(food:Food) {
+    mealFoods.add(food);
   }
 
 }
