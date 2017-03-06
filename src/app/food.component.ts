@@ -5,7 +5,7 @@ import {Food} from './food'
 @Component({
   selector: 'food-selector',
   template: `
-<form (ngSubmit)="selectFood">
+<form (ngSubmit)="onSubmit()">
   <div>
       <label>Name</label>
       <input [(ngModel)]="food.name" name="name" >
@@ -25,7 +25,7 @@ export class FoodComponent {
   food = new Food("test", 0, 0, 0, 0);
   @Output() onFoodSelected = new EventEmitter<Food>();
 
-  selectFood():void {
+  onSubmit():void {
     console.log("food selected");
     this.onFoodSelected(new Food("dinde", 5, 10, 15, 20));
   }
