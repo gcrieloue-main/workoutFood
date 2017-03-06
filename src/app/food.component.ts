@@ -23,7 +23,7 @@ import {Food} from './food'
 export class FoodComponent {
 
   food = new Food("test", 0, 0, 0, 0);
-  @Output() onFoodSelected = new EventEmmitter<Food>();
+  @Output() onFoodSelected = new EventEmitter<Food>();
 
   selectFood():void {
     this.onFoodSelected(food);
