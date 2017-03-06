@@ -8,7 +8,7 @@ import {FoodService} from './food.service';
   selector: 'food-selector',
   template: `
 <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
-  <select [(ngmodel)]="food">
+  <select [(ngModel)]="food">
     <option id="food" *ngFor="let food of foods" [value]="food">{{food.name}}</option>
   </select>
    <button type="submit" class="btn btn-success">Submit</button>
