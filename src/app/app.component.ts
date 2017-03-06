@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
 
 
-export class Profile{
-    size: number;
-    weight:number;
-    age:number;
+export class Profile {
+  size:number;
+  weight:number;
+  age:number;
 }
 
 @Component({
@@ -23,27 +23,27 @@ export class Profile{
   <div>
       <label>Poids</label>
       <input [(ngModel)]="profile.weight" (change)="onChange()" >
-  </div>`
+  </div>
+  <food-selector></food-selector>
+  `
 })
-export class AppComponent  { 
-    profile : Profile = {
-    size :1.82,
+export class AppComponent {
+  profile:Profile = {
+    size: 1.82,
     weight: 75,
     age: 30
-    };
-    name = 'Angular'; 
-    calories = 0;
+  };
+  calories = 0;
 
-    computeCalories():void{
-        console.log('called');
-        if (this.profile.age <= 30){
-            this.calories = 14.4*this.profile.weight+313*this.profile.size+113;
-        }
+  computeCalories():void {
+    console.log('called');
+    if (this.profile.age <= 30) {
+      this.calories = 14.4 * this.profile.weight + 313 * this.profile.size + 113;
     }
+  }
 
-
-    onChange():void{
-        this.computeCalories();
-    }
+  onChange():void {
+    this.computeCalories();
+  }
 
 }
