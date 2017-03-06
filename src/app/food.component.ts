@@ -28,6 +28,6 @@ export class FoodComponent {
 
   onSubmit():void {
     console.log("food selected");
-    this.onFoodSelected(new Food("dinde", 5, 10, 15, 20));
+    this.onFoodSelected.emit(new Food("dinde", 5, 10, 15, 20));
   }
 }
