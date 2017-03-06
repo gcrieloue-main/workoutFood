@@ -1,8 +1,8 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 
-import {Food} from './food'
+import {Food} from './food';
 
-import {FoodService} from './food.service'
+import {FoodService} from './food.service';
 
 @Component({
   selector: 'food-selector',
@@ -22,12 +22,11 @@ import {FoodService} from './food.service'
   </div>
    <button type="submit" class="btn btn-success">Submit</button>
   </form>`,
-  providers:[FoodService]
+  providers: [FoodService]
 })
 export class FoodComponent {
 
-  constructor(private foodService: FoodService)
-  {
+  constructor(private foodService:FoodService) {
 
   }
 
