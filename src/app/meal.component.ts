@@ -14,8 +14,7 @@ import {Food} from './food'
 })
 export class MealComponent {
 
-
-  @Input
+  @Input()
   foods:Food[];
 
 }
