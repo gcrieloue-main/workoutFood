@@ -8,15 +8,15 @@ import {Food} from './food'
 <form (ngSubmit)="selectFood">
   <div>
       <label>Name</label>
-      <input [(ngModel)]="food.name" >
+      <input [(ngModel)]="food.name" name="name" >
   </div>
   <div>
       <label>Calories</label>
-      <input [(ngModel)]="food.calories"  >
+      <input [(ngModel)]="food.calories"  name="calories" >
   </div>
   <div>
       <label>Protéines</label>
-      <input [(ngModel)]="food.proteins"  >
+      <input [(ngModel)]="food.proteins" name="proteins" >
   </div>
   </form>`
 })
