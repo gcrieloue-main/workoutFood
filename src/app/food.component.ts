@@ -18,6 +18,7 @@ import {Food} from './food'
       <label>Protéines</label>
       <input [(ngModel)]="food.proteins" name="proteins" >
   </div>
+   <button type="submit" class="btn btn-success">Submit</button>
   </form>`
 })
 export class FoodComponent {
