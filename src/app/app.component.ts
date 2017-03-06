@@ -53,7 +53,7 @@ export class AppComponent {
   }
 
   onFoodSelected(food:Food) {
-    this.mealFoods.add(food);
+    this.mealFoods.push(food);
   }
 
 }
