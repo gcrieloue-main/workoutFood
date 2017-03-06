@@ -8,18 +8,9 @@ import {FoodService} from './food.service';
   selector: 'food-selector',
   template: `
 <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
-  <div>
-      <label>Name</label>
-      <input [(ngModel)]="food.name" name="name" >
-  </div>
-  <div>
-      <label>Calories</label>
-      <input [(ngModel)]="food.calories"  name="calories" >
-  </div>
-  <div>
-      <label>Protéines</label>
-      <input [(ngModel)]="food.proteins" name="proteins" >
-  </div>
+  <select [(ngmodel)]="food">
+    <option id="food" *ngFor="let food of foods" [value]="food">{{food.name}}</option>
+  </select>
    <button type="submit" class="btn btn-success">Submit</button>
   </form>`,
   providers: [FoodService]
@@ -30,11 +21,16 @@ export class FoodComponent {
 
   }
 
-  food = new Food("test", 0, 0, 0, 0);
+  ngOnInit():void {
+    foods = this.foodService.getFoods();
+  }
+
+  food:Food;
+
   @Output() onFoodSelected = new EventEmitter<Food>();
 
   onSubmit():void {
-    console.log(this.foodService.getFoods());
+    console.log(food.name);
     console.log("food selected");
     this.onFoodSelected.emit(new Food("dinde", 5, 10, 15, 20));
   }
