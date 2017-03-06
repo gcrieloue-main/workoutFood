@@ -9,7 +9,7 @@ import {FoodService} from './food.service';
   template: `
 <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <select [(ngModel)]="food" name="food">
-    <option *ngFor="let food of foods" [value]="food">{{food.name}}</option>
+    <option *ngFor="let food of foods" [ngValue]="food">{{food.name}}</option>
   </select>
    <button type="submit" class="btn btn-success">Submit</button>
   </form>`,
@@ -17,23 +17,21 @@ import {FoodService} from './food.service';
 })
 export class FoodComponent {
 
+  food:Food;
+  foods:Food[];
+
   constructor(private foodService:FoodService) {
 
   }
-
-  foods:Food[];
 
   ngOnInit():void {
     this.foods = this.foodService.getFoods();
   }
 
-  food:Food;
-
   @Output() onFoodSelected = new EventEmitter<Food>();
 
   onSubmit():void {
-    console.log(this.food.name);
-    console.log("food selected");
-    this.onFoodSelected.emit(new Food("dinde", 5, 10, 15, 20));
+    console.log(this.food.name+" selected");
+    this.onFoodSelected.emit(this.food);
   }
 }
