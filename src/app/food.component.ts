@@ -21,6 +21,8 @@ export class FoodComponent {
 
   }
 
+  foods:Food[];
+
   ngOnInit():void {
     foods = this.foodService.getFoods();
   }
