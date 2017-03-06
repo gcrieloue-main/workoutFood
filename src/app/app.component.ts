@@ -1,5 +1,7 @@
 import {Component} from "@angular/core";
 
+import {Food} from "./food"
+
 export class Profile {
   size:number;
   weight:number;
