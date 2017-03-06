@@ -35,7 +35,7 @@ export class FoodComponent {
   @Output() onFoodSelected = new EventEmitter<Food>();
 
   onSubmit():void {
-    console.log(this.foodService.getFoods())
+    console.log(this.foodService.getFoods());
     console.log("food selected");
     this.onFoodSelected.emit(new Food("dinde", 5, 10, 15, 20));
   }
