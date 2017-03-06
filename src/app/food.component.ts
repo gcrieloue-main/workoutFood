@@ -26,6 +26,7 @@ export class FoodComponent {
   @Output() onFoodSelected = new EventEmitter<Food>();
 
   selectFood():void {
+    console.log("food selected");
     this.onFoodSelected(new Food("dinde", 5, 10, 15, 20));
   }
 }
