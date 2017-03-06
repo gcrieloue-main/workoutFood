@@ -26,7 +26,7 @@ export class Profile {
       <input [(ngModel)]="profile.weight" (change)="onChange()" >
   </div>
   <food-selector></food-selector>
-  <meal [foods="mealFoods"]></meal>
+  <meal [foods]="mealFoods"></meal>
   `
 })
 export class AppComponent {
