@@ -24,6 +24,7 @@ export class Profile {
       <input [(ngModel)]="profile.weight" (change)="onChange()" >
   </div>
   <food-selector></food-selector>
+  <meal [foods="mealFoods"]></meal>
   `
 })
 export class AppComponent {
@@ -33,6 +34,10 @@ export class AppComponent {
     age: 30
   };
   calories = 0;
+
+  mealFoods:Food[]= [
+    new Food("poulet",5,10,15,20)
+  ]
 
   computeCalories():void {
     console.log('called');
