@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 export class Profile{
     size: number;
     weight:number;
+    age:number;
 }
 
 @Component({
@@ -40,7 +41,6 @@ export class AppComponent  {
         }
     }
 
-    computeCalories();
 
     onChange():void{
         this.computeCalories();
