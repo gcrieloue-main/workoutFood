@@ -5,7 +5,7 @@ import {Food} from './food'
 @Component({
   selector: 'food-selector',
   template: `
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <div>
       <label>Name</label>
       <input [(ngModel)]="food.name" name="name" >
