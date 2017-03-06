@@ -28,7 +28,7 @@ export const FOODS:Food[] = [
   {name: 'Amuse gueule à base de maïs', calories: 507, proteins: 8, carbohydrates: 56, fats: 27},
   {name: 'Ananas au sirop', calories: 65, proteins: 0, carbohydrates: 16, fats: 0},
   {name: 'Ananas frais', calories: 48, proteins: 1, carbohydrates: 11, fats: 0}
-]
+];
 
 @Injectable()
 export class FoodService {
