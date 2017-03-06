@@ -1,5 +1,7 @@
 import {Component} from "@angular/core";
 
+import 
+
 
 export class Profile {
   size:number;
