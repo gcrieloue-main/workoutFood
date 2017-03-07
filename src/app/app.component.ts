@@ -17,17 +17,23 @@ export class Profile {
       Calculez votre base calorique
     </div>
     <div class="card-block">
-      <div>
-          <label>Age</label>
-          <input [(ngModel)]="profile.age" (change)="onChange()" >
+      <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Age</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="number" [(ngModel)]="profile.age" (change)="onChange()" >
+          </div>
       </div>
-      <div>
-          <label>Taille</label>
-          <input [(ngModel)]="profile.size" (change)="onChange()" >
+      <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Taille</label>
+          <div class="col-sm-10">
+            <input class="form-control"  [(ngModel)]="profile.size" (change)="onChange()" >
+          </div>
       </div>
-      <div>
-          <label>Poids</label>
-          <input [(ngModel)]="profile.weight" (change)="onChange()" >
+      <div class="form-group row">
+           <label class="col-sm-2 col-form-label">Poids</label>
+           <div class="col-sm-10">
+              <input class="form-control"  type="number" [(ngModel)]="profile.weight" (change)="onChange()" >
+          </div>
       </div>
       <span>Calories par jour : {{calories}}</span>
     </div>
