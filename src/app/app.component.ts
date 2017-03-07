@@ -32,21 +32,24 @@ export class Profile {
       <span>Calories par jour : {{calories}}</span>
     </div>
   </div>
+  
   <div class="card mt-3">
-  <div class="card-header">
-    Choisissez un aliment
+    <div class="card-header">
+      Choisissez un aliment
+    </div>
+    <div class="card-block">
+      <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
+    </div>
   </div>
-  <div class="card-block">
-    <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
+  
+  <div class="card mt-3">
+    <div class="card-header">
+      Votre menu
+    </div>
+    <div class="card-block">
+      <meal [foods]="mealFoods"></meal>
+    </div>
   </div>
-   <div class="card mt-3">
-  <div class="card-header">
-    Votre menu
-  </div>
-  <div class="card-block">
-    <meal [foods]="mealFoods"></meal>
-  </div>
-</div>
   `
 })
 export class AppComponent {
