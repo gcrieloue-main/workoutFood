@@ -17,7 +17,6 @@ export class Profile {
       Calculez votre base calorique
     </div>
     <div class="card-block">
-      <span>Calories par jour : {{calories}}</span>
       <div>
           <label>Age</label>
           <input [(ngModel)]="profile.age" (change)="onChange()" >
@@ -30,10 +29,12 @@ export class Profile {
           <label>Poids</label>
           <input [(ngModel)]="profile.weight" (change)="onChange()" >
       </div>
+      <span>Calories par jour : {{calories}}</span>
     </div>
-    <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
-    <meal [foods]="mealFoods"></meal>
   </div>
+  <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
+  <meal [foods]="mealFoods"></meal>
+</div>
   `
 })
 export class AppComponent {
