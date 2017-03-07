@@ -7,9 +7,9 @@ import {Component, Input} from "@angular/core";
   <div *ngFor="let mealFood of foods">
     <span class="badge badge-info">{{mealFood.weight}}g</span>
     <span>{{mealFood.food.name}}</span>
-    <span class="badge badge-warning">{{mealFood.food.calories}}</span>
+    <span class="badge badge-warning">{{mealFood.food.calories}} cal</span>
   </div>
-  <div>Total calorique : {{caloriesTotal}}</div>
+  <div>Total calorique : <span class="badge badge-warning>{{caloriesTotal}} cal</span></div>
   `
 })
 export class MealComponent {

@@ -22,20 +22,20 @@ export class Profile {
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Age</label>
             <div class="col-sm-10">
-              <input class="form-control" type="number" [(ngModel)]="profile.age" (change)="onChange()" name="age" >
+              <input class="form-control" type="number" [(ngModel)]="profile.age" name="age" >
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Taille</label>
             <div class="col-sm-10 input-group">
-              <input class="form-control" type="number" [(ngModel)]="profile.size" (change)="onChange()" name="size" >
+              <input class="form-control" type="number" [(ngModel)]="profile.size" name="size" >
               <div class="input-group-addon">cm</div>
             </div>
         </div>
         <div class="form-group row">
              <label class="col-sm-2 col-form-label">Poids</label>
              <div class="col-sm-10 input-group">
-                <input class="form-control"  type="number" [(ngModel)]="profile.weight" (change)="onChange()" name="weight" >
+                <input class="form-control"  type="number" [(ngModel)]="profile.weight" name="weight" >
                 <div class="input-group-addon">kg</div>
             </div>
         </div>
