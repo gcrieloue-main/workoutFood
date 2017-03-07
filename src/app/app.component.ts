@@ -12,7 +12,7 @@ export class Profile {
   template: `
 <div class="container">
   <h1>Alimentation</h1>
-  <div class="card">
+  <div class="card mt-3">
     <div class="card-header">
       Calculez votre base calorique
     </div>
@@ -32,14 +32,14 @@ export class Profile {
       <span>Calories par jour : {{calories}}</span>
     </div>
   </div>
-  <div class="card">
+  <div class="card mt-3">
   <div class="card-header">
     Choisissez un aliment
   </div>
   <div class="card-block">
     <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
   </div>
-   <div class="card">
+   <div class="card mt-3">
   <div class="card-header">
     Votre menu
   </div>
