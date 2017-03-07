@@ -41,7 +41,7 @@ export class Profile {
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
-      <span>Calories par jour : {{calories}}</span>
+      <span>Calories par jour : <span class="badge badge-info">{{calories}}</span></span>
     </div>
   </div>
   

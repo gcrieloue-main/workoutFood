@@ -9,7 +9,7 @@ import {Component, Input} from "@angular/core";
     <span>{{mealFood.food.name}}</span>
     <span class="badge badge-warning">{{mealFood.food.calories}} cal</span>
   </div>
-  <div>Total calorique : <span class="badge badge-warning>{{caloriesTotal}} cal</span></div>
+  <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
   `
 })
 export class MealComponent {
