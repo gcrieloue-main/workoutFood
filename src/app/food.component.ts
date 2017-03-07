@@ -1,14 +1,15 @@
 import {Component, Output, EventEmitter} from "@angular/core";
 import {Food} from "./food";
 import {FoodService} from "./food.service";
+import {MealFood} from "./mealFood";
 
 @Component({
   selector: 'food-selector',
   template: `
 <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <input type="number" name="weight" [(ngModel)]="weight">
-  <select [(ngModel)]="food" name="food">
-    <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{food.name}}</option>
+  <select [(ngModel)]="selectedFood" name="food">
+    <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{selectedFood.name}}</option>
   </select>
    <button type="submit" class="btn btn-success">Submit</button>
   </form>`,
