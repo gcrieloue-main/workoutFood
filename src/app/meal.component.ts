@@ -21,7 +21,7 @@ export class MealComponent {
 
   ngOnChanges(changes) {
     console.log(changes);
-    this.caloriesTotal = this.foods.map((food)=>food.calories).reduce((c1, c2)=>c1+c2);
+    this.caloriesTotal = Math.ceil(this.foods.map((food)=>food.calories).reduce((c1, c2)=>c1+c2));
   }
 
 }

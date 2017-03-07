@@ -77,7 +77,7 @@ export class AppComponent {
 
   computeCalories(): void {
     if (this.profile.age <= 30) {
-      this.calories = 14.4 * this.profile.weight + 313 * this.profile.size + 113;
+      this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size + 113);
     }
   }
 
