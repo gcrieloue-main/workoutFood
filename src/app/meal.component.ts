@@ -19,7 +19,7 @@ import {MealFood} from "./mealFood";
 export class MealComponent {
 
   @Input()
-  foods: MealFood[];
+  foods:MealFood[];
 
   caloriesTotal = 0;
 
@@ -32,9 +32,8 @@ export class MealComponent {
     }
   }
 
-  remove(mealFood:MealFood){
-    this.foods.remove(mealFood);
-    this.foods = this.foods.splice(0);
+  remove(mealFood:MealFood) {
+    this.foods = this.foods.splice(this.foods.indexOf(mealFood), 1);
   }
 
 }
