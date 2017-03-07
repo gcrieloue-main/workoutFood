@@ -13,6 +13,7 @@ export class Profile {
   template: `
   <h1>Alimentation</h1>
   <span>Calories par jour : {{calories}}</span>
+<form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <div>
       <label>Age</label>
       <input [(ngModel)]="profile.age" (change)="onChange()" >
@@ -25,6 +26,8 @@ export class Profile {
       <label>Poids</label>
       <input [(ngModel)]="profile.weight" (change)="onChange()" >
   </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+  </form>
   <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
   <meal [foods]="mealFoods"></meal>
   `
@@ -48,7 +51,7 @@ export class AppComponent {
     }
   }
 
-  onChange():void {
+  onSubmit():void {
     this.computeCalories();
   }
 
