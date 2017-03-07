@@ -19,7 +19,7 @@ export class FoodComponent {
 
   selectedFood: Food;
   foods: Food[];
-  weight:number;
+  weight: number;
 
   constructor(private foodService: FoodService) {
 
@@ -32,9 +32,9 @@ export class FoodComponent {
   @Output() onFoodSelected = new EventEmitter<MealFood>();
 
   onSubmit(): void {
-    if (this.selectedFood !== undefined){
+    if (this.selectedFood !== undefined) {
       console.log(this.selectedFood.name + " selected");
-      this.onFoodSelected.emit(new MealFood(this.selectedFood, this.weight));
+      this.onFoodSelected.emit(new MealFood(this.selectedFood, (this.weight !== undefined ? this.weight : 100)));
     }
   }
 }
