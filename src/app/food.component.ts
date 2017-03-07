@@ -37,7 +37,7 @@ export class FoodComponent {
   onSubmit(): void {
     if (this.selectedFood !== undefined) {
       console.log(this.selectedFood.name + " selected");
-      this.onFoodSelected.emit(new MealFood(this.selectedFood, (this.weight !== undefined ? this.weight : 100)));
+      this.onFoodSelected.emit(new MealFood(this.selectedFood, (this.weight !== undefined && this.weight > 0 ? this.weight : 100)));
     }
   }
 }

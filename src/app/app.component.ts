@@ -96,6 +96,7 @@ export class AppComponent {
   }
 
   toggleCompute():void{
+    console.log(this.compute);
     this.compute = !this.compute;
   }
 
