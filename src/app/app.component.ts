@@ -27,14 +27,16 @@ export class Profile {
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Taille</label>
-            <div class="col-sm-10">
-              <input class="form-control"  [(ngModel)]="profile.size" (change)="onChange()" name="size" >
+            <div class="col-sm-10 input-group">
+              <input class="form-control" type="number" [(ngModel)]="profile.size" (change)="onChange()" name="size" >
+              <div class="input-group-addon">cm</div>
             </div>
         </div>
         <div class="form-group row">
              <label class="col-sm-2 col-form-label">Poids</label>
-             <div class="col-sm-10">
+             <div class="col-sm-10 input-group">
                 <input class="form-control"  type="number" [(ngModel)]="profile.weight" (change)="onChange()" name="weight" >
+                <div class="input-group-addon">kg</div>
             </div>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
@@ -76,7 +78,7 @@ export class AppComponent {
 
   computeCalories(): void {
     if (this.profile.age <= 30) {
-      this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size + 113);
+      this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size/100 + 113);
     }
   }
 

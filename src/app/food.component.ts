@@ -7,7 +7,10 @@ import {MealFood} from "./mealFood";
   selector: 'food-selector',
   template: `
 <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
-  <input type="number" name="weight" [(ngModel)]="weight" value="100">
+  <div clas="input-group">
+    <input type="number" name="weight" [(ngModel)]="weight" value="100">
+    <div class="input-group-addon">g</div>
+  </div>
   <select [(ngModel)]="selectedFood" name="food">
     <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{selectedFood.name}}</option>
   </select>

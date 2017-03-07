@@ -5,7 +5,7 @@ import {Component, Input} from "@angular/core";
   selector: 'meal',
   template: `
   <div *ngFor="let mealFood of foods">
-    <span class="badge badge-info">{{mealFood.weight}}</span>
+    <span class="badge badge-info">{{mealFood.weight}}g</span>
     <span>{{mealFood.food.name}}</span>
     <span class="badge badge-warning">{{mealFood.food.calories}}</span>
   </div>
