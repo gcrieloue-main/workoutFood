@@ -8,7 +8,7 @@ import {FoodService} from "./food.service";
 <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <input type="number" name="weight" [(ngModel)]="weight">
   <select [(ngModel)]="food" name="food">
-    <option *ngFor="let food of foods" [ngValue]="selectedFood">{{food.name}}</option>
+    <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{food.name}}</option>
   </select>
    <button type="submit" class="btn btn-success">Submit</button>
   </form>`,
