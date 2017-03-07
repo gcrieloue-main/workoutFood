@@ -6,12 +6,12 @@ import {MealFood} from "./mealFood";
 @Component({
   selector: 'food-selector',
   template: `
-<form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
+<form class="form-inline" (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <div class="input-group">
     <input class="form-control" type="number" name="weight" [(ngModel)]="weight" value="100">
     <div class="input-group-addon">g</div>
   </div>
-  <select [(ngModel)]="selectedFood" name="food">
+  <select [(ngModel)]="selectedFood" name="food" class="form-control">
     <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{selectedFood.name}}</option>
   </select>
    <button type="submit" class="btn btn-success">Submit</button>
