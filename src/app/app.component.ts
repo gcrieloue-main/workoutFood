@@ -22,20 +22,20 @@ export class Profile {
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Age</label>
             <div class="col-sm-10">
-              <input class="form-control" type="number" [(ngModel)]="profile.age" name="age" >
+              <input class="form-control" type="number" [(ngModel)]="profile.age" name="age" placeholder="30" >
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Taille</label>
             <div class="col-sm-10 input-group">
-              <input class="form-control" type="number" [(ngModel)]="profile.size" name="size" >
+              <input class="form-control" type="number" [(ngModel)]="profile.size" name="size" placeholder="180">
               <div class="input-group-addon">cm</div>
             </div>
         </div>
         <div class="form-group row">
              <label class="col-sm-2 col-form-label">Poids</label>
              <div class="col-sm-10 input-group">
-                <input class="form-control"  type="number" [(ngModel)]="profile.weight" name="weight" >
+                <input class="form-control"  type="number" [(ngModel)]="profile.weight" name="weight" placeholder="75" >
                 <div class="input-group-addon">kg</div>
             </div>
         </div>
@@ -68,9 +68,9 @@ export class Profile {
 })
 export class AppComponent {
   profile:Profile = {
-    size: 1.82,
-    weight: 75,
-    age: 30
+    size: undefined,
+    weight: undefined,
+    age: undefined
   };
   calories = 0;
   compute = false;
@@ -79,8 +79,10 @@ export class AppComponent {
   ]
 
   computeCalories(): void {
-    if (this.profile.age <= 30) {
-      this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size/100 + 113);
+    if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined){
+      if (this.profile.age <= 30) {
+        this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size/100 + 113);
+      }
     }
   }
 

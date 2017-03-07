@@ -14,7 +14,7 @@ import {MealFood} from "./mealFood";
   <select [(ngModel)]="selectedFood" name="food" class="form-control mr-2">
     <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{selectedFood.name}}</option>
   </select>
-   <button type="submit" class="btn btn-success">Submit</button>
+   <button type="submit" class="btn btn-success">Ajouter</button>
   </form>`,
   providers: [FoodService]
 })
