@@ -11,13 +11,14 @@ export class Profile {
 @Component({
   selector: 'my-app',
   template: `
+<div class="container">
   <h1>Alimentation</h1>
   <div class="card mt-3">
     <div class="card-header">
       Calculez votre base calorique
     </div>
     <div class="card-block">
-      <form (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
+      <form (ngSubmit)="onSubmit()" #caloriesBaseForm="ngForm">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Age</label>
             <div class="col-sm-10">
@@ -59,6 +60,7 @@ export class Profile {
       <meal [foods]="mealFoods"></meal>
     </div>
   </div>
+</div>
   `
 })
 export class AppComponent {

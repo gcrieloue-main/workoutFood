@@ -18,9 +18,9 @@ export class MealComponent {
   foods: Food[];
 
   caloriesTotal = 0;
-  
+
   ngOnChanges(changes) {
-    this.caloriesTotal = this.foods.reduce((food1, food2)=>food1.calories + food2.calories);
+    this.caloriesTotal = this.foods.map((food)=>food.calories).reduce((c1, c2)=>c1+c2);
   }
 
 }
