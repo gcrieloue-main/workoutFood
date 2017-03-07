@@ -87,6 +87,8 @@ export class AppComponent {
 
   onFoodSelected(food:Food) {
     this.mealFoods.push(food);
+    // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
+    this.mealFoods = this.mealFoods.slice(0)
   }
 
 }
