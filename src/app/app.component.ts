@@ -18,7 +18,7 @@ export class Profile {
       Calculez votre base calorique
     </div>
     <div class="card-block">
-      <form (ngSubmit)="onSubmit()" #caloriesBaseForm="ngForm" *ngIf="computeCalories">
+      <form (ngSubmit)="onSubmit()" #caloriesBaseForm="ngForm" *ngIf="compute">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Age</label>
             <div class="col-sm-10">
@@ -41,7 +41,7 @@ export class Profile {
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
-      <button (ngClick)="compute=true" *ngIf="!compute">Calculer</button>
+      <button (ngClick)="compute=true" *ngIf="!compute" class="btn btn-success">Calculer</button>
       <span>Calories par jour : <span class="badge badge-info">{{calories}}</span></span>
     </div>
   </div>
