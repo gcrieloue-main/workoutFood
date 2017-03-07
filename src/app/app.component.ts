@@ -16,7 +16,7 @@ export class Profile {
     <div class="card-header">
       Calculez votre base calorique
     </div>
-    <div class"card-block">
+    <div class="card-block">
       <span>Calories par jour : {{calories}}</span>
       <div>
           <label>Age</label>
