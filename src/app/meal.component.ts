@@ -21,7 +21,7 @@ export class MealComponent {
 
   ngOnChanges(changes) {
     if (this.foods.length > 0) {
-      this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.food.calories).reduce((c1, c2)=>c1 + c2));
+      this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
     }
     else {
       this.caloriesTotal = 0;
