@@ -5,9 +5,10 @@ import {Food} from "./food";
 @Component({
   selector: 'meal',
   template: `
-  <div *ngFor="let food of foods">
-    <span>{{food.name}}</span>
-    <span>{{food.calories}}</span>
+  <div *ngFor="let mealFood of foods">
+    <span>{{mealFood.weight}}</span>
+    <span>{{mealFood.food.name}}</span>
+    <span>{{mealFood.food.calories}}</span>
   </div>
   <div>Total calorique : {{caloriesTotal}}</div>
   `
@@ -15,13 +16,12 @@ import {Food} from "./food";
 export class MealComponent {
 
   @Input()
-  foods: Food[];
+  foods: MealFood[];
 
   caloriesTotal = 0;
 
   ngOnChanges(changes) {
-    console.log(changes);
-    this.caloriesTotal = Math.ceil(this.foods.map((food)=>food.calories).reduce((c1, c2)=>c1+c2));
+    this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.food.calories).reduce((c1, c2)=>c1+c2));
   }
 
 }

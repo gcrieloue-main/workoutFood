@@ -18,6 +18,7 @@ export class FoodComponent {
 
   selectedFood: Food;
   foods: Food[];
+  weight:number;
 
   constructor(private foodService: FoodService) {
 

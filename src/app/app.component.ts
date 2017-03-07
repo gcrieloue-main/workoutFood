@@ -71,8 +71,7 @@ export class AppComponent {
   };
   calories = 0;
 
-  mealFoods:Food[] = [
-    new Food("poulet", 5, 10, 15, 20)
+  mealFoods:MealFood[] = [
   ]
 
   computeCalories(): void {
@@ -85,7 +84,7 @@ export class AppComponent {
     this.computeCalories();
   }
 
-  onFoodSelected(food:Food) {
+  onFoodSelected(food:MealFood) {
     this.mealFoods.push(food);
     // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
     this.mealFoods = this.mealFoods.slice(0)
