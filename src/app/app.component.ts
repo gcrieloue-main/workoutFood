@@ -32,8 +32,20 @@ export class Profile {
       <span>Calories par jour : {{calories}}</span>
     </div>
   </div>
-  <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
-  <meal [foods]="mealFoods"></meal>
+  <div class="card">
+  <div class="card-header">
+    Choisissez un aliment
+  </div>
+  <div class="card-block">
+    <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
+  </div>
+   <div class="card">
+  <div class="card-header">
+    Votre menu
+  </div>
+  <div class="card-block">
+    <meal [foods]="mealFoods"></meal>
+  </div>
 </div>
   `
 })
