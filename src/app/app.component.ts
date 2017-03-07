@@ -30,10 +30,9 @@ export class Profile {
           <label>Poids</label>
           <input [(ngModel)]="profile.weight" (change)="onChange()" >
       </div>
-      </div>
-      <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
-      <meal [foods]="mealFoods"></meal>
     </div>
+    <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
+    <meal [foods]="mealFoods"></meal>
   </div>
   `
 })
