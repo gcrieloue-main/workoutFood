@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {MealFood} from "./mealFood";
 
 
 @Component({
@@ -8,6 +9,9 @@ import {Component, Input} from "@angular/core";
     <span class="badge badge-info">{{mealFood.weight}}g</span>
     <span>{{mealFood.food.name}}</span>
     <span class="badge badge-warning">{{mealFood.food.calories}} cal</span>
+    <button type="button" (click)="remove(mealFood)" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
   `
@@ -26,6 +30,11 @@ export class MealComponent {
     else {
       this.caloriesTotal = 0;
     }
+  }
+
+  remove(mealFood:MealFood){
+    foods.remove(mealFood);
+    foods = foods.splice(0);
   }
 
 }
