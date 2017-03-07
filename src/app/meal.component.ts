@@ -5,9 +5,9 @@ import {Component, Input} from "@angular/core";
   selector: 'meal',
   template: `
   <div *ngFor="let mealFood of foods">
-    <span>{{mealFood.weight}}</span>
+    <span class="badge badge-info">{{mealFood.weight}}</span>
     <span>{{mealFood.food.name}}</span>
-    <span>{{mealFood.food.calories}}</span>
+    <span class="badge badge-warning">{{mealFood.food.calories}}</span>
   </div>
   <div>Total calorique : {{caloriesTotal}}</div>
   `
