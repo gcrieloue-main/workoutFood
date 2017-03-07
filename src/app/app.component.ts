@@ -41,7 +41,7 @@ export class Profile {
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
-      <button (ngClick)="compute=true" *ngIf="!compute" class="btn btn-success">Calculer</button>
+      <button (ngClick)="toggleCompute()" *ngIf="!compute" class="btn btn-success">Calculer</button>
       <span>Calories par jour : <span class="badge badge-info">{{calories}}</span></span>
     </div>
   </div>
@@ -86,13 +86,17 @@ export class AppComponent {
 
   onSubmit():void {
     this.computeCalories();
-    this.compute = false;
+    this.toggleCompute();
   }
 
   onFoodSelected(food:MealFood) {
     this.mealFoods.push(food);
     // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
     this.mealFoods = this.mealFoods.slice(0)
+  }
+
+  toggleCompute():void{
+    this.compute = !this.compute;
   }
 
 }

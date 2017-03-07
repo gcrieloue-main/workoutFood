@@ -8,7 +8,7 @@ import {MealFood} from "./mealFood";
   template: `
 <form class="form-inline" (ngSubmit)="onSubmit()" #foodSelectorForm="ngForm">
   <div class="input-group mr-2">
-    <input class="form-control" type="number" name="weight" [(ngModel)]="weight" value="100">
+    <input class="form-control" type="number" name="weight" [(ngModel)]="weight" placeholder="100">
     <div class="input-group-addon">g</div>
   </div>
   <select [(ngModel)]="selectedFood" name="food" class="form-control mr-2">
