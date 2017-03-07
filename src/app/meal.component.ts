@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
-
-import {Food} from './food'
+import {Component, Input} from "@angular/core";
+import {Food} from "./food";
 
 
 @Component({
@@ -15,6 +14,6 @@ import {Food} from './food'
 export class MealComponent {
 
   @Input()
-  foods:Food[];
+  foods: Food[];
 
 }

@@ -1,8 +1,7 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
+import {Food} from "./food";
 
-import {Food} from './food';
-
-export const FOODS:Food[] = [
+export const FOODS: Food[] = [
   {name: 'Abricot au sirop', calories: 108, proteins: 1, carbohydrates: 28, fats: 0},
   {name: 'Abricot en boîte de conserve', calories: 88, proteins: 1, carbohydrates: 21, fats: 0},
   {name: 'Abricot frais', calories: 50, proteins: 1, carbohydrates: 11, fats: 0},
@@ -32,7 +31,7 @@ export const FOODS:Food[] = [
 
 @Injectable()
 export class FoodService {
-  getFoods():Food[] {
+  getFoods(): Food[] {
     return FOODS;
   }
 }
