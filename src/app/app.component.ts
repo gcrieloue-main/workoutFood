@@ -41,7 +41,7 @@ export class Profile {
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
-      <button (ngClick)="compute=true" *ng-if="!compute">Calculer</button>
+      <button (ngClick)="compute=true" *ngIf="!compute">Calculer</button>
       <span>Calories par jour : <span class="badge badge-info">{{calories}}</span></span>
     </div>
   </div>
