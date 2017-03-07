@@ -33,8 +33,8 @@ export class MealComponent {
   }
 
   remove(mealFood:MealFood){
-    foods.remove(mealFood);
-    foods = foods.splice(0);
+    this.foods.remove(mealFood);
+    this.foods = this.foods.splice(0);
   }
 
 }

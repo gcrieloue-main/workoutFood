@@ -81,20 +81,19 @@ export class AppComponent {
   calories = 0;
   compute = false;
 
-  mealFoods:MealFood[] = [
-  ]
+  mealFoods:MealFood[] = []
 
-  computeCalories(): void {
-    if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined){
+  computeCalories():void {
+    if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
       if (this.profile.age <= 30) {
-        this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size/100 + 113);
+        this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size / 100 + 113);
       }
     }
   }
 
   onSubmit():void {
     this.computeCalories();
-    if (this.calories>0){
+    if (this.calories > 0) {
       this.toggleCompute();
     }
   }
@@ -105,7 +104,7 @@ export class AppComponent {
     this.mealFoods = this.mealFoods.slice(0)
   }
 
-  toggleCompute():void{
+  toggleCompute():void {
     console.log(this.compute);
     this.compute = !this.compute;
   }
