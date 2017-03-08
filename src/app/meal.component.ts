@@ -4,17 +4,7 @@ import {MealFood} from "./mealFood";
 
 @Component({
   selector: 'meal',
-  template: `
-  <div *ngFor="let mealFood of foods">
-    <span class="badge badge-info">{{mealFood.weight}}g</span>
-    <span>{{mealFood.food.name}}</span>
-    <span class="badge badge-warning">{{mealFood.food.calories}} cal</span>
-    <button type="button" (click)="remove(mealFood)" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
-  `
+  templateUrl: './meal.html'
 })
 export class MealComponent {
 
