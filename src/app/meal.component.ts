@@ -24,6 +24,10 @@ export class MealComponent {
   caloriesTotal = 0;
 
   ngOnChanges(changes) {
+    this.computeCalories()
+  }
+
+  computeCalories(){
     if (this.foods.length > 0) {
       this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
     }
@@ -34,7 +38,7 @@ export class MealComponent {
 
   remove(mealFood:MealFood) {
     this.foods.splice(this.foods.indexOf(mealFood), 1);
-    this.foods = this.foods.splice(0);
+    this.computeCalories();
   }
 
 }
