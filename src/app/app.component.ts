@@ -8,7 +8,7 @@ export class Profile {
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.html'
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   profile: Profile = {

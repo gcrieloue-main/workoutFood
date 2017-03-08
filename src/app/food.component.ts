@@ -5,7 +5,7 @@ import {MealFood} from "./mealFood";
 
 @Component({
   selector: 'food-selector',
-  templateUrl: './food.html',
+  templateUrl: './food.component.html',
   providers: [FoodService]
 })
 export class FoodComponent {
