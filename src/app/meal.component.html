@@ -8,5 +8,5 @@
 </div>
 <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
 <div class="progress">
-  <div class="progress-bar" role="progressbar" attr.style="width: {{caloriesPercentage}}%" [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar" role="progressbar" [ngStyle]="width.%: {{caloriesPercentage}}" [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
