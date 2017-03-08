@@ -13,7 +13,7 @@ export class MealComponent {
 
   caloriesTotal = 0;
 
-  ngOnChanges(changes) {
+  ngOnChanges() {
     this.computeCalories()
   }
 
