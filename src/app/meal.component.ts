@@ -11,7 +11,11 @@ export class MealComponent {
   @Input()
   foods:MealFood[];
 
+  @Input()
+  caloriesBase:number;
+
   caloriesTotal = 0;
+  caloriesPercentage = 0;
 
   ngOnChanges() {
     this.computeCalories()
@@ -20,9 +24,11 @@ export class MealComponent {
   computeCalories(){
     if (this.foods.length > 0) {
       this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
+      this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
     }
     else {
       this.caloriesTotal = 0;
+      this.caloriesPercentage = 0;
     }
   }
 
