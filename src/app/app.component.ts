@@ -24,9 +24,28 @@ export class AppComponent {
 
   computeCalories(): void {
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      if (this.profile.age <= 30) {
-        this.calories = Math.ceil(14.4 * this.profile.weight + 313 * this.profile.size / 100 + 113);
+      var factor1, factor2, factor3;
+      if (this.profile.age <= 18) {
+        factor1 = 15.6;
+        factor2 = 266;
+        factor3 = 299;
       }
+      else if (this.profile.age <= 30) {
+        factor1 = 14.4;
+        factor2 = 313;
+        factor3 = 113;
+      }
+      else if (this.profile.age <= 60) {
+        factor1 = 11.4;
+        factor2 = 541;
+        factor3 = 137;
+      }
+      else if (this.profile.age > 60) {
+        factor1 = 11.4;
+        factor2 = 541;
+        factor3 = 256;
+      }
+      this.calories = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
     }
   }
 
