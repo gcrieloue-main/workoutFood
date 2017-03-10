@@ -6,7 +6,7 @@ import { Typeahead } from './ng2-typeahead';
 
 @Component({
   selector: 'food-search',
-  template: require('app/food-search.component.html'),
+  templateUrl: 'app/food-search.component.html',
   styles: [`
         .typeahead-input,
         .typeahead-typeahead{
