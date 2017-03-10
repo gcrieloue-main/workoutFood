@@ -24,7 +24,7 @@ export class AppComponent {
 
   computeCalories(): void {
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      var factor1, factor2, factor3 : number;
+      var factor1: number, factor2: number, factor3: number;
       if (this.profile.age <= 18) {
         factor1 = 15.6;
         factor2 = 266;
