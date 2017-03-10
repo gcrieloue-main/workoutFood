@@ -1,10 +1,19 @@
 <div *ngFor="let mealFood of foods">
-  <span class="badge badge-info">{{mealFood.weight}}g</span>
-  <span>{{mealFood.food.name}}</span>
-  <span class="badge badge-warning">{{mealFood.food.calories}} cal</span>
-  <button type="button" (click)="remove(mealFood)" class="close" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <div class="d-flex flex-row justify-content-between">
+    <div>
+      <span class="badge badge-info">{{mealFood.weight}}g</span>
+      <span>{{mealFood.food.name}}</span>
+    </div>
+    <div>
+      <span class="badge badge-danger">{{mealFood.food.calories/mealFood.weight}} cal</span>
+      <span class="badge badge-success">{{mealFood.food.proteins/mealFood.weight}} prot.</span>
+      <span class="badge badge-warning">{{mealFood.food.carbohydrates/mealFood.weight}} gluc.</span>
+      <span class="badge badge-info">{{mealFood.food.fats/mealFood.weight}} lip.</span>
+      <button type="button" (click)="remove(mealFood)" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
 </div>
 <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
 <div class="progress">
