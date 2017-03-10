@@ -5,13 +5,14 @@ import {AppComponent} from "./app.component";
 import {FoodComponent} from "./food.component";
 import {MealComponent} from "./meal.component";
 import {FoodSearchComponent} from "./food-search.component";
+import {Typeahead} from "./ng2-typeahead";
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule
   ],
-  declarations: [AppComponent, FoodComponent, MealComponent, FoodSearchComponent],
+  declarations: [AppComponent, FoodComponent, MealComponent, FoodSearchComponent, Typeahead],
   bootstrap: [AppComponent]
 })
 export class AppModule {
