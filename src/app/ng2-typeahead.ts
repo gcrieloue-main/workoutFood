@@ -1,3 +1,8 @@
+// Based on https://github.com/brinkjg/ng2-typeahead
+// The MIT License (MIT)
+// Copyright (c) 2015 Dmitriy Shekhovtsov <valorkin@gmail.com>
+// Copyright (c) 2015 Valor Software
+
 import { Component, Input, Output, EventEmitter, ViewChild, OnInit, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
