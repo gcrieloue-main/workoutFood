@@ -1,9 +1,3 @@
-import { Typeahead } from './ng2-typeahead';
-
-@NgModule({
-  declarations: [ Typeahead ],
-})
-
 @Component({
   selector: 'food-search',
   templateUrl: 'app/food-search.component.html',
