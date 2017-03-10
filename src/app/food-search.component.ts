@@ -1,3 +1,5 @@
+import {Component} from "@angular/core";
+
 @Component({
   selector: 'food-search',
   templateUrl: 'app/food-search.component.html',
@@ -33,7 +35,7 @@ export class FoodSearchComponent {
 
   selectedFruit: any = this.fruits[0];
 
-  public fruitSelected(fruit) {
+  public fruitSelected(fruit:any) {
     this.fruitName = fruit ? fruit.name : 'none';
   }
 

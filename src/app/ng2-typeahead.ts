@@ -120,7 +120,6 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
   providers: [TYPEAHEAD_CONTROL_VALUE_ACCESSOR]
 })
 export class Typeahead implements OnInit, ControlValueAccessor {
-  abstract;
 
   /**
    * The complete list of items.
