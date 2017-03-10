@@ -1,4 +1,4 @@
-import { Typeahead } from 'ng2-typeahead';
+import { Typeahead } from './ng2-typeahead';
 
 @NgModule({
   declarations: [ Typeahead ],
