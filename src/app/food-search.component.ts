@@ -29,7 +29,9 @@ export class FoodSearchComponent {
   }
 
   public foodSelected(food:Food) {
-    console.info(food.name + " selected");
+    if (food !== undefined && food != null){
+      console.info(food.name + " selected");
+    }
   }
 
 }
