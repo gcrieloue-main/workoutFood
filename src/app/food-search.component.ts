@@ -32,7 +32,7 @@ export class FoodSearchComponent {
 
   public foodSelected(food:Food) {
     if (food !== undefined && food != null){
-      this.onFoodSelected.emit(selectedFood);
+      this.onFoodSelected.emit(food);
     }
   }
 
