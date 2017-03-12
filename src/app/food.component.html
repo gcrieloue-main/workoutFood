@@ -3,6 +3,6 @@
     <input class="form-control" type="number" name="weight" [(ngModel)]="weight" placeholder="100">
     <div class="input-group-addon">g</div>
   </div>
-  <food-search (onFoodSelected)="onSearchFoodSelected($event)"></food-search>
+  <food-search (onFoodSelected)="onSearchFoodSelected($event)" [weight]="weight"></food-search>
   <button type="Ajouter" class="btn btn-success ml-2">Ajouter</button>
 </form>

@@ -21,6 +21,8 @@ export class FoodSearchComponent {
 
   @Output() onFoodSelected = new EventEmitter<Food>();
 
+  @Input() weight;
+
   constructor(private foodService: FoodService) {
 
   }
@@ -32,6 +34,7 @@ export class FoodSearchComponent {
 
   public foodSelected(food:Food) {
     if (food !== undefined && food != null){
+      console.info(food);
       this.onFoodSelected.emit(food);
     }
   }

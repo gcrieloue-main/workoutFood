@@ -1,6 +1,7 @@
 <typeahead
   [(ngModel)]="selectedFood"
   [list]="foods"
+  [weight]="weight"
   [searchProperty]="'name'" [displayProperty]="'name'"
   [maxSuggestions]="5"
   (suggestionSelected)="foodSelected($event)"

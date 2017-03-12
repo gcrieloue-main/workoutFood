@@ -53,7 +53,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
             (mousedown)="suggestionMouseDown(suggestion)"
             [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">{{ suggestion[displayProperty] }}
               <span class="foodInfos">
-                <span class="badge badge-danger">{{suggestion.calories}} cal</span>
+                <span class="badge badge-danger">{{(suggestion.calories*weight)/100}} cal</span>
                 <span class="badge badge-success">{{suggestion.proteins}} prot.</span>
                 <span class="badge badge-warning">{{suggestion.carbohydrates} gluc.</span>
                 <span class="badge badge-info">{{suggestion.fats} lip.</span>
@@ -141,6 +141,8 @@ export class Typeahead implements OnInit, ControlValueAccessor {
    * The complete list of items.
    */
   @Input() list:any[] = [];
+
+  @Input() weight: number;
 
   /**
    * Input element placeholder text.
