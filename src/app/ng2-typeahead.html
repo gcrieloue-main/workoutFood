@@ -30,18 +30,21 @@
       <li *ngFor="let suggestion of suggestions"
           (mouseover)="suggestionMouseOver(suggestion)"
           (mousedown)="suggestionMouseDown(suggestion)"
-          [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">{{ suggestion[displayProperty] }}
-        <span class="foodInfos" *ngIf="weight > 0">
-          <span class="badge badge-danger">{{Math.ceil((suggestion.calories*weight)/100)}} cal</span>
-          <span class="badge badge-success">{{Math.ceil((suggestion.proteins*weight)/100)}} prot.</span>
-          <span class="badge badge-warning">{{Math.ceil((suggestion.carbohydrates*weight)/100)}} gluc.</span>
-          <span class="badge badge-info">{{Math.ceil((suggestion.fats*weight)/100)}} lip.</span>
-        </span>
-        <span class="foodInfos" *ngIf="!(weight > 0)">
-          <span class="badge badge-danger">{{suggestion.calories}} cal</span>
-          <span class="badge badge-success">{{suggestion.proteins}} prot.</span>
-          <span class="badge badge-warning">{{suggestion.carbohydrates}} gluc.</span>
-          <span class="badge badge-info">{{suggestion.fats*weight}} lip.</span>
+          [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">
+        <span class="d-inline-flex flex-row justify-content-between">
+          <span>{{ suggestion[displayProperty] }}</span>
+            <span class="foodInfos" *ngIf="weight > 0">
+            <span class="badge badge-danger">{{Math.ceil((suggestion.calories*weight)/100)}} cal</span>
+            <span class="badge badge-success">{{Math.ceil((suggestion.proteins*weight)/100)}} prot.</span>
+            <span class="badge badge-warning">{{Math.ceil((suggestion.carbohydrates*weight)/100)}} gluc.</span>
+            <span class="badge badge-info">{{Math.ceil((suggestion.fats*weight)/100)}} lip.</span>
+          </span>
+          <span class="foodInfos" *ngIf="!(weight > 0)">
+            <span class="badge badge-danger">{{suggestion.calories}} cal</span>
+            <span class="badge badge-success">{{suggestion.proteins}} prot.</span>
+            <span class="badge badge-warning">{{suggestion.carbohydrates}} gluc.</span>
+            <span class="badge badge-info">{{suggestion.fats*weight}} lip.</span>
+          </span>
         </span>
       </li>
 
