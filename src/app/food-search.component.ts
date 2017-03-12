@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
+import {FoodService} from "./food.service";
 
 @Component({
   selector: 'food-search',
@@ -10,12 +11,14 @@ import {Component} from "@angular/core";
             padding: 8px;
             border-radius: 5px;
         }
-    `]
+    `],
+  providers: [FoodService]
 })
 export class FoodSearchComponent {
 
-  @Input()
-  foods:Food[];
+  ngOnInit(): void {
+    this.foods = this.foodService.getFoods();
+  }
 
   foodName: string;
 
