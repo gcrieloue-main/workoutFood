@@ -19,6 +19,10 @@ export class FoodSearchComponent {
   foods : Foods[];
   selectedFood : Food;
 
+  constructor(private foodService: FoodService) {
+
+  }
+
   ngOnInit(): void {
     this.foods = this.foodService.getFoods();
     this.selectedFood = this.foods[0];
