@@ -65,6 +65,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
       text-align: left;
       vertical-align: top;
       padding-bottom: 2.5em;
+      width : 300px;
     }
 
     .typeahead-input {
@@ -75,6 +76,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
       background-repeat: no-repeat;
       background-position: right 10px;
       background-size: 28px 18px;
+      width:100%;
     }
 
     .typeahead-input-has-selection {
