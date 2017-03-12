@@ -51,7 +51,14 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
           <li *ngFor="let suggestion of suggestions"
             (mouseover)="suggestionMouseOver(suggestion)"
             (mousedown)="suggestionMouseDown(suggestion)"
-            [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">{{ suggestion[displayProperty] }}</li>
+            [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">{{ suggestion[displayProperty] }}
+              <span class="foodInfos">
+                <span class="badge badge-danger">{{suggestion.calories}} cal</span>
+                <span class="badge badge-success">{{suggestion.proteins}} prot.</span>
+                <span class="badge badge-warning">{{suggestion.carbohydrates} gluc.</span>
+                <span class="badge badge-info">{{suggestion.fats} lip.</span>
+              </span>
+            </li>
 
         </ul>
 
