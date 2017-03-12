@@ -3,8 +3,6 @@
     <input class="form-control" type="number" name="weight" [(ngModel)]="weight" placeholder="100">
     <div class="input-group-addon">g</div>
   </div>
-  <select [(ngModel)]="selectedFood" name="food" class="form-control mr-2">
-    <option *ngFor="let selectedFood of foods" [ngValue]="selectedFood">{{selectedFood.name}}</option>
-  </select>
+  <food-search></food-search>
   <button type="Ajouter" class="btn btn-success">Ajouter</button>
 </form>
