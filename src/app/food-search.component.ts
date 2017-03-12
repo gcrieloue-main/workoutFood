@@ -29,7 +29,7 @@ export class FoodSearchComponent {
   }
 
   public foodSelected(food:Food) {
-    log.info(food.name + " selected");
+    console.info(food.name + " selected");
   }
 
 }
