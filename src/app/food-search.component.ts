@@ -29,7 +29,6 @@ export class FoodSearchComponent {
 
   ngOnInit(): void {
     this.foods = this.foodService.getFoods();
-    this.selectedFood = this.foods[0];
   }
 
   public foodSelected(food:Food) {
