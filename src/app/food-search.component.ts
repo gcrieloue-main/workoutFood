@@ -14,29 +14,16 @@ import {Component} from "@angular/core";
 })
 export class FoodSearchComponent {
 
-  fruitName: string;
-  fruits: any[] = [
-    {
-      id: 1,
-      name: "Apple",
-      searchText: "apple"
-    },
-    {
-      id: 2,
-      name: "Orange",
-      searchText: "orange"
-    },
-    {
-      id: 3,
-      name: "Banana",
-      searchText: "banana"
-    }
-  ];
+  @Input()
+  foods:Food[];
 
-  selectedFruit: any = this.fruits[0];
+  foodName: string;
 
-  public fruitSelected(fruit:any) {
-    this.fruitName = fruit ? fruit.name : 'none';
+  selectedFood: any = this.foods[0];
+
+  public foodSelected(food:any) {
+    log.info(food.name + " selected");
+    this.foodName = food ? food.name : 'none';
   }
 
 }
