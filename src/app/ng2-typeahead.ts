@@ -142,7 +142,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
    */
   @Input() list:any[] = [];
 
-  @Input() weight: number;
+  @Input() weight: number = 100;
 
   /**
    * Input element placeholder text.
