@@ -30,7 +30,7 @@
       <li *ngFor="let suggestion of suggestions"
           (mouseover)="suggestionMouseOver(suggestion)"
           (mousedown)="suggestionMouseDown(suggestion)"
-          class="d-inline-flex flex-row justify-content-between"
+          class="d-flex flex-row justify-content-between"
           [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">
         <div>{{ suggestion[displayProperty] }}</div>
         <div class="foodInfos" *ngIf="weight > 0">
