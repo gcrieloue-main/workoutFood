@@ -25,6 +25,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
         [placeholder]="placeholder"
         [(ngModel)]="input"
         type="text"
+        class="form-control"
         [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection()}"
         typeahead="off"
         spellcheck="false"
