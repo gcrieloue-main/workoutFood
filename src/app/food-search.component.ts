@@ -16,17 +16,16 @@ import {FoodService} from "./food.service";
 })
 export class FoodSearchComponent {
 
+  foods : Foods[];
+  selectedFood : Food;
+
   ngOnInit(): void {
     this.foods = this.foodService.getFoods();
+    this.selectedFood = this.foods[0];
   }
 
-  foodName: string;
-
-  selectedFood: any = this.foods[0];
-
-  public foodSelected(food:any) {
+  public foodSelected(food:Food) {
     log.info(food.name + " selected");
-    this.foodName = food ? food.name : 'none';
   }
 
 }
