@@ -21,7 +21,7 @@ export class FoodSearchComponent {
 
   @Output() onFoodSelected = new EventEmitter<Food>();
 
-  @Input() weight;
+  @Input() weight : number;
 
   constructor(private foodService: FoodService) {
 
