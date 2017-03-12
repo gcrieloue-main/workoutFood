@@ -167,10 +167,13 @@ export class Typeahead implements OnInit, ControlValueAccessor {
    */
   private isDisabled:boolean = false;
 
+  private Math : any;
+
   /**
    * Creates and initializes a new typeahead component.
    */
   constructor() {
+    this.Math = Math;
   }
 
   /**
