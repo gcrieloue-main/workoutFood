@@ -3,8 +3,8 @@
 // Copyright (c) 2015 Dmitriy Shekhovtsov <valorkin@gmail.com>
 // Copyright (c) 2015 Valor Software
 
-import { Component, Input, Output, EventEmitter, ViewChild, OnInit, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {Component, Input, Output, EventEmitter, ViewChild, OnInit, forwardRef} from '@angular/core';
+import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
 const noop = () => {
 };
@@ -529,8 +529,12 @@ export class Typeahead implements OnInit, ControlValueAccessor {
       return;
     }
     // Set the typeahead value
-    this.typeahead = this.input + (this.activeSuggestion[this.displayProperty] || '').slice(this.input.length);
-    console.info('typeahead : ' + this.typeahead);
+    if ((this.activeSuggestion[this.displayProperty] || '').indexOf(this.input) == 0) {
+      this.typeahead = this.input + (this.activeSuggestion[this.displayProperty] || '').slice(this.input.length);
+    }
+    else {
+      this.typeahead = '';
+    }
   }
 
   /**
