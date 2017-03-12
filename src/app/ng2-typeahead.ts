@@ -36,7 +36,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
         [disabled]="isDisabled">
 
       <input type="text"
-        class="typeahead-typeahead"
+        class="form-control typeahead-typeahead"
         [(ngModel)]="typeahead"
         typeahead="off"
         spellcheck="false"
