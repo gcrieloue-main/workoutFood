@@ -18,54 +18,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
 
 @Component({
   selector: 'typeahead',
-  template: `
-    <div class="typeahead">
-
-      <input #inputElement
-        [placeholder]="placeholder"
-        [(ngModel)]="input"
-        type="text"
-        class="form-control typeahead-input"
-        [ngClass]="{'typeahead-input-has-selection': hasSelection()}"
-        typeahead="off"
-        spellcheck="false"
-        (keyup)="inputKeyUp($event)"
-        (keydown)="inputKeyDown($event)"
-        (focus)="inputFocus($event)"
-        (blur)="inputBlur($event)"
-        [disabled]="isDisabled">
-
-      <input type="text"
-        class="form-control typeahead-typeahead"
-        [(ngModel)]="typeahead"
-        typeahead="off"
-        spellcheck="false"
-        disabled="true">
-
-      <div #suggestionsContainer
-        class="typeahead-suggestions"
-        [hidden]="!areSuggestionsVisible">
-
-        <ul (mouseout)="suggestionsMouseOut($event)">
-
-          <li *ngFor="let suggestion of suggestions"
-            (mouseover)="suggestionMouseOver(suggestion)"
-            (mousedown)="suggestionMouseDown(suggestion)"
-            [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">{{ suggestion[displayProperty] }}
-              <span class="foodInfos">
-                <span class="badge badge-danger">{{(suggestion.calories*weight)/100}} cal</span>
-                <span class="badge badge-success">{{suggestion.proteins}} prot.</span>
-                <span class="badge badge-warning">{{suggestion.carbohydrates} gluc.</span>
-                <span class="badge badge-info">{{suggestion.fats} lip.</span>
-              </span>
-            </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-    `,
+  templateUrl: 'app/ng2-typeahead.ts',
   styles: [`
     .typeahead {
       position: relative;
@@ -142,7 +95,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
    */
   @Input() list:any[] = [];
 
-  @Input() weight: number = 100;
+  @Input() weight:number = 100;
 
   /**
    * Input element placeholder text.
