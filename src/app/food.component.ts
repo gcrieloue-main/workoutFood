@@ -24,6 +24,10 @@ export class FoodComponent {
 
   @Output() onFoodSelected = new EventEmitter<MealFood>();
 
+  onSearchFoodSelected(food:Food){
+    selectedFood = food;
+  }
+
   onSubmit(): void {
     if (this.selectedFood !== undefined) {
       console.log(this.selectedFood.name + " selected");

@@ -19,6 +19,8 @@ export class FoodSearchComponent {
   foods : Foods[];
   selectedFood : Food;
 
+  @Output() onFoodSelected = new EventEmitter<Food>();
+
   constructor(private foodService: FoodService) {
 
   }
@@ -30,7 +32,7 @@ export class FoodSearchComponent {
 
   public foodSelected(food:Food) {
     if (food !== undefined && food != null){
-      console.info(food.name + " selected");
+      this.onFoodSelected.emit(selectedFood);
     }
   }
 

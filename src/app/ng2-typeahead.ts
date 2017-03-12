@@ -123,6 +123,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
     .typeahead-suggestion-active {
       background-color: #008fca;
       color: #ffffff;
+      pointer: default;
     }
     `],
   providers: [TYPEAHEAD_CONTROL_VALUE_ACCESSOR]
