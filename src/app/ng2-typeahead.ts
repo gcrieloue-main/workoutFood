@@ -529,12 +529,15 @@ export class Typeahead implements OnInit, ControlValueAccessor {
       return;
     }
     // Set the typeahead value
-    if ((this.activeSuggestion[this.displayProperty] || '').indexOf(this.input) == 0) {
+    var selectedSuggestion = (this.activeSuggestion[this.displayProperty] || '');
+    console.log(selectedSuggestion.indexOf(this.input));
+    if (selectedSuggestion.indexOf(this.input) == 0) {
       this.typeahead = this.input + (this.activeSuggestion[this.displayProperty] || '').slice(this.input.length);
     }
     else {
       this.typeahead = '';
     }
+    console.log(this.typeahead);
   }
 
   /**
