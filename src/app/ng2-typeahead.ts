@@ -530,8 +530,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
     }
     // Set the typeahead value
     var selectedSuggestion = (this.activeSuggestion[this.displayProperty] || '');
-    console.log(selectedSuggestion.indexOf(this.input));
-    if (selectedSuggestion.indexOf(this.input) == 0) {
+    if (selectedSuggestion.toLowerCase().indexOf(this.input.toLowerCase()) == 0) {
       this.typeahead = this.input + (this.activeSuggestion[this.displayProperty] || '').slice(this.input.length);
     }
     else {
