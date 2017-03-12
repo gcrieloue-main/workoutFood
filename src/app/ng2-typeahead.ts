@@ -18,7 +18,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
 
 @Component({
   selector: 'typeahead',
-  templateUrl: 'app/ng2-typeahead.ts',
+  templateUrl: 'app/ng2-typeahead.html',
   styles: [`
     .typeahead {
       position: relative;
