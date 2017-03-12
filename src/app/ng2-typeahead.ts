@@ -25,7 +25,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
       text-align: left;
       vertical-align: top;
       padding-bottom: 2.5em;
-      width : 300px;
+      width : 500px;
     }
 
     .typeahead-input {
