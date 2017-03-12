@@ -530,6 +530,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
     }
     // Set the typeahead value
     this.typeahead = this.input + (this.activeSuggestion[this.displayProperty] || '').slice(this.input.length);
+    console.info('typeahead : ' + this.typeahead);
   }
 
   /**
