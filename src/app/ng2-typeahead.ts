@@ -91,6 +91,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
       z-index: 5;
       text-align: start;
       background-color: rgb(255, 255, 255);
+      width:100%;
     }
 
     .typeahead-suggestions {
