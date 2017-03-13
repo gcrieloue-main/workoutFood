@@ -22,6 +22,13 @@ export class AppComponent {
 
   mealFoods: MealFood[] = []
 
+  ngOnInit(): void {
+    let profile = JSON.parse(localStorage.getItem('profile'));
+    if (profile !== undefined){
+      this.profile = profile;
+    }
+  }
+
   computeCalories(): void {
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
       var factor1: number, factor2: number, factor3: number;
@@ -50,6 +57,7 @@ export class AppComponent {
   }
 
   onSubmit(): void {
+    localStorage.setItem('profile', JSON.stringify(profile));
     this.computeCalories();
     if (this.calories > 0) {
       this.toggleCompute();
@@ -57,6 +65,7 @@ export class AppComponent {
   }
 
   onFoodSelected(food: MealFood) {
+    console.debug("food selected : " + food);
     this.mealFoods.push(food);
     // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
     this.mealFoods = this.mealFoods.slice(0)

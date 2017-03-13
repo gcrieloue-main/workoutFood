@@ -10,27 +10,28 @@ import {MealFood} from "./mealFood";
 })
 export class FoodComponent {
 
-  selectedFood: Food;
-  foods: Food[];
-  weight: number;
+  selectedFood:Food;
+  foods:Food[];
+  weight:number;
 
-  constructor(private foodService: FoodService) {
+  constructor(private foodService:FoodService) {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.foods = this.foodService.getFoods();
   }
 
   @Output() onFoodSelected = new EventEmitter<MealFood>();
 
-  onSearchFoodSelected(food:Food){
+  onSearchFoodSelected(food:Food) {
+    console.debug("search food selected : " + food);
     this.selectedFood = food;
   }
 
-  onSubmit(): void {
+  onSubmit():void {
     if (this.selectedFood !== undefined) {
-      console.log(this.selectedFood.name + " selected");
+      console.debug("food selected " + this.selectedFood.name);
       this.onFoodSelected.emit(new MealFood(this.selectedFood, (this.weight !== undefined && this.weight > 0 ? this.weight : 100)));
     }
   }

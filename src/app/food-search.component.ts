@@ -16,24 +16,24 @@ import {FoodService} from "./food.service";
 })
 export class FoodSearchComponent {
 
-  foods : Foods[];
-  selectedFood : Food;
+  foods:Foods[];
+  selectedFood:Food;
 
   @Output() onFoodSelected = new EventEmitter<Food>();
 
-  @Input() weight : number;
+  @Input() weight:number;
 
-  constructor(private foodService: FoodService) {
+  constructor(private foodService:FoodService) {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.foods = this.foodService.getFoods();
   }
 
   public foodSelected(food:Food) {
-    if (food !== undefined && food != null){
-      console.info(food);
+    if (food !== undefined && food != null) {
+      console.debug("food selected : " + food);
       this.onFoodSelected.emit(food);
     }
   }

@@ -22,6 +22,7 @@ export class MealComponent {
   }
 
   computeCalories(){
+    console.debug("compute calories");
     if (this.foods.length > 0) {
       this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
       this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
@@ -33,6 +34,7 @@ export class MealComponent {
   }
 
   remove(mealFood:MealFood) {
+    console.debug("food removed : " + mealFood);
     this.foods.splice(this.foods.indexOf(mealFood), 1);
     this.computeCalories();
   }
