@@ -57,7 +57,7 @@ export class AppComponent {
   }
 
   onSubmit(): void {
-    localStorage.setItem('profile', JSON.stringify(profile));
+    localStorage.setItem('profile', JSON.stringify(this.profile));
     this.computeCalories();
     if (this.calories > 0) {
       this.toggleCompute();
