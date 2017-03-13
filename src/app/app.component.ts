@@ -69,7 +69,8 @@ export class AppComponent {
     }
   }
 
-  onCaloriesChange() {
+  onCaloriesChange(test) {
+    console.debug("here : " + test);
     console.debug("calories change : " + this.calories);
     localStorage.setItem('calories', this.calories);
   }
