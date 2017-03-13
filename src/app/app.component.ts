@@ -25,18 +25,19 @@ export class AppComponent {
   ngOnInit():void {
     let profile = JSON.parse(localStorage.getItem('profile'));
     if (profile != null) {
-      console.log("retrieve profile : " + JSON.stringify(profile));
+      console.debug("retrieve profile : " + JSON.stringify(profile));
       this.profile = profile;
     }
 
     let calories = localStorage.getItem('calories');
     if (calories != null) {
-      console.log("retrieve calories : " + calories);
+      console.debug("retrieve calories : " + calories);
       this.calories = calories;
     }
   }
 
   computeCalories():void {
+    console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
       var factor1:number, factor2:number, factor3:number;
       if (this.profile.age <= 18) {
