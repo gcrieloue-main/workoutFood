@@ -24,7 +24,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     let profile = JSON.parse(localStorage.getItem('profile'));
-    if (profile !== undefined){
+    if (profile !== undefined && profile != null){
       this.profile = profile;
     }
   }
