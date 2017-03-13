@@ -25,11 +25,13 @@ export class AppComponent {
   ngOnInit():void {
     let profile = JSON.parse(localStorage.getItem('profile'));
     if (profile != null) {
+      console.log("retrieve profile : " + JSON.stringify(profile));
       this.profile = profile;
     }
 
     let calories = localStorage.getItem('calories');
     if (calories != null) {
+      console.log("retrieve calories : " + calories);
       this.calories = calories;
     }
   }
@@ -76,7 +78,7 @@ export class AppComponent {
   }
 
   onFoodSelected(food:MealFood) {
-    console.debug("food selected : " + food);
+    console.debug("food selected : " + JSON.stringify(food));
     this.mealFoods.push(food);
     // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
     this.mealFoods = this.mealFoods.slice(0)
