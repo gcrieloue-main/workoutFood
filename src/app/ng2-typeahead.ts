@@ -40,9 +40,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
     }
 
     .typeahead-input-has-selection {
-      background-color: #f5f5f5;
-      border: 1px solid #4c4845;
-      color: #008fca;
+      
     }
 
     .typeahead-typeahead {
