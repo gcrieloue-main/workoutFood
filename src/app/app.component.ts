@@ -2,9 +2,9 @@ import {Component} from "@angular/core";
 import {MealFood} from "./mealFood";
 
 export class Profile {
-  size: number;
-  weight: number;
-  age: number;
+  size:number;
+  weight:number;
+  age:number;
 }
 
 @Component({
@@ -12,7 +12,7 @@ export class Profile {
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-  profile: Profile = {
+  profile:Profile = {
     size: undefined,
     weight: undefined,
     age: undefined
@@ -20,18 +20,23 @@ export class AppComponent {
   calories = 0;
   compute = false;
 
-  mealFoods: MealFood[] = []
+  mealFoods:MealFood[] = []
 
-  ngOnInit(): void {
+  ngOnInit():void {
     let profile = JSON.parse(localStorage.getItem('profile'));
-    if (profile !== undefined && profile != null){
+    if (profile != null) {
       this.profile = profile;
+    }
+
+    let calories = localStorage.getItem('calories');
+    if (calories != null) {
+      this.calories = calories;
     }
   }
 
-  computeCalories(): void {
+  computeCalories():void {
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      var factor1: number, factor2: number, factor3: number;
+      var factor1:number, factor2:number, factor3:number;
       if (this.profile.age <= 18) {
         factor1 = 15.6;
         factor2 = 266;
@@ -56,7 +61,7 @@ export class AppComponent {
     }
   }
 
-  onSubmit(): void {
+  onSubmit():void {
     localStorage.setItem('profile', JSON.stringify(this.profile));
     this.computeCalories();
     if (this.calories > 0) {
@@ -64,14 +69,19 @@ export class AppComponent {
     }
   }
 
-  onFoodSelected(food: MealFood) {
+  onCaloriesChange() {
+    console.debug("calories change : " + this.calories);
+    localStorage.setItem('calories', this.calories);
+  }
+
+  onFoodSelected(food:MealFood) {
     console.debug("food selected : " + food);
     this.mealFoods.push(food);
     // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
     this.mealFoods = this.mealFoods.slice(0)
   }
 
-  toggleCompute(): void {
+  toggleCompute():void {
     this.compute = !this.compute;
   }
 
