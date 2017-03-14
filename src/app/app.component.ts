@@ -8,7 +8,8 @@ import {MealService} from "./meal.service";
   providers: [MealService]
 })
 export class AppComponent {
-  mealFoods:MealFood[] = []
+  mealFoods:MealFood[] = [];
+  calories:number = 0;
 
   constructor(private mealService: MealService){
 

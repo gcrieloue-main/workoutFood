@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 export class Profile {
   size:number;
@@ -17,8 +17,10 @@ export class CaloriesComponent {
     age: undefined
   };
   activityIntensity:number = 0;
-  calories:number = 0;
   compute:boolean = false;
+
+  @Input()
+  calories:number = 0;
 
   ngOnInit():void {
     let profile = JSON.parse(localStorage.getItem('profile'));
