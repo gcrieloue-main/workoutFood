@@ -11,7 +11,7 @@ export class AppComponent {
   mealFoods:MealFood[] = [];
   calories:number = 0;
 
-  constructor(private dataService: DataService, private changeDetectionRef: ChangeDetectorRef){
+  constructor(private dataService: DataService){
 
   }
 
@@ -21,8 +21,9 @@ export class AppComponent {
 
   ngAfterViewInit(){
     console.debug("ngAfterViewInit");
-    this.dataService.load();
-    this.changeDetectionRef.detectChanges()
+    setTimeout(()=>{
+      this.dataService.load();
+    }, 1);
   }
 
   onFoodSelected(food:MealFood) {
