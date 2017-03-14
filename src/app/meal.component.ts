@@ -10,6 +10,9 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class MealComponent implements OnDestroy {
 
+  @Input()
+  num:number;
+
   foods:MealFood[];
 
   caloriesBase:number = 0;
@@ -22,11 +25,13 @@ export class MealComponent implements OnDestroy {
   constructor(private dataService:DataService) {
     this.subscription = dataService.mealFoodChanged$.subscribe(
       mealFood => {
+        console.debug(this.num, " reload foods");
         this.foods = mealFood;
         this.computeCalories();
       });
     this.subscriptionCalories = dataService.caloriesBaseChanged$.subscribe(
       calories => {
+        console.debug(this.num, " reload calories base");
         this.caloriesBase = calories;
         this.computeCalories();
       });
