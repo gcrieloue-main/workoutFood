@@ -4,7 +4,7 @@ import {MealFood} from "./mealFood";
 
 @Injectable()
 export class MealService {
-  private mealFoods: MealFood[];
+  private mealFoods: MealFood[] = {};
   private mealFoodSource = new Subject<MealFood[]>();
 
   // observable
