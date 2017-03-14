@@ -55,7 +55,7 @@ export class MealComponent implements OnDestroy {
     let log:string[] = [];
     for (let propName in changes) {
       console.debug(propName, " changed");
-      if (propName == 'calories') {
+      if (propName == 'caloriesBase') {
         this.computeCalories();
       }
     }
