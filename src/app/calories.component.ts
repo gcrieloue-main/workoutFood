@@ -12,11 +12,13 @@ export class Profile {
   templateUrl: 'app/calories.component.html'
 })
 export class CaloriesComponent {
+  
   profile:Profile = {
     size: undefined,
     weight: undefined,
     age: undefined
   };
+
   activityIntensity:number = 0;
   compute:boolean = false;
   calories:number = 0;
