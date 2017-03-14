@@ -1,24 +1,6 @@
 <div *ngFor="let meal of day.meals">
   <div *ngFor="let mealFood of meal.mealFoods">
-    <div class="d-flex flex-row justify-content-between">
-      <div>
-        <span class="badge badge-info">{{mealFood.weight}}g</span>
-        <span>{{mealFood.food.name}}</span>
-      </div>
-      <div>
-        <span class="badge badge-danger">{{Math.ceil((meal.mealFood.food.calories*mealFood.weight)/100)}} cal</span>
-        <span class="badge badge-success">{{Math.ceil((mealFood.food.proteins*mealFood.weight)/100)}} prot.</span>
-        <span class="badge badge-warning">{{Math.ceil((mealFood.food.carbohydrates*mealFood.weight)/100)}} gluc.</span>
-        <span class="badge badge-info">{{Math.ceil((mealFood.food.fats*mealFood.weight)/100)}} lip.</span>
-        <button type="button" (click)="remove(mealFood)" class="close ml-2" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
+    <meal class="col-6"></meal>
   </div>
 </div>
-<div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
-<div class="progress" *ngIf="caloriesBase > 0">
-  <div class="progress-bar" role="progressbar" [style.width]="caloriesPercentage + '%'"
-       [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+
