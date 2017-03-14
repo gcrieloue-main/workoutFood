@@ -3,7 +3,7 @@ import {Subject} from "rxjs/Subject";
 import {MealFood} from "./mealFood";
 
 @Injectable()
-export class MealService {
+export class DataService {
   private caloriesBase:number = 0;
   private mealFoods:MealFood[] = [];
   private mealFoodSource = new Subject<MealFood[]>();
@@ -39,5 +39,23 @@ export class MealService {
     console.debug("set calories base to ", calories)
     localStorage.setItem('calories', JSON.stringify(this.calories));
     this.caloriesBaseSource.next(calories);
+  }
+
+  getProfile() {
+    let profile = JSON.parse(localStorage.getItem('profile'));
+    if (profile != null) {
+      console.debug("retrieve profile : " + JSON.stringify(profile));
+      return profile;
+    }
+    return null;
+  }
+
+  getCaloriesBase() {
+    let calories = Number(localStorage.getItem('calories'));
+    if (calories != null) {
+      console.debug("retrieve calories : " + calories);
+      return calories;
+    }
+    return null;
   }
 }

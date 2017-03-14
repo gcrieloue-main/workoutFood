@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy} from "@angular/core";
 import {MealFood} from "./mealFood";
-import {MealService} from "./meal.service";
+import {DataService} from "./data.service";
 import {Subscription} from "rxjs/Subscription";
 
 
@@ -19,13 +19,13 @@ export class MealComponent implements OnDestroy {
   subscription:Subscription;
   subscriptionCalories:Subscription;
 
-  constructor(private mealService:MealService) {
-    this.subscription = mealService.mealFoodChanged$.subscribe(
+  constructor(private dataService:DataService) {
+    this.subscription = dataService.mealFoodChanged$.subscribe(
       mealFood => {
         this.foods = mealFood;
         this.computeCalories();
       });
-    this.subscriptionCalories = mealService.caloriesBaseChanged$.subscribe(
+    this.subscriptionCalories = dataService.caloriesBaseChanged$.subscribe(
       calories => {
         this.caloriesBase = calories;
         this.computeCalories();
@@ -47,7 +47,7 @@ export class MealComponent implements OnDestroy {
   }
 
   remove(mealFood:MealFood) {
-    this.mealService.removeMealFood(mealFood);
+    this.dataService.removeMealFood(mealFood);
   }
 
   ngOnDestroy() {

@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {MealService} from './meal.service';
+import {DataService} from './data.service';
 
 export class Profile {
   size:number;
@@ -21,22 +21,15 @@ export class CaloriesComponent {
   compute:boolean = false;
   calories:number = 0;
 
-  constructor(private mealService:MealService) {
+  constructor(private dataService:DataService) {
 
   }
 
   ngOnInit():void {
-    let profile = JSON.parse(localStorage.getItem('profile'));
-    if (profile != null) {
-      console.debug("retrieve profile : " + JSON.stringify(profile));
-      this.profile = profile;
-    }
-
-    let calories = Number(localStorage.getItem('calories'));
-    if (calories != null) {
-      console.debug("retrieve calories : " + calories);
-      this.calories = calories;
-    }
+    let profile = this.dataService.getProfile();
+    if (profile != null) this.profile = profile;
+    let calories = this.dataService.getCaloriesBase();
+    if (calories != null) this.calories = calories;
   }
 
   computeCalories():void {
@@ -67,7 +60,7 @@ export class CaloriesComponent {
       console.debug("metabolic rate : " + metabolicRate);
       console.debug("activity intensity : " + this.activityIntensity);
       this.calories = metabolicRate * this.activityIntensity;
-      mealService.setCaloriesBase(this.calories);
+      this.dataService.setCaloriesBase(this.calories);
       this.onCaloriesChange(this.calories);
     }
   }
@@ -83,7 +76,7 @@ export class CaloriesComponent {
 
   onCaloriesChange(calories:number) {
     this.calories = calories;
-    this.mealService.setCaloriesBase(this.calories);
+    this.DataService.setCaloriesBase(this.calories);
   }
 
   toggleCompute():void {

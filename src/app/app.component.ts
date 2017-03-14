@@ -1,22 +1,22 @@
 import {Component} from "@angular/core";
 import {MealFood} from "./mealFood";
-import {MealService} from "./meal.service";
+import {DataService} from "./data.service";
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.component.html',
-  providers: [MealService]
+  providers: [DataService]
 })
 export class AppComponent {
   mealFoods:MealFood[] = [];
   calories:number = 0;
 
-  constructor(private mealService: MealService){
+  constructor(private dataService: DataService){
 
   }
 
   ngOnInit(){
-    this.mealService.load();
+    this.dataService.load();
   }
 
   onFoodSelected(food:MealFood) {
@@ -26,6 +26,6 @@ export class AppComponent {
     this.mealFoods = this.mealFoods.slice(0)
 
     //test service
-    this.mealService.addMealFood(food);
+    this.dataService.addMealFood(food);
   }
 }
