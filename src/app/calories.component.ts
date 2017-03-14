@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
 
 export class Profile {
-  size: number;
-  weight: number;
-  age: number;
+  size:number;
+  weight:number;
+  age:number;
 }
 
 @Component({
@@ -11,15 +11,15 @@ export class Profile {
   templateUrl: 'app/calories.component.html'
 })
 export class CaloriesComponent {
-  profile: Profile = {
+  profile:Profile = {
     size: undefined,
     weight: undefined,
     age: undefined
   };
-  calories: number = 0;
-  compute: boolean = false;
+  calories:number = 0;
+  compute:boolean = false;
 
-  ngOnInit(): void {
+  ngOnInit():void {
     let profile = JSON.parse(localStorage.getItem('profile'));
     if (profile != null) {
       console.debug("retrieve profile : " + JSON.stringify(profile));
@@ -33,10 +33,10 @@ export class CaloriesComponent {
     }
   }
 
-  computeCalories(): void {
+  computeCalories():void {
     console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      var factor1: number, factor2: number, factor3: number;
+      var factor1:number, factor2:number, factor3:number;
       if (this.profile.age <= 18) {
         factor1 = 15.6;
         factor2 = 266;
@@ -63,7 +63,7 @@ export class CaloriesComponent {
   }
 
 
-  onSubmit(): void {
+  onSubmit():void {
     localStorage.setItem('profile', JSON.stringify(this.profile));
     this.computeCalories();
     if (this.calories > 0) {
@@ -78,8 +78,12 @@ export class CaloriesComponent {
   }
 
 
-  toggleCompute(): void {
+  toggleCompute():void {
     this.compute = !this.compute;
+  }
+
+  chooseActivityIntensity(event:number):void {
+    console.debug("select activity intensity" + event);
   }
 
 }
