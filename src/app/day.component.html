@@ -1,11 +1,11 @@
-<div *ngFor="let day of days">
+<div *ngFor="let meal of days.meals">
   <div class="d-flex flex-row justify-content-between">
     <div>
       <span class="badge badge-info">{{mealFood.weight}}g</span>
       <span>{{mealFood.food.name}}</span>
     </div>
     <div>
-      <span class="badge badge-danger">{{Math.ceil((mealFood.food.calories*mealFood.weight)/100)}} cal</span>
+      <span class="badge badge-danger">{{Math.ceil((meal.mealFood.food.calories*mealFood.weight)/100)}} cal</span>
       <span class="badge badge-success">{{Math.ceil((mealFood.food.proteins*mealFood.weight)/100)}} prot.</span>
       <span class="badge badge-warning">{{Math.ceil((mealFood.food.carbohydrates*mealFood.weight)/100)}} gluc.</span>
       <span class="badge badge-info">{{Math.ceil((mealFood.food.fats*mealFood.weight)/100)}} lip.</span>
