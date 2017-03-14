@@ -11,7 +11,7 @@ export class AppComponent {
   mealFoods:MealFood[] = [];
   calories:number = 0;
 
-  constructor(private dataService: DataService){
+  constructor(private dataService: DataService, private changeDetectionRef: ChangeDetectorRef){
 
   }
 
