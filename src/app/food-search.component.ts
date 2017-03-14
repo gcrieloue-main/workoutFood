@@ -34,7 +34,7 @@ export class FoodSearchComponent {
 
   public foodSelected(food:Food) {
     if (food !== undefined && food != null) {
-      console.debug("food selected : " + food);
+      console.debug("food selected : " + JSON.stringify(food));
       this.onFoodSelected.emit(food);
     }
   }

@@ -13,7 +13,7 @@ export class MealComponent implements OnDestroy {
   @Input()
   num:number;
 
-  foods:MealFood[];
+  foods:MealFood[] = [];
 
   caloriesBase:number = 0;
   caloriesTotal:number = 0;
