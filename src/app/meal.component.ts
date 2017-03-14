@@ -6,8 +6,7 @@ import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'meal',
-  templateUrl: 'app/meal.component.html',
-  providers: [MealService]
+  templateUrl: 'app/meal.component.html'
 })
 export class MealComponent {
 
