@@ -39,7 +39,7 @@ export class MealComponent implements OnDestroy {
       this.caloriesTotal = 0;
       this.caloriesPercentage = 0;
     }
-    console.debug("=> total : %s, percentage : %s%" + this.caloriesTotal, this.caloriesPercentage);
+    console.debug("=> total : %s, percentage : %s" + this.caloriesTotal, this.caloriesPercentage);
   }
 
   remove(mealFood: MealFood) {
