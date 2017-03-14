@@ -26,7 +26,7 @@ export class CaloriesComponent {
       this.profile = profile;
     }
 
-    let calories = localStorage.getItem('calories');
+    let calories = Number(localStorage.getItem('calories'));
     if (calories != null) {
       console.debug("retrieve calories : " + calories);
       this.calories = calories;
