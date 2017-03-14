@@ -39,6 +39,10 @@ export class MealComponent implements OnDestroy {
     this.Math = Math;
   }
 
+  ngOnInit(){
+    console.debug(this.num, " ngOnInit");
+  }
+
   computeCalories() {
     console.debug("compute meal calories");
     console.debug("calories base : ", this.caloriesBase);

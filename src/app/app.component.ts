@@ -16,6 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    console.debug("ngOnInit");
     this.dataService.load();
   }
 
