@@ -59,14 +59,4 @@ export class MealComponent implements OnDestroy {
     this.subscription.unsubscribe();
     this.subscriptionCalories.unsubscribe();
   }
-
-  ngOnChanges(changes:{[propKey:string]:SimpleChange}) {
-    let log:string[] = [];
-    for (let propName in changes) {
-      console.debug(propName, " changed");
-      if (propName == 'caloriesBase') {
-        this.computeCalories();
-      }
-    }
-  }
 }
