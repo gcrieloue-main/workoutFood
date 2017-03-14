@@ -4,11 +4,14 @@ import {MealFood} from "./mealFood";
 
 @Injectable()
 export class MealService {
-  private mealFoods: MealFood[] = [];
+  private caloriesBase:number = 0;
+  private mealFoods:MealFood[] = [];
   private mealFoodSource = new Subject<MealFood[]>();
+  private caloriesBaseSource = new Subject<nunber>();
 
   // observable
   mealFoodChanged$ = this.mealFoodSource.asObservable();
+  caloriesBaseChanged$ = this.caloriesBaseSource.asObservable();
 
   load() {
     let mealFoods = JSON.parse(localStorage.getItem('mealFoods'));
@@ -18,17 +21,23 @@ export class MealService {
     }
   }
 
-  addMealFood(mealFood: MealFood) {
+  addMealFood(mealFood:MealFood) {
     console.debug("add meal food " + JSON.stringify(mealFood));
     this.mealFoods.push(mealFood);
     this.mealFoodSource.next(this.mealFoods);
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
   }
 
-  removeMealFood(mealFood: MealFood) {
+  removeMealFood(mealFood:MealFood) {
     console.debug("remove meal food " + JSON.stringify(mealFood));
     this.mealFoods.splice(this.mealFoods.indexOf(mealFood), 1);
     this.mealFoodSource.next(this.mealFoods);
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
+  }
+
+  setCaloriesBase(calories:number) {
+    console.debug("set calories base to ", calories)
+    localStorage.setItem('calories', JSON.stringify(this.calories));
+    this.caloriesBaseSource.next(calories);
   }
 }

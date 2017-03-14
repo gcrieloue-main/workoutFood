@@ -12,9 +12,6 @@ export class MealComponent implements OnDestroy {
 
   foods:MealFood[];
 
-  @Input()
-  caloriesBase:number;
-
   caloriesTotal = 0;
   caloriesPercentage = 0;
 
@@ -24,6 +21,11 @@ export class MealComponent implements OnDestroy {
     this.subscription = mealService.mealFoodChanged$.subscribe(
       mealFood => {
         this.foods = mealFood;
+        this.computeCalories();
+      });
+    this.subscription = mealService.caloriesBaseChanged$.subscribe(
+      calories => {
+        this.caloriesBase = calories;
         this.computeCalories();
       });
   }
