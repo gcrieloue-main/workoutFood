@@ -1,6 +1,7 @@
 import {Component, Input} from "@angular/core";
 import {MealFood} from "./mealFood";
 import {MealService} from "./meal.service";
+import {Subscription} from "rxjs/Subscription";
 
 
 @Component({
@@ -19,14 +20,17 @@ export class MealComponent {
   caloriesTotal = 0;
   caloriesPercentage = 0;
 
+  subscription: Subscription;
+
   constructor(private mealService: MealService) {
-    mealService.mealFoodChanged$.subscribe(mealFood=> {
-      console.debug("meal food changed : " + JSON.stringify(mealFood));
-    });
+    this.subscription = mealService.mealFoodChanged$.subscribe(
+      mealFood => {
+        console.debug("meal food changed : " + JSON.stringify(mealFood));
+      });
   }
 
   ngOnChanges() {
-    this.computeCalories()
+    this.computeCalories();
   }
 
   computeCalories() {
@@ -45,6 +49,11 @@ export class MealComponent {
     console.debug("food removed : " + mealFood);
     this.foods.splice(this.foods.indexOf(mealFood), 1);
     this.computeCalories();
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
   }
 
 }
