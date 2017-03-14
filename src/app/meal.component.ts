@@ -23,6 +23,7 @@ export class MealComponent implements OnDestroy {
   subscriptionCalories:Subscription;
 
   constructor(private dataService:DataService) {
+    console.debug(this.num, " constructor called");
     this.subscription = dataService.mealFoodChanged$.subscribe(
       mealFood => {
         console.debug(this.num, " reload foods");
