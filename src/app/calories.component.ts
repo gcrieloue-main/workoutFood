@@ -76,7 +76,7 @@ export class CaloriesComponent {
 
   onCaloriesChange(calories:number) {
     this.calories = calories;
-    this.DataService.setCaloriesBase(this.calories);
+    this.dataService.setCaloriesBase(this.calories);
   }
 
   toggleCompute():void {
