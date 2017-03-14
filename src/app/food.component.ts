@@ -25,7 +25,7 @@ export class FoodComponent {
   @Output() onFoodSelected = new EventEmitter<MealFood>();
 
   onSearchFoodSelected(food:Food) {
-    console.debug("search food selected : " + food);
+    console.debug("search food selected : " + JSON.stringify(food));
     this.selectedFood = food;
   }
 
