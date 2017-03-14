@@ -499,7 +499,6 @@ export class Typeahead implements OnInit, ControlValueAccessor {
     else {
       this.typeahead = '';
     }
-    console.log(this.typeahead);
   }
 
   /**
