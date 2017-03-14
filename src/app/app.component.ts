@@ -15,12 +15,7 @@ export class AppComponent {
 
   }
 
-  ngOnInit(){
-    console.debug("ngOnInit");
-  }
-
   ngAfterViewInit(){
-    console.debug("ngAfterViewInit");
     setTimeout(()=>{
       this.dataService.load();
     }, 1);
