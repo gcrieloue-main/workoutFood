@@ -8,5 +8,5 @@ import {Day} from "./day";
 })
 export class DayComponent implements OnDestroy {
   meal:Meal = {mealFoods: []}
-  day:Day = {meals: [meal]};
+  day:Day = {meals: [this.meal]};
 }
