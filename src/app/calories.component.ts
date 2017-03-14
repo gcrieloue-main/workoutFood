@@ -16,6 +16,7 @@ export class CaloriesComponent {
     weight: undefined,
     age: undefined
   };
+  activityIntensity:number = 0;
   calories:number = 0;
   compute:boolean = false;
 
@@ -57,7 +58,8 @@ export class CaloriesComponent {
         factor2 = 541;
         factor3 = 256;
       }
-      this.calories = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
+      var metabolicRate = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
+      this.calories = metabolicRate * this.activityIntensity;
       this.onCaloriesChange(this.calories);
     }
   }
@@ -81,9 +83,4 @@ export class CaloriesComponent {
   toggleCompute():void {
     this.compute = !this.compute;
   }
-
-  chooseActivityIntensity(event:number):void {
-    console.debug("select activity intensity" + event);
-  }
-
 }
