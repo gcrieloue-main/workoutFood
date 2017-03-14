@@ -13,6 +13,7 @@ export class DataService {
   caloriesBaseChanged$ = this.caloriesBaseSource.asObservable();
 
   load() {
+    console.debug("load meals from local storage");
     let mealFoods = JSON.parse(localStorage.getItem('mealFoods'));
     if (mealFoods != null) {
       this.mealFoods = mealFoods;
