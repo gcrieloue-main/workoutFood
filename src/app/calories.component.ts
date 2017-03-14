@@ -58,6 +58,7 @@ export class CaloriesComponent {
         factor3 = 256;
       }
       this.calories = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
+      this.onCaloriesChange(this.calories);
     }
   }
 
@@ -71,7 +72,7 @@ export class CaloriesComponent {
   }
 
   onCaloriesChange(calories:number) {
-    this.calories = calories
+    this.calories = calories;
     console.debug("calories change : " + this.calories);
     localStorage.setItem('calories', String(this.calories));
   }
