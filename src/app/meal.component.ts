@@ -12,8 +12,9 @@ export class MealComponent implements OnDestroy {
 
   foods:MealFood[];
 
-  caloriesTotal = 0;
-  caloriesPercentage = 0;
+  caloriesBase:number = 0;
+  caloriesTotal:number = 0;
+  caloriesPercentage:number = 0;
 
   subscription:Subscription;
   subscriptionCalories:Subscription;
