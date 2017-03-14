@@ -10,17 +10,17 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class MealComponent implements OnDestroy {
 
-  foods: MealFood[];
+  foods:MealFood[];
 
   @Input()
-  caloriesBase: number;
+  caloriesBase:number;
 
   caloriesTotal = 0;
   caloriesPercentage = 0;
 
-  subscription: Subscription;
+  subscription:Subscription;
 
-  constructor(private mealService: MealService) {
+  constructor(private mealService:MealService) {
     this.subscription = mealService.mealFoodChanged$.subscribe(
       mealFood => {
         this.foods = mealFood;
@@ -42,7 +42,7 @@ export class MealComponent implements OnDestroy {
     console.debug("=> total : %s, percentage : %s" + this.caloriesTotal, this.caloriesPercentage);
   }
 
-  remove(mealFood: MealFood) {
+  remove(mealFood:MealFood) {
     this.mealService.removeMealFood(mealFood);
   }
 
@@ -51,4 +51,13 @@ export class MealComponent implements OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  ngOnChanges(changes:{[propKey:string]:SimpleChange}) {
+    let log:string[] = [];
+    for (let propName in changes) {
+      console.debug(propName, " changed");
+      if (propName == 'calories') {
+        this.computeCalories();
+      }
+    }
+  }
 }

@@ -83,7 +83,6 @@ export class CaloriesComponent {
     localStorage.setItem('calories', String(this.calories));
   }
 
-
   toggleCompute():void {
     this.compute = !this.compute;
   }
