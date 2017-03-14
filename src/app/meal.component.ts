@@ -30,6 +30,7 @@ export class MealComponent implements OnDestroy {
         this.caloriesBase = calories;
         this.computeCalories();
       });
+    this.Math = Math;
   }
 
   computeCalories() {
@@ -38,6 +39,9 @@ export class MealComponent implements OnDestroy {
     if (this.foods.length > 0) {
       this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
       this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
+      if (this.caloriesPercentage > 100) {
+        this.caloriesPercentage = 100;
+      }
     }
     else {
       this.caloriesTotal = 0;
