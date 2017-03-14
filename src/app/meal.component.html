@@ -6,9 +6,9 @@
     </div>
     <div>
       <span class="badge badge-danger">{{Math.ceil((mealFood.food.calories*mealFood.weight)/100)}} cal</span>
-      <span class="badge badge-success">{{(Math.ceil((mealFood.food.proteins*mealFood.weight)/100)}} prot.</span>
-      <span class="badge badge-warning">{{(Math.ceil((mealFood.food.carbohydrates*mealFood.weight)/100)}} gluc.</span>
-      <span class="badge badge-info">{{(Math.ceil((mealFood.food.fats*mealFood.weight)/100)}} lip.</span>
+      <span class="badge badge-success">{{Math.ceil((mealFood.food.proteins*mealFood.weight)/100)}} prot.</span>
+      <span class="badge badge-warning">{{Math.ceil((mealFood.food.carbohydrates*mealFood.weight)/100)}} gluc.</span>
+      <span class="badge badge-info">{{Math.ceil((mealFood.food.fats*mealFood.weight)/100)}} lip.</span>
       <button type="button" (click)="remove(mealFood)" class="close ml-2" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
