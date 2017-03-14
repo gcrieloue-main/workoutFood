@@ -10,7 +10,7 @@ export class Profile {
   selector: 'calories-selector',
   templateUrl: 'app/calories.component.html'
 })
-export class AppComponent {
+export class CaloriesComponent {
   profile:Profile = {
     size: undefined,
     weight: undefined,

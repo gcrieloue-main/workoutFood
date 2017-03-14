@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {FoodService} from "./food.service";
+import {Food} from "./food";
 
 @Component({
   selector: 'food-search',
@@ -16,7 +17,7 @@ import {FoodService} from "./food.service";
 })
 export class FoodSearchComponent {
 
-  foods:Foods[];
+  foods:Food[];
   selectedFood:Food;
 
   @Output() onFoodSelected = new EventEmitter<Food>();

@@ -13,12 +13,12 @@ export class MealService {
   addMealFood(mealFood:MealFood)
   {
     this.mealFoods.push(mealFood);
-    this.mealFoodSource.push(this.mealFoods);
+    this.mealFoodSource.next(this.mealFoods);
   }
 
   removeMealFood(mealFood:MealFood)
   {
-    this.foods.splice(this.mealFoods.indexOf(mealFood), 1);
-    this.mealFoodSource.push(this.mealFoods);
+    this.mealFoods.splice(this.mealFoods.indexOf(mealFood), 1);
+    this.mealFoodSource.next(this.mealFoods);
   }
 }
