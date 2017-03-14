@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {MealService} from './meal.service'
+import {MealService} from './meal.service';
 
 export class Profile {
   size:number;
@@ -83,7 +83,7 @@ export class CaloriesComponent {
 
   onCaloriesChange(calories:number) {
     this.calories = calories;
-    mealService.setCaloriesBase(this.calories);
+    this.mealService.setCaloriesBase(this.calories);
   }
 
   toggleCompute():void {

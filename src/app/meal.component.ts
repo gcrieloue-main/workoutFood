@@ -16,6 +16,7 @@ export class MealComponent implements OnDestroy {
   caloriesPercentage = 0;
 
   subscription:Subscription;
+  subscriptionCalories:Subscription;
 
   constructor(private mealService:MealService) {
     this.subscription = mealService.mealFoodChanged$.subscribe(
@@ -23,7 +24,7 @@ export class MealComponent implements OnDestroy {
         this.foods = mealFood;
         this.computeCalories();
       });
-    this.subscription = mealService.caloriesBaseChanged$.subscribe(
+    this.subscriptionCalories = mealService.caloriesBaseChanged$.subscribe(
       calories => {
         this.caloriesBase = calories;
         this.computeCalories();
@@ -51,6 +52,7 @@ export class MealComponent implements OnDestroy {
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
+    this.subscriptionCalories.unsubscribe();
   }
 
   ngOnChanges(changes:{[propKey:string]:SimpleChange}) {
