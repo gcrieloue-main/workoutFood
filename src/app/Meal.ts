@@ -1,6 +1,6 @@
 import {MealFood} from './mealFood';
 
 export class Meal {
-  constructor(public foods:MealFood[]) {
+  constructor(public mealFoods:MealFood[]) {
   }
 }

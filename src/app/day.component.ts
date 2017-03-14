@@ -1,7 +1,6 @@
 import {Component, Input, OnDestroy} from "@angular/core";
-import {MealFood} from "./mealFood";
-import {DataService} from "./data.service";
-import {Subscription} from "rxjs/Subscription";
+import {Meal} from "./meal";
+import {Day} from "./day";
 
 @Component({
   selector: 'day',
