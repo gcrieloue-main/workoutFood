@@ -7,13 +7,14 @@ import {FoodComponent} from "./food.component";
 import {MealComponent} from "./meal.component";
 import {FoodSearchComponent} from "./food-search.component";
 import {Typeahead} from "./ng2-typeahead";
+import {DayComponent} from "./day.component";
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule
   ],
-  declarations: [AppComponent, CaloriesComponent, FoodComponent, MealComponent, FoodSearchComponent, Typeahead],
+  declarations: [AppComponent, CaloriesComponent, FoodComponent, DayComponent, MealComponent, FoodSearchComponent, Typeahead],
   bootstrap: [AppComponent]
 })
 export class AppModule {
