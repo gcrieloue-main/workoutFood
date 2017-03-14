@@ -22,7 +22,7 @@ export class AppComponent {
   ngAfterViewInit(){
     console.debug("ngAfterViewInit");
     this.dataService.load();
-    changeDetectionRef.detectChanges()
+    this.changeDetectionRef.detectChanges()
   }
 
   onFoodSelected(food:MealFood) {
