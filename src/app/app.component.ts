@@ -17,11 +17,12 @@ export class AppComponent {
 
   ngOnInit(){
     console.debug("ngOnInit");
-    this.dataService.load();
   }
 
   ngAfterViewInit(){
     console.debug("ngAfterViewInit");
+    this.dataService.load();
+    changeDetectionRef.detectChanges()
   }
 
   onFoodSelected(food:MealFood) {
