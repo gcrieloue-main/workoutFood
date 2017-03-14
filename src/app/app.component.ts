@@ -14,6 +14,10 @@ export class AppComponent {
 
   }
 
+  ngOnInit(){
+    this.mealService.load();
+  }
+
   onFoodSelected(food:MealFood) {
     console.debug("food selected : " + JSON.stringify(food));
     this.mealFoods.push(food);
