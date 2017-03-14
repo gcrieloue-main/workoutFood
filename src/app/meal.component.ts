@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, OnDestroy} from "@angular/core";
 import {MealFood} from "./mealFood";
 import {MealService} from "./meal.service";
 import {Subscription} from "rxjs/Subscription";
@@ -8,7 +8,7 @@ import {Subscription} from "rxjs/Subscription";
   selector: 'meal',
   templateUrl: 'app/meal.component.html'
 })
-export class MealComponent {
+export class MealComponent implements OnDestroy {
 
   @Input()
   foods: MealFood[];
