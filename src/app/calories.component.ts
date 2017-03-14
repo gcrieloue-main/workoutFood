@@ -73,7 +73,7 @@ export class CaloriesComponent {
   onCaloriesChange(calories:number) {
     this.calories = calories
     console.debug("calories change : " + this.calories);
-    localStorage.setItem('calories', this.calories);
+    localStorage.setItem('calories', String(this.calories));
   }
 
 
