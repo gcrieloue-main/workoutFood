@@ -62,7 +62,7 @@ export class DataService {
     this.caloriesBaseSource.next(calories);
   }
 
-  getProfile(): Profile {
+  loadProfile(): Profile {
     let profile = JSON.parse(localStorage.getItem('profile'));
     if (profile != null) {
       console.info("retrieve profile : ", JSON.stringify(profile));
@@ -71,10 +71,11 @@ export class DataService {
     return null;
   }
 
-  getCaloriesBase(): number {
+  loadCaloriesBase(): number {
     let calories = Number(localStorage.getItem('calories'));
     if (calories != null) {
       console.info("retrieve calories : ", calories);
+      this.caloriesBaseSource.next(calories);
       return calories;
     }
     return null;

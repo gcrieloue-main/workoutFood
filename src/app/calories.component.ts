@@ -34,9 +34,9 @@ export class CaloriesComponent {
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
     setTimeout(()=> {
-      let profile = this.dataService.getProfile();
+      let profile = this.dataService.loadProfile();
       if (profile != null) this.profile = profile;
-      let calories = this.dataService.getCaloriesBase();
+      let calories = this.dataService.loadCaloriesBase();
       if (calories != null) this.calories = calories;
     }, 1);
   }
