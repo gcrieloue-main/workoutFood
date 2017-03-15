@@ -28,9 +28,11 @@ export class DataService {
     if (days != null) {
       this.days = days;
       console.debug(this.days.length + " days loaded");
-      return this.days;
     }
-    return [this.newDay()];
+    else{
+      this.days = [this.newDay()]
+    }
+    return this.days;
   }
 
   addMealFood(mealFood:MealFood) {
