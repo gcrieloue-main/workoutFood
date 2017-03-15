@@ -17,3 +17,9 @@ input.ng-invalid.ng-touched {
   right: -10px;
   top: 2px;
 }
+
+.remove-meal-button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
