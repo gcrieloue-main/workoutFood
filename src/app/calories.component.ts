@@ -1,10 +1,10 @@
 import {Component, Input} from "@angular/core";
-import {DataService} from './data.service';
+import {DataService} from "./data.service";
 
 export class Profile {
-  size:number;
-  weight:number;
-  age:number;
+  size: number;
+  weight: number;
+  age: number;
 }
 
 @Component({
@@ -12,32 +12,32 @@ export class Profile {
   templateUrl: 'app/calories.component.html'
 })
 export class CaloriesComponent {
-  
-  profile:Profile = {
+
+  profile: Profile = {
     size: undefined,
     weight: undefined,
     age: undefined
   };
 
-  activityIntensity:number = 0;
-  compute:boolean = false;
-  calories:number = 0;
+  activityIntensity: number = 0;
+  compute: boolean = false;
+  calories: number = 0;
 
-  constructor(private dataService:DataService) {
+  constructor(private dataService: DataService) {
 
   }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     let profile = this.dataService.getProfile();
     if (profile != null) this.profile = profile;
     let calories = this.dataService.getCaloriesBase();
     if (calories != null) this.calories = calories;
   }
 
-  computeCalories():void {
+  computeCalories(): void {
     console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      var factor1:number, factor2:number, factor3:number;
+      var factor1: number, factor2: number, factor3: number;
       if (this.profile.age <= 18) {
         factor1 = 15.6;
         factor2 = 266;
@@ -61,14 +61,14 @@ export class CaloriesComponent {
       var metabolicRate = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
       console.debug("metabolic rate : " + metabolicRate);
       console.debug("activity intensity : " + this.activityIntensity);
-      this.calories = metabolicRate * this.activityIntensity;
+      this.calories = Math.ceil(metabolicRate * this.activityIntensity);
       this.dataService.setCaloriesBase(this.calories);
       this.onCaloriesChange(this.calories);
     }
   }
 
 
-  onSubmit():void {
+  onSubmit(): void {
     localStorage.setItem('profile', JSON.stringify(this.profile));
     this.computeCalories();
     if (this.calories > 0) {
@@ -76,12 +76,12 @@ export class CaloriesComponent {
     }
   }
 
-  onCaloriesChange(calories:number) {
+  onCaloriesChange(calories: number) {
     this.calories = calories;
     this.dataService.setCaloriesBase(this.calories);
   }
 
-  toggleCompute():void {
+  toggleCompute(): void {
     this.compute = !this.compute;
   }
 }
