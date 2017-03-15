@@ -14,19 +14,19 @@ export class AppComponent {
   selectedDay: Day;
 
   constructor(private dataService: DataService) {
-
+    this.days = this.dataService.loadDays();
+    if (this.days == null) {
+      this.days = [this.dataService.newDay()];
+    }
+    this.selectedDay = this.days[0];
+    this.dataService.setSelectedDay(this.selectedDay);
+    this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
   }
 
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
     setTimeout(()=> {
-      this.days = this.dataService.loadDays();
-      if (this.days == null) {
-        this.days = [this.dataService.newDay()];
-      }
-      this.selectedDay = this.days[0];
-      this.dataService.setSelectedDay(this.selectedDay);
-      this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
+
     }, 1);
   }
 
@@ -34,7 +34,7 @@ export class AppComponent {
     this.dataService.newDay();
   }
 
-  selectDay(day:Day){
+  selectDay(day: Day) {
     this.selectedDay = day;
     this.dataService.setSelectedDay(this.selectedDay);
     this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
