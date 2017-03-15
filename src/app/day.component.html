@@ -1,5 +1,8 @@
-<div class="text-right">
-  <button type="button" (click)="addMeal()" class="btn btn-success m-2">Ajouter un repas</button>
+<div class="d-flex flex-row justify-content-between">
+  <p *ngIf="day.meals.length > 1">Cliquez sur un repas pour le sélectionner</p>
+  <div>
+    <button type="button" (click)="addMeal()" class="btn btn-success m-2">Ajouter un repas</button>
+  </div>
 </div>
 <div class="row">
   <div *ngFor="let meal of day.meals" class="col-6">
