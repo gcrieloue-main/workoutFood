@@ -8,8 +8,12 @@ import {MealComponent} from "./meal.component";
   templateUrl: 'app/day.component.html'
 })
 export class DayComponent implements OnDestroy {
-  meal:Meal = {mealFoods: []}
-  day:Day = {meals: [this.meal]};
+  meal:Meal;
+  day:Day;
+
+  constructor(private dataService: DataService){
+    this.day = dataService.newDay();
+  }
 
   @ViewChildren('meal') meals:QueryList<MealComponent>;
 

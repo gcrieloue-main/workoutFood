@@ -7,10 +7,16 @@ export class DataService {
   private mealFoods:MealFood[] = [];
   private mealFoodSource = new Subject<MealFood[]>();
   private caloriesBaseSource = new Subject<nunber>();
+  private daySource = new Subject<Day>();
+  private days:Day[] = [];
+
+  private selectedDay:Day;
+  private selectedMeal:Meal;
 
   // observable
   mealFoodChanged$ = this.mealFoodSource.asObservable();
   caloriesBaseChanged$ = this.caloriesBaseSource.asObservable();
+  dayChanged$ = this.daySource.asObservable();
 
   load() {
     console.debug("load meals from local storage");
@@ -26,6 +32,12 @@ export class DataService {
     this.mealFoods.push(mealFood);
     this.mealFoodSource.next(this.mealFoods);
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
+  }
+
+  newDay(day:Day) {
+    var day:Day = {meals: [this.meal]};
+    this.days.push(day);
+    return day;
   }
 
   removeMealFood(mealFood:MealFood) {
@@ -57,12 +69,5 @@ export class DataService {
       return calories;
     }
     return null;
-  }
-
-  newGuid():string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
   }
 }
