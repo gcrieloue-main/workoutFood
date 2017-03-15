@@ -63,6 +63,9 @@ export class DataService {
     var meal:Meal = {mealFoods: []};
     day.meals.push(meal);
     this.saveMenu();
+    if (day == this.selectedDay && this.selectedDay.meals.length == 1) {
+      this.setSelectedMeal(meal);
+    }
     return meal;
   }
 
