@@ -16,8 +16,4 @@ export class DayComponent implements OnDestroy {
   addMeal():void {
     this.day.meals.push({meals: {mealFoods: {}}});
   }
-
-  onSelectMeal(event):void {
-    console.debug(event.target);
-  }
 }

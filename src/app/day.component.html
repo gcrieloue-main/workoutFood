@@ -2,5 +2,5 @@
   <button type="button" (click)="addMeal()" class="btn btn-success m-2">Ajouter un repas</button>
 </div>
 <div class="row">
-  <meal [num]="1" *ngFor="let meal of day.meals" class="col-6" (click)="onSelectMeal($event)"></meal>
+  <meal [num]="1" *ngFor="let meal of day.meals" class="col-6"></meal>
 </div>
