@@ -76,9 +76,11 @@ export class DataService {
 
     if (changeSelectedMeal) {
       if (this.selectedDay.meals.length > 1) {
-        this.selectedMeal = this.selectedDay.meals[0];
+        this.setSelectedMeal(this.selectedDay.meals[0]);
       }
-      this.selectedMeal = null;
+      else {
+        this.setSelectedMeal(null);
+      }
     }
 
     this.saveMenu();
