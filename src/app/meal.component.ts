@@ -27,12 +27,12 @@ export class MealComponent implements OnDestroy {
   private Math: any;
 
   constructor(private dataService: DataService) {
-    console.debug("constructor called");
+    console.info("constructor called");
     this.Math = Math;
   }
 
   ngAfterViewInit() {
-    console.debug("ngAfterViewInit");
+    console.info("ngAfterViewInit");
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal: Meal) => {
         if (meal == this.meal){
@@ -52,7 +52,7 @@ export class MealComponent implements OnDestroy {
   }
 
   computeCalories() {
-    console.debug("compute meal calories");
+    console.info("compute meal calories");
     console.debug("calories base : ", this.caloriesBase);
     if (this.meal.mealFoods.length > 0) {
       this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood: MealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1: number, c2: number)=>c1 + c2));

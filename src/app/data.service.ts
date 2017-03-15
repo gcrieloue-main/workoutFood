@@ -21,7 +21,7 @@ export class DataService {
   mealChanged$ = this.mealSource.asObservable();
 
   load() {
-    console.debug("load menu from local storage");
+    console.info("load menu from local storage");
     let days: Day[] = JSON.parse(localStorage.getItem('menu'));
     if (days != null) {
       this.days = days;
@@ -29,7 +29,7 @@ export class DataService {
   }
 
   addMealFood(mealFood: MealFood) {
-    console.debug("add meal food ", JSON.stringify(mealFood));
+    console.info("add meal food ", JSON.stringify(mealFood));
     this.selectedMeal.mealFoods.push(mealFood);
     this.mealSource.next(this.selectedMeal);
     localStorage.setItem('menu', JSON.stringify(this.days));
@@ -48,14 +48,14 @@ export class DataService {
   }
 
   removeMealFood(meal: Meal, mealFood: MealFood) {
-    console.debug("remove meal food ", JSON.stringify(mealFood));
+    console.info("remove meal food ", JSON.stringify(mealFood));
     meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
     this.mealSource.next(meal);
     localStorage.setItem('menu', JSON.stringify(this.days));
   }
 
   setCaloriesBase(calories: number) {
-    console.debug("set calories base to ", calories)
+    console.info("set calories base to ", calories)
     localStorage.setItem('calories', JSON.stringify(calories));
     this.caloriesBaseSource.next(calories);
   }
@@ -63,7 +63,7 @@ export class DataService {
   getProfile(): Profile {
     let profile = JSON.parse(localStorage.getItem('profile'));
     if (profile != null) {
-      console.debug("retrieve profile : ", JSON.stringify(profile));
+      console.info("retrieve profile : ", JSON.stringify(profile));
       return profile;
     }
     return null;
@@ -72,7 +72,7 @@ export class DataService {
   getCaloriesBase(): number {
     let calories = Number(localStorage.getItem('calories'));
     if (calories != null) {
-      console.debug("retrieve calories : ", calories);
+      console.info("retrieve calories : ", calories);
       return calories;
     }
     return null;
