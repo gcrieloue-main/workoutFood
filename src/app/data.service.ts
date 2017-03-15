@@ -10,6 +10,7 @@ export class DataService {
   private caloriesBaseSource = new Subject<number>();
   private daySource = new Subject<Day>();
   private mealSource = new Subject<Meal>();
+  private mealSelectedSource = new Subject<Meal>();
   private days: Day[] = [];
 
   private selectedDay: Day;
@@ -19,6 +20,7 @@ export class DataService {
   caloriesBaseChanged$ = this.caloriesBaseSource.asObservable();
   dayChanged$ = this.daySource.asObservable();
   mealChanged$ = this.mealSource.asObservable();
+  mealSelected$ = this.mealSelectedSource.asObservable();
 
   load() {
     console.info("load menu from local storage");
@@ -80,6 +82,7 @@ export class DataService {
 
   setSelectedMeal(meal: Meal): void {
     this.selectedMeal = meal;
+    this.mealSelectedSource.next(meal);
   }
 
   setSelectedDay(day: Day) {

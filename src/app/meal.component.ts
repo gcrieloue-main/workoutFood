@@ -17,6 +17,8 @@ export class MealComponent implements OnDestroy {
   @Input()
   meal: Meal;
 
+  isSelected: boolean;
+
   caloriesBase: number = 0;
   caloriesTotal: number = 0;
   caloriesPercentage: number = 0;
@@ -33,9 +35,13 @@ export class MealComponent implements OnDestroy {
 
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
+    this.subscriptionMealSelect = this.dataService.mealSelected$.subscribe(
+      (meal: Meal) => {
+        this.isSelected = (meal == this.meal);
+      });
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal: Meal) => {
-        if (meal == this.meal){
+        if (meal == this.meal) {
           this.meal = meal;
           this.computeCalories();
         }
