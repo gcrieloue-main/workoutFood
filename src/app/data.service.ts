@@ -36,7 +36,7 @@ export class DataService {
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
   }
 
-  newDay(day: Day) {
+  newDay() {
     var day: Day = {meals: [this.meal]};
     this.days.push(day);
     return day;

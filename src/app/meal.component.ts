@@ -24,6 +24,8 @@ export class MealComponent implements OnDestroy {
   subscription:Subscription;
   subscriptionCalories:Subscription;
 
+  private Math : any;
+
   constructor(private dataService:DataService) {
     console.debug(this.num, " constructor called");
 
@@ -32,13 +34,13 @@ export class MealComponent implements OnDestroy {
 
   ngAfterViewInit(){
     console.debug("ngAfterViewInit");
-    this.subscription = dataService.mealFoodChanged$.subscribe(
+    this.subscription = this.dataService.mealFoodChanged$.subscribe(
       mealFood => {
         console.debug(this.num, " reload foods");
         this.meal.mealFoods = mealFood;
         this.computeCalories();
       });
-    this.subscriptionCalories = dataService.caloriesBaseChanged$.subscribe(
+    this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       calories => {
         console.debug(this.num, " reload calories base");
         this.caloriesBase = calories;

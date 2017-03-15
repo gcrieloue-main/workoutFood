@@ -6,7 +6,7 @@ import {DataService} from "./data.service";
   selector: 'day',
   templateUrl: 'app/day.component.html'
 })
-export class DayComponent implements OnDestroy {
+export class DayComponent {
   day: Day;
 
   constructor(private dataService: DataService) {
