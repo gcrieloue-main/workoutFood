@@ -28,10 +28,17 @@ export class CaloriesComponent {
   }
 
   ngOnInit(): void {
-    let profile = this.dataService.getProfile();
-    if (profile != null) this.profile = profile;
-    let calories = this.dataService.getCaloriesBase();
-    if (calories != null) this.calories = calories;
+    console.debug("ngOnInit");
+  }
+
+  ngAfterViewInit() {
+    console.debug("ngAfterViewInit");
+    setTimeout(()=> {
+      let profile = this.dataService.getProfile();
+      if (profile != null) this.profile = profile;
+      let calories = this.dataService.getCaloriesBase();
+      if (calories != null) this.calories = calories;
+    }, 1);
   }
 
   computeCalories(): void {
