@@ -3,46 +3,45 @@ import {Subject} from "rxjs/Subject";
 import {MealFood} from "./mealFood";
 import {Day} from "./day";
 import {Meal} from "./meal";
+import {Profile} from "./calories.component";
 
 @Injectable()
 export class DataService {
-  private mealFoods: MealFood[] = [];
-  private mealFoodSource = new Subject<MealFood[]>();
   private caloriesBaseSource = new Subject<number>();
   private daySource = new Subject<Day>();
+  private mealSource = new Subject<Meal>();
   private days: Day[] = [];
 
   private selectedDay: Day;
   private selectedMeal: Meal;
 
   // observable
-  mealFoodChanged$ = this.mealFoodSource.asObservable();
   caloriesBaseChanged$ = this.caloriesBaseSource.asObservable();
   dayChanged$ = this.daySource.asObservable();
+  mealChanged$ = this.mealSource.asObservable();
 
   load() {
-    console.debug("load meals from local storage");
-    let mealFoods = JSON.parse(localStorage.getItem('mealFoods'));
-    if (mealFoods != null) {
-      this.mealFoods = mealFoods;
-      this.mealFoodSource.next(this.mealFoods);
+    console.debug("load menu from local storage");
+    let days:Day[] = JSON.parse(localStorage.getItem('menu'));
+    if (days != null) {
+      this.days = days;
     }
   }
 
   addMealFood(mealFood: MealFood) {
     console.debug("add meal food ", JSON.stringify(mealFood));
-    this.mealFoods.push(mealFood);
-    this.mealFoodSource.next(this.mealFoods);
-    localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
+    this.selectedMeal.mealFoods.push(mealFood);
+    this.mealSource.next(this.selectedMeal);
+    localStorage.setItem('menu', JSON.stringify(this.days));
   }
 
-  newDay() {
+  newDay(): Day {
     var day: Day = {meals: []};
     this.days.push(day);
     return day;
   }
 
-  newMeal(day: Day) {
+  newMeal(day: Day): Meal {
     var meal: Meal = {mealFoods: []};
     day.meals.push(meal);
     return meal;
@@ -51,7 +50,7 @@ export class DataService {
   removeMealFood(meal: Meal, mealFood: MealFood) {
     console.debug("remove meal food ", JSON.stringify(mealFood));
     meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
-    this.mealFoodSource.next(this.mealFoods);
+    this.mealSource.next(meal);
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
   }
 
@@ -61,7 +60,7 @@ export class DataService {
     this.caloriesBaseSource.next(calories);
   }
 
-  getProfile() {
+  getProfile(): Profile {
     let profile = JSON.parse(localStorage.getItem('profile'));
     if (profile != null) {
       console.debug("retrieve profile : ", JSON.stringify(profile));
@@ -70,12 +69,20 @@ export class DataService {
     return null;
   }
 
-  getCaloriesBase() {
+  getCaloriesBase(): number {
     let calories = Number(localStorage.getItem('calories'));
     if (calories != null) {
       console.debug("retrieve calories : ", calories);
       return calories;
     }
     return null;
+  }
+
+  setSelectedMeal(meal: Meal): void {
+    this.selectedMeal = meal;
+  }
+
+  setSelectedDay(day: Day) {
+    this.setSelectedDay(day)
   }
 }

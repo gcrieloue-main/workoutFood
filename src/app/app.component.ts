@@ -8,7 +8,6 @@ import {DataService} from "./data.service";
   providers: [DataService]
 })
 export class AppComponent {
-  mealFoods:MealFood[] = [];
   calories:number = 0;
 
   constructor(private dataService: DataService){
@@ -23,10 +22,6 @@ export class AppComponent {
 
   onFoodSelected(food:MealFood) {
     console.debug("food selected : " + JSON.stringify(food));
-    this.mealFoods.push(food);
-    // create a new array (copy of the first one) to trigger ngOnChanges on meal component.
-    this.mealFoods = this.mealFoods.slice(0)
-
     //test service
     this.dataService.addMealFood(food);
   }

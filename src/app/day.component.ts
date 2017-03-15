@@ -11,7 +11,9 @@ export class DayComponent {
 
   constructor(private dataService: DataService) {
     this.day = this.dataService.newDay();
-    this.dataService.newMeal(this.day);
+    var meal = this.dataService.newMeal(this.day);
+    this.dataService.setSelectedDay(this.day);
+    this.dataService.setSelectedMeal(meal);
   }
 
   addMeal(): void {
