@@ -19,7 +19,7 @@ export class AppComponent {
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
     setTimeout(()=> {
-      this.days = this.dataService.load();
+      this.days = this.dataService.loadDays();
       if (this.days == null) {
         this.days = [this.dataService.newDay()];
       }
