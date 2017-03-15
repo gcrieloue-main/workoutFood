@@ -1,4 +1,6 @@
-<button type="button" (click)="addMeal()">Ajouter un repas</button>
+<button type="button" (click)="addMeal()" class="btn btn-success m-2">Ajouter un repas</button>
 <div class="row">
-  <meal [num]="1" *ngFor="let meal of day.meals" class="col-6 m-2"></meal>
+  <div class="col-6">
+    <meal [num]="1" *ngFor="let meal of day.meals" class="m-2"></meal>
+  </div>
 </div>
