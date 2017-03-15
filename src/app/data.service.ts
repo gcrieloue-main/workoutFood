@@ -44,7 +44,7 @@ export class DataService {
 
   newMeal(day: Day) {
     var meal: Meal = {mealFoods: {}}
-    day.meals.push(day, meal);
+    day.meals.push(meal);
     return meal;
   }
 
