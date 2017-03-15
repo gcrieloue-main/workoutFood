@@ -44,6 +44,7 @@ export class DataService {
     var meal: Meal = {mealFoods: []};
     var day: Day = {meals: [meal]};
     this.days.push(day);
+    localStorage.setItem('menu', JSON.stringify(this.days));
     return day;
   }
 
