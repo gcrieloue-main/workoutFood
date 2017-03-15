@@ -12,13 +12,14 @@ export class DayComponent {
   constructor(private dataService: DataService) {
     this.day = this.dataService.newDay();
     var meal = this.dataService.newMeal(this.day);
-
   }
 
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
-    this.dataService.setSelectedDay(this.day);
-    this.dataService.setSelectedMeal(this.day.meals[0]);
+    setTimeout(()=> {
+      this.dataService.setSelectedDay(this.day);
+      this.dataService.setSelectedMeal(this.day.meals[0]);
+    }, 1);
   }
 
   addMeal(): void {
