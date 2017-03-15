@@ -6,14 +6,14 @@ import {Meal} from "./Meal";
 
 @Injectable()
 export class DataService {
-  private mealFoods:MealFood[] = [];
+  private mealFoods: MealFood[] = [];
   private mealFoodSource = new Subject<MealFood[]>();
   private caloriesBaseSource = new Subject<nunber>();
   private daySource = new Subject<Day>();
-  private days:Day[] = [];
+  private days: Day[] = [];
 
-  private selectedDay:Day;
-  private selectedMeal:Meal;
+  private selectedDay: Day;
+  private selectedMeal: Meal;
 
   // observable
   mealFoodChanged$ = this.mealFoodSource.asObservable();
@@ -29,32 +29,33 @@ export class DataService {
     }
   }
 
-  addMealFood(mealFood:MealFood) {
+  addMealFood(mealFood: MealFood) {
     console.debug("add meal food ", JSON.stringify(mealFood));
     this.mealFoods.push(mealFood);
     this.mealFoodSource.next(this.mealFoods);
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
   }
 
-  newDay(day:Day) {
-    var day:Day = {meals: [this.meal]};
+  newDay(day: Day) {
+    var day: Day = {meals: [this.meal]};
     this.days.push(day);
     return day;
   }
 
-  addMeal(day:Day, meal:Meal)
-  {
-    day.meals.push(meal);
+  newMeal(day: Day) {
+    var meal: Meal = {mealFoods: {}}
+    day.meals.push(day, meal);
+    return meal;
   }
 
-  removeMealFood(mealFood:MealFood) {
+  removeMealFood(meal: Meal, mealFood: MealFood) {
     console.debug("remove meal food ", JSON.stringify(mealFood));
-    this.mealFoods.splice(this.mealFoods.indexOf(mealFood), 1);
+    meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
     this.mealFoodSource.next(this.mealFoods);
     localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
   }
 
-  setCaloriesBase(calories:number) {
+  setCaloriesBase(calories: number) {
     console.debug("set calories base to ", calories)
     localStorage.setItem('calories', JSON.stringify(calories));
     this.caloriesBaseSource.next(calories);

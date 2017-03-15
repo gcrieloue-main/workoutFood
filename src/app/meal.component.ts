@@ -13,7 +13,8 @@ export class MealComponent implements OnDestroy {
   @Input()
   num:number;
 
-  foods:MealFood[] = [];
+  @Input()
+  meal: Meal;
 
   caloriesBase:number = 0;
   caloriesTotal:number = 0;
@@ -27,7 +28,7 @@ export class MealComponent implements OnDestroy {
     this.subscription = dataService.mealFoodChanged$.subscribe(
       mealFood => {
         console.debug(this.num, " reload foods");
-        this.foods = mealFood;
+        this.meal.mealFoods = mealFood;
         this.computeCalories();
       });
     this.subscriptionCalories = dataService.caloriesBaseChanged$.subscribe(
@@ -47,7 +48,7 @@ export class MealComponent implements OnDestroy {
     console.debug("compute meal calories");
     console.debug("calories base : ", this.caloriesBase);
     if (this.foods.length > 0) {
-      this.caloriesTotal = Math.ceil(this.foods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
+      this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
       this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
       if (this.caloriesPercentage > 100) {
         this.caloriesPercentage = 100;
@@ -61,7 +62,7 @@ export class MealComponent implements OnDestroy {
   }
 
   remove(mealFood:MealFood) {
-    this.dataService.removeMealFood(mealFood);
+    this.dataService.removeMealFood(this.meal, mealFood);
   }
 
   ngOnDestroy() {

@@ -13,9 +13,10 @@ export class DayComponent implements OnDestroy {
 
   constructor(private dataService:DataService) {
     this.day = dataService.newDay();
+    dataService.newMeal(this.day);
   }
 
   addMeal():void {
-    this.dataService.addMeal(this.day, {mealFoods: {}})
+    this.dataService.newMeal(this.day);
   }
 }
