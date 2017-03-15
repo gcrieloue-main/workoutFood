@@ -11,6 +11,7 @@ import {Day} from "./day";
 export class AppComponent {
   calories: number = 0;
   days: Day[];
+  selectedDay: Day;
 
   constructor(private dataService: DataService) {
 
@@ -23,7 +24,20 @@ export class AppComponent {
       if (this.days == null) {
         this.days = [this.dataService.newDay()];
       }
+      this.selectedDay = this.days[0];
+      this.dataService.setSelectedDay(this.selectedDay);
+      this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
     }, 1);
+  }
+
+  addDay() {
+    this.dataService.newDay();
+  }
+
+  selectDay(day:Day){
+    this.selectedDay = day;
+    this.dataService.setSelectedDay(this.selectedDay);
+    this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
   }
 
   onFoodSelected(food: MealFood) {
