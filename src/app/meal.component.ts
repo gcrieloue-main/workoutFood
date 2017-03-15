@@ -30,7 +30,6 @@ export class MealComponent implements OnDestroy {
 
   constructor(private dataService: DataService) {
     console.debug("constructor called");
-    console.debug("ngAfterViewInit");
     this.subscriptionMealSelect = this.dataService.mealSelected$.subscribe(
       (meal: Meal) => {
         this.isSelected = (meal == this.meal);
