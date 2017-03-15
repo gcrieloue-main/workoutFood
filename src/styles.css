@@ -15,4 +15,5 @@ input.ng-invalid.ng-touched {
 .close-tab {
   position: relative;
   right: -10px;
+  top: 2px;
 }
