@@ -9,14 +9,11 @@ import {DataService} from './data.service';
   templateUrl: 'app/day.component.html'
 })
 export class DayComponent implements OnDestroy {
-  meal:Meal;
   day:Day;
 
   constructor(private dataService:DataService) {
     this.day = dataService.newDay();
   }
-
-  @ViewChildren('meal') meals:QueryList<MealComponent>;
 
   addMeal():void {
     this.dataService.addMeal(this.day, {mealFoods: {}})
