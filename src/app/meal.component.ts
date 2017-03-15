@@ -35,9 +35,7 @@ export class MealComponent implements OnDestroy {
     console.debug("ngAfterViewInit");
     this.subscription = this.dataService.mealFoodChanged$.subscribe(
       (mealFood: MealFood[]) => {
-        console.debug(reload
-        foods
-        ");
+        console.debug("reload foods");
         this.meal.mealFoods = mealFood;
         this.computeCalories();
       });
