@@ -19,6 +19,6 @@ export class DayComponent implements OnDestroy {
   @ViewChildren('meal') meals:QueryList<MealComponent>;
 
   addMeal():void {
-    this.day.meals.push({meals: {mealFoods: {}}});
+    this.dataService.addMeal(day, {mealFoods: {}})
   }
 }

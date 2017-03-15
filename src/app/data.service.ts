@@ -42,6 +42,11 @@ export class DataService {
     return day;
   }
 
+  addMeal(day:Day, meal:Meal)
+  {
+    day.push(meal);
+  }
+
   removeMealFood(mealFood:MealFood) {
     console.debug("remove meal food ", JSON.stringify(mealFood));
     this.mealFoods.splice(this.mealFoods.indexOf(mealFood), 1);
