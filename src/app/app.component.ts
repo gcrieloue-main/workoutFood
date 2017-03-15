@@ -30,6 +30,7 @@ export class AppComponent {
 
   addDay() {
     this.dataService.newDay();
+    console.log(this.days.length);
   }
 
   selectDay(day: Day) {
