@@ -1,16 +1,23 @@
 import {Component, Input, OnDestroy} from "@angular/core";
 import {Meal} from "./meal";
 import {Day} from "./day";
+import {MealComponent} from "./meal.component";
 
 @Component({
   selector: 'day',
   templateUrl: 'app/day.component.html'
 })
 export class DayComponent implements OnDestroy {
-  meal: Meal = {mealFoods: []}
-  day: Day = {meals: [this.meal]};
+  meal:Meal = {mealFoods: []}
+  day:Day = {meals: [this.meal]};
 
-  addMeal(): void {
+  @ViewChildren('meal') meals:QueryList<MealComponent>;
+
+  addMeal():void {
     this.day.meals.push({meals: {mealFoods: {}}});
+  }
+
+  onSelectMeal(event):void {
+    console.debug(event.target);
   }
 }
