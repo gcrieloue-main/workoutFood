@@ -27,8 +27,9 @@ export class DataService {
     let days: Day[] = JSON.parse(localStorage.getItem('menu'));
     if (days != null) {
       this.days = days;
+      return this.days;
     }
-    return this.days;
+    return null;
   }
 
   addMealFood(mealFood: MealFood) {
