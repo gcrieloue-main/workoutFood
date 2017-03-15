@@ -13,8 +13,6 @@ export class DayComponent {
   constructor(private dataService: DataService) {
   }
 
-
-
   addMeal(): void {
     this.dataService.newMeal(this.day);
   }

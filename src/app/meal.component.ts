@@ -25,6 +25,7 @@ export class MealComponent implements OnDestroy {
 
   subscription: Subscription;
   subscriptionCalories: Subscription;
+  subscriptionMealSelect: Subscription;
 
   private Math: any;
 
@@ -82,6 +83,7 @@ export class MealComponent implements OnDestroy {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
     this.subscriptionCalories.unsubscribe();
+    this.subscriptionMealSelect.unsubscribe();
   }
 
   onSelectMeal() {
