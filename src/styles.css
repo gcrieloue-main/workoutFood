@@ -11,3 +11,8 @@ input.ng-invalid.ng-touched {
 .meal {
   cursor: pointer;
 }
+
+.close-tab {
+  position: relative;
+  right: -10px;
+}
