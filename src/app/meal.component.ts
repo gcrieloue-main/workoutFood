@@ -33,6 +33,7 @@ export class MealComponent implements OnDestroy {
     console.debug("constructor called");
     this.subscriptionMealSelect = this.dataService.mealSelected$.subscribe(
       (meal: Meal) => {
+        console.debug("test is selected");
         this.isSelected = (meal == this.meal);
       });
     this.subscription = this.dataService.mealChanged$.subscribe(
