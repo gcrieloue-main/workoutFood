@@ -1,6 +1,6 @@
 <div class="card meal" (click)="onSelectMeal()" [class.card-outline-primary]="isSelected">
   <div class="card-block">
-    <i class="fa fa-times-circle" aria-hidden="true" (click)="removeMeal()" class="remove-meal-button"></i>
+    <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"></i>
     <div *ngFor="let mealFood of meal.mealFoods" class="d-flex flex-row justify-content-between">
       <div>
         <span class="badge badge-info">{{mealFood.weight}}g</span>
@@ -18,7 +18,8 @@
     </div>
     <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
     <div class="progress" *ngIf="caloriesBase > 0">
-      <div class="progress-bar-striped" role="progressbar" [style.width]="caloriesPercentage + '%'" [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0"
+      <div class="progress-bar-striped" role="progressbar" [style.width]="caloriesPercentage + '%'"
+           [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0"
            aria-valuemax="100"></div>
     </div>
   </div>
