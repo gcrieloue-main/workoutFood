@@ -87,4 +87,8 @@ export class MealComponent implements OnDestroy {
     this.subscription.unsubscribe();
     this.subscriptionCalories.unsubscribe();
   }
+
+  onSelectMeal() {
+    this.dataService.setSelectedMeal(this.meal);
+  }
 }

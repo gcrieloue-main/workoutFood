@@ -81,11 +81,13 @@ export class DataService {
   }
 
   setSelectedMeal(meal: Meal): void {
+    console.info("select meal");
     this.selectedMeal = meal;
     this.mealSelectedSource.next(meal);
   }
 
   setSelectedDay(day: Day) {
+    console.info("select day");
     this.selectedDay = day;
   }
 }
