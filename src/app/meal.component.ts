@@ -27,16 +27,19 @@ export class MealComponent implements OnDestroy {
   private Math: any;
 
   constructor(private dataService: DataService) {
-    console.info("constructor called");
+    console.debug("constructor called");
     this.Math = Math;
   }
 
   ngAfterViewInit() {
-    console.info("ngAfterViewInit");
+    console.debug("ngAfterViewInit");
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal: Meal) => {
         if (meal == this.meal){
           this.computeCalories();
+        }
+        else {
+          console.debug("another meal has been updated");
         }
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
