@@ -18,6 +18,11 @@ input.ng-invalid.ng-touched {
   top: 2px;
 }
 
+.btn-add-meal {
+  text-align: right;
+  flex-grow: 1;
+}
+
 .remove-meal-button {
   position: absolute;
   top: 3px;
