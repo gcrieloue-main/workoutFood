@@ -97,9 +97,13 @@ export class DataService {
   }
 
   setSelectedMeal(meal:Meal):void {
-    console.info("select meal " + this.selectedDay.meals.indexOf(meal) + 1 + " on day " + this.days.indexOf(this.selectedDay) + 1);
+    console.info("select meal " + (this.selectedDay.meals.indexOf(meal) + 1) + " on day " + (this.days.indexOf(this.selectedDay) + 1));
     this.selectedMeal = meal;
     this.mealSelectedSource.next(meal);
+  }
+
+  getSelectedMeal():Meal{
+    return this.selectedMeal;
   }
 
   setSelectedDay(day:Day) {

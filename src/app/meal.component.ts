@@ -48,7 +48,9 @@ export class MealComponent implements OnDestroy {
         this.caloriesBase = calories;
         this.computeCalories();
       });
+
     this.Math = Math;
+    this.isSelected = this.dataService.getSelectedMeal() == this.meal;
   }
 
   ngAfterViewInit() {
