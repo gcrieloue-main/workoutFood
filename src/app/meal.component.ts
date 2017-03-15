@@ -40,9 +40,6 @@ export class MealComponent implements OnDestroy {
           this.meal = meal;
           this.computeCalories();
         }
-        else {
-          console.debug("another meal has been updated");
-        }
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       (calories: number) => {
