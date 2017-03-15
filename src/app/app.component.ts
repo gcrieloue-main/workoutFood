@@ -16,9 +16,6 @@ export class AppComponent {
   constructor(private dataService: DataService) {
     console.debug("constructor");
     this.days = this.dataService.loadDays();
-    if (this.days == null || this.days == undefined) {
-      this.days = [this.dataService.newDay()];
-    }
     this.selectedDay = this.days[0];
     this.dataService.setSelectedDay(this.selectedDay);
     this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
