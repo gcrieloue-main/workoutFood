@@ -36,10 +36,12 @@ export class DataService {
   }
 
   addMealFood(mealFood:MealFood) {
-    console.info("add meal food ", JSON.stringify(mealFood));
-    this.selectedMeal.mealFoods.push(mealFood);
-    this.mealSource.next(this.selectedMeal);
-    this.saveMenu();
+    if (this.selectedMeal != null) {
+      console.info("add meal food ", JSON.stringify(mealFood));
+      this.selectedMeal.mealFoods.push(mealFood);
+      this.mealSource.next(this.selectedMeal);
+      this.saveMenu();
+    }
   }
 
   saveMenu() {
