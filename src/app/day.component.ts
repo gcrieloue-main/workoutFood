@@ -7,6 +7,7 @@ import {DataService} from "./data.service";
   templateUrl: 'app/day.component.html'
 })
 export class DayComponent {
+  @Input()
   day: Day;
 
   constructor(private dataService: DataService) {
