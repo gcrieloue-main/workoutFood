@@ -25,10 +25,11 @@
     <div class="card-block">
       <ul class="nav nav-tabs">
         <li class="nav-item" *ngFor="let day of days; let i = index">
-          <a class="nav-link" [class.active]="isSelected(day)" href="#" (click)="selectDay(day)">Jour {{i+1}}</a>
-          <button type="button" (click)="remove(day)" class="close" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+          <a class="nav-link" [class.active]="isSelected(day)" href="#" (click)="selectDay(day)">Jour {{i+1}}
+            <button type="button" (click)="remove(day)" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </a>
         </li>
         <li class="nav-item" *ngIf="days.length < 7">
           <a class="nav-link" href="#" (click)="addDay()">+</a>

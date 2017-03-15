@@ -71,8 +71,9 @@ export class DataService {
     this.saveMenu();
   }
 
-  removeDay(day:Day){
+  removeDay(day:Day) {
     this.days.splice(this.days.indexOf(day), 1);
+    this.saveMenu();
   }
 
   setCaloriesBase(calories:number) {
@@ -106,7 +107,7 @@ export class DataService {
     this.mealSelectedSource.next(meal);
   }
 
-  getSelectedMeal():Meal{
+  getSelectedMeal():Meal {
     return this.selectedMeal;
   }
 

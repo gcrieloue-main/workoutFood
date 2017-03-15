@@ -49,9 +49,9 @@ export class AppComponent {
     return this.selectedDay == day;
   }
 
-  remove(day:Day){
+  remove(day:Day):void {
     this.dataService.removeDay(day);
-    if (this.days.length == 0){
+    if (this.days.length == 0) {
       this.dataService.newDay();
     }
   }
