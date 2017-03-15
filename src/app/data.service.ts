@@ -8,7 +8,7 @@ import {Meal} from "./Meal";
 export class DataService {
   private mealFoods: MealFood[] = [];
   private mealFoodSource = new Subject<MealFood[]>();
-  private caloriesBaseSource = new Subject<nunber>();
+  private caloriesBaseSource = new Subject<number>();
   private daySource = new Subject<Day>();
   private days: Day[] = [];
 
@@ -37,7 +37,7 @@ export class DataService {
   }
 
   newDay() {
-    var day: Day = {};
+    var day: Day = {meals:[]};
     this.days.push(day);
     return day;
   }
