@@ -34,7 +34,7 @@ export class MealComponent implements OnDestroy {
     this.subscriptionMealSelect = this.dataService.mealSelected$.subscribe(
       (meal:Meal) => {
         this.isSelected = (meal == this.meal);
-        console.debug((num === undefined ? 'X' : num) + ": test is selected - " + this.isSelected);
+        console.debug((this.num === undefined ? 'X' : this.num) + ": test is selected - " + this.isSelected);
       });
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal:Meal) => {
