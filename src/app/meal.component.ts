@@ -37,7 +37,6 @@ export class MealComponent implements OnDestroy {
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal: Meal) => {
         if (meal == this.meal) {
-          this.meal = meal;
           this.computeCalories();
         }
       });

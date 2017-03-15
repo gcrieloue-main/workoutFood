@@ -11,3 +11,7 @@ input.ng-invalid.ng-touched {
 .meal {
   cursor: pointer;
 }
+
+.close {
+  cursor: default;
+}
