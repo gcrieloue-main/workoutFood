@@ -66,7 +66,21 @@ export class DataService {
 
   removeMeal(meal:Meal) {
     console.info("remove meal");
+    var changeSelectedMeal:boolean;
+
+    if (this.selectedMeal == meal) {
+      changeSelectedMeal = true;
+    }
+
     this.selectedDay.meals.splice(this.selectedDay.meals.indexOf(meal), 1);
+
+    if (changeSelectedMeal) {
+      if (this.selectedDay.meals.length > 1) {
+        this.selectedMeal = this.selectedDay.meals[0];
+      }
+      this.selectedMeal = null;
+    }
+
     this.saveMenu();
   }
 
