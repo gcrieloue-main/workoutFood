@@ -44,7 +44,7 @@ export class DataService {
 
   addMeal(day:Day, meal:Meal)
   {
-    day.push(meal);
+    day.meals.push(meal);
   }
 
   removeMealFood(mealFood:MealFood) {
