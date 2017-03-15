@@ -28,7 +28,6 @@ export class MealComponent implements OnDestroy {
 
   constructor(private dataService:DataService) {
     console.debug(this.num, " constructor called");
-
     this.Math = Math;
   }
 
@@ -55,7 +54,7 @@ export class MealComponent implements OnDestroy {
   computeCalories() {
     console.debug("compute meal calories");
     console.debug("calories base : ", this.caloriesBase);
-    if (this.foods.length > 0) {
+    if (this.meal.mealFoods.length > 0) {
       this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
       this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
       if (this.caloriesPercentage > 100) {

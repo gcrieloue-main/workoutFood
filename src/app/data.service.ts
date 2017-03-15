@@ -37,7 +37,7 @@ export class DataService {
   }
 
   newDay() {
-    var day: Day = {meals: [this.meal]};
+    var day: Day = {};
     this.days.push(day);
     return day;
   }
