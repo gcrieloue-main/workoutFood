@@ -22,7 +22,7 @@ export class DataService {
 
   load() {
     console.debug("load menu from local storage");
-    let days:Day[] = JSON.parse(localStorage.getItem('menu'));
+    let days: Day[] = JSON.parse(localStorage.getItem('menu'));
     if (days != null) {
       this.days = days;
     }
@@ -83,6 +83,6 @@ export class DataService {
   }
 
   setSelectedDay(day: Day) {
-    this.setSelectedDay(day)
+    this.selectedDay = day;
   }
 }
