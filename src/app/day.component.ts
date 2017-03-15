@@ -1,7 +1,5 @@
 import {Component, Input, OnDestroy, ViewChildren} from "@angular/core";
-import {Meal} from "./meal";
 import {Day} from "./day";
-import {MealComponent} from "./meal.component";
 import {DataService} from './data.service';
 
 @Component({
@@ -13,7 +11,7 @@ export class DayComponent implements OnDestroy {
 
   constructor(private dataService:DataService) {
     this.day = dataService.newDay();
-    dataService.newMeal(this.day);
+    this.dataService.newMeal(this.day);
   }
 
   addMeal():void {
