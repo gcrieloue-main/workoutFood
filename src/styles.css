@@ -18,7 +18,7 @@ input.ng-invalid.ng-touched {
   top: 2px;
 }
 
-.btn-add-meal {
+.add-meal {
   text-align: right;
   flex-grow: 1;
 }
