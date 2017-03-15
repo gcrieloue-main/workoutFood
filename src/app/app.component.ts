@@ -16,7 +16,6 @@ export class AppComponent {
   constructor(private dataService:DataService) {
     console.debug("constructor");
     this.days = this.dataService.loadDays();
-    console.log(this.days.length + " days loaded");
     this.selectedDay = this.days[0];
     this.dataService.setSelectedDay(this.selectedDay);
     this.dataService.setSelectedMeal(this.selectedDay.meals[0]);

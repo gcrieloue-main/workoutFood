@@ -27,7 +27,8 @@ export class DataService {
     let days:Day[] = JSON.parse(localStorage.getItem('menu'));
     if (days != null) {
       this.days = days;
-      console.debug(this.days.length + "days loaded");
+      console.debug(this.days.length + " days loaded");
+      return this.days;
     }
     return [this.newDay()];
   }
@@ -44,7 +45,7 @@ export class DataService {
     var meal:Meal = {mealFoods: []};
     var day:Day = {meals: [meal]};
     this.days.push(day);
-    console.log(this.days.length + "days in total");
+    console.log(this.days.length + " days in total");
     localStorage.setItem('menu', JSON.stringify(this.days));
     return day;
   }
