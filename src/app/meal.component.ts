@@ -27,7 +27,7 @@ export class MealComponent implements OnDestroy {
   private Math: any;
 
   constructor(private dataService: DataService) {
-    console.debug(this.num, " constructor called");
+    console.debug("constructor called");
     this.Math = Math;
   }
 
@@ -35,20 +35,22 @@ export class MealComponent implements OnDestroy {
     console.debug("ngAfterViewInit");
     this.subscription = this.dataService.mealFoodChanged$.subscribe(
       (mealFood: MealFood[]) => {
-        console.debug(this.num, " reload foods");
+        console.debug(reload
+        foods
+        ");
         this.meal.mealFoods = mealFood;
         this.computeCalories();
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       (calories: number) => {
-        console.debug(this.num, " reload calories base");
+        console.debug("reload calories base");
         this.caloriesBase = calories;
         this.computeCalories();
       });
   }
 
   ngOnInit() {
-    console.debug(this.num, " ngOnInit");
+    console.debug(" ngOnInit");
   }
 
   computeCalories() {

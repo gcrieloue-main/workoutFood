@@ -37,13 +37,13 @@ export class DataService {
   }
 
   newDay() {
-    var day: Day = {meals:[]};
+    var day: Day = {meals: []};
     this.days.push(day);
     return day;
   }
 
   newMeal(day: Day) {
-    var meal: Meal = {mealFoods: {}}
+    var meal: Meal = {mealFoods: []};
     day.meals.push(meal);
     return meal;
   }
