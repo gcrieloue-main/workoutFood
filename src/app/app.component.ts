@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {MealFood} from "./mealFood";
 import {DataService} from "./data.service";
+import {Day} from "./day";
 
 @Component({
   selector: 'my-app',
@@ -8,20 +9,24 @@ import {DataService} from "./data.service";
   providers: [DataService]
 })
 export class AppComponent {
-  calories:number = 0;
+  calories: number = 0;
+  days: Day[];
 
-  constructor(private dataService: DataService){
+  constructor(private dataService: DataService) {
 
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     console.debug("ngAfterViewInit");
-    setTimeout(()=>{
-      this.dataService.load();
+    setTimeout(()=> {
+      this.days = this.dataService.load();
+      if (this.days == null) {
+        this.days = [this.dataService.newDay()];
+      }
     }, 1);
   }
 
-  onFoodSelected(food:MealFood) {
+  onFoodSelected(food: MealFood) {
     console.debug("food selected : " + JSON.stringify(food));
     //test service
     this.dataService.addMealFood(food);

@@ -10,8 +10,6 @@ export class DayComponent {
   day: Day;
 
   constructor(private dataService: DataService) {
-    this.day = this.dataService.newDay();
-    var meal = this.dataService.newMeal(this.day);
   }
 
   ngAfterViewInit() {

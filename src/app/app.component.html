@@ -15,7 +15,6 @@
     </div>
     <div class="card-block">
       <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
-
     </div>
   </div>
 
@@ -33,8 +32,9 @@
         </li>
       </ul>
 
-      <day></day>
+      <div *ngFor="let day of days">
+        <day [day]="day"></day>
+      </div>
     </div>
   </div>
-
 </div>

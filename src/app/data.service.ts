@@ -22,12 +22,13 @@ export class DataService {
   mealChanged$ = this.mealSource.asObservable();
   mealSelected$ = this.mealSelectedSource.asObservable();
 
-  load() {
+  loadDays(): Day[] {
     console.info("load menu from local storage");
     let days: Day[] = JSON.parse(localStorage.getItem('menu'));
     if (days != null) {
       this.days = days;
     }
+    return this.days;
   }
 
   addMealFood(mealFood: MealFood) {
