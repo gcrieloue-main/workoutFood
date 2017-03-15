@@ -65,7 +65,7 @@ export class DataService {
   }
 
   removeMeal(meal:Meal) {
-    console.info("remove meal");
+    console.info("remove meal " + (this.selectedDay.meals.indexOf(meal) + 1) + " on day " + (this.days.indexOf(this.selectedDay) + 1));
     var changeSelectedMeal:boolean;
 
     if (this.selectedMeal == meal) {
@@ -94,6 +94,7 @@ export class DataService {
   }
 
   removeDay(day:Day) {
+    console.info("remove day " + (this.days.indexOf(day) + 1));
     this.days.splice(this.days.indexOf(day), 1);
     this.saveMenu();
   }
