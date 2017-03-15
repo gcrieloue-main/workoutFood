@@ -1,6 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
 import {MealFood} from "./mealFood";
+import {Day} from "./day";
+import {Meal} from "./Meal";
 
 @Injectable()
 export class DataService {
