@@ -48,4 +48,11 @@ export class AppComponent {
   isSelected(day:Day):boolean {
     return this.selectedDay == day;
   }
+
+  remove(day:Day){
+    this.dataService.removeDay(day);
+    if (this.days.length == 0){
+      this.dataService.newDay();
+    }
+  }
 }

@@ -71,6 +71,10 @@ export class DataService {
     this.saveMenu();
   }
 
+  removeDay(day:Day){
+    this.days.splice(this.days.indexOf(day), 1);
+  }
+
   setCaloriesBase(calories:number) {
     console.info("set calories base to ", calories)
     localStorage.setItem('calories', JSON.stringify(calories));
