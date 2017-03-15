@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="row">
-  <div *ngFor="let meal of day.meals" class="col-6">
-    <meal [num]="1" [meal]="meal"></meal>
+  <div *ngFor="let meal of day.meals; let i = index" class="col-6">
+    <meal [num]="i" [meal]="meal"></meal>
   </div>
 </div>
