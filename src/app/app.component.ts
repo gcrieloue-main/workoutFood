@@ -9,13 +9,14 @@ import {Day} from "./day";
   providers: [DataService]
 })
 export class AppComponent {
-  calories: number = 0;
-  days: Day[];
-  selectedDay: Day;
+  calories:number = 0;
+  days:Day[];
+  selectedDay:Day;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService:DataService) {
     console.debug("constructor");
     this.days = this.dataService.loadDays();
+    console.log(this.days.length + " days loaded");
     this.selectedDay = this.days[0];
     this.dataService.setSelectedDay(this.selectedDay);
     this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
@@ -33,19 +34,19 @@ export class AppComponent {
     console.log(this.days.length);
   }
 
-  selectDay(day: Day) {
+  selectDay(day:Day) {
     this.selectedDay = day;
     this.dataService.setSelectedDay(this.selectedDay);
     this.dataService.setSelectedMeal(this.selectedDay.meals[0]);
   }
 
-  onFoodSelected(food: MealFood) {
+  onFoodSelected(food:MealFood) {
     console.debug("food selected : " + JSON.stringify(food));
     //test service
     this.dataService.addMealFood(food);
   }
 
-  isSelected(day: Day): boolean {
+  isSelected(day:Day):boolean {
     return this.selectedDay == day;
   }
 }
