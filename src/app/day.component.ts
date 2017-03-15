@@ -7,6 +7,10 @@ import {Day} from "./day";
   templateUrl: 'app/day.component.html'
 })
 export class DayComponent implements OnDestroy {
-  meal:Meal = {mealFoods: []}
-  day:Day = {meals: [this.meal]};
+  meal: Meal = {mealFoods: []}
+  day: Day = {meals: [this.meal]};
+
+  addMeal(): void {
+    this.day.meals.push({meals: {mealFoods: {}}});
+  }
 }
