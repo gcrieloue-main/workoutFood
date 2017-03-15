@@ -36,7 +36,7 @@ export class DataService {
   }
 
   addMealFood(mealFood:MealFood) {
-    if (this.selectedMeal != null) {
+    if (this.selectedMeal != null && this.selectedMeal !== undefined) {
       console.info("add meal food ", JSON.stringify(mealFood));
       this.selectedMeal.mealFoods.push(mealFood);
       this.mealSource.next(this.selectedMeal);
