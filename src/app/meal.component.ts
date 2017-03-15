@@ -82,6 +82,10 @@ export class MealComponent implements OnDestroy {
     this.dataService.removeMealFood(this.meal, mealFood);
   }
 
+  removeMeal(){
+    this.dataService.removeMeal(this.meal);
+  }
+
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();

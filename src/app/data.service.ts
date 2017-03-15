@@ -64,6 +64,12 @@ export class DataService {
     return meal;
   }
 
+  removeMeal(meal:Meal) {
+    console.info("remove meal");
+    this.selectedDay.meals.splice(this.selectedDay.meals.indexOf(meal), 1);
+    this.saveMenu();
+  }
+
   removeMealFood(meal:Meal, mealFood:MealFood) {
     console.info("remove meal food ", JSON.stringify(mealFood));
     meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
