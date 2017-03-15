@@ -75,7 +75,7 @@ export class DataService {
     this.selectedDay.meals.splice(this.selectedDay.meals.indexOf(meal), 1);
 
     if (changeSelectedMeal) {
-      if (this.selectedDay.meals.length > 1) {
+      if (this.selectedDay.meals.length > 0) {
         this.setSelectedMeal(this.selectedDay.meals[0]);
       }
       else {
