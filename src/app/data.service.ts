@@ -51,7 +51,7 @@ export class DataService {
     console.debug("remove meal food ", JSON.stringify(mealFood));
     meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
     this.mealSource.next(meal);
-    localStorage.setItem('mealFoods', JSON.stringify(this.mealFoods));
+    localStorage.setItem('menu', JSON.stringify(this.days));
   }
 
   setCaloriesBase(calories: number) {
