@@ -39,12 +39,14 @@ export class DataService {
   }
 
   newDay(): Day {
+    console.info("new day");
     var day: Day = {meals: []};
     this.days.push(day);
     return day;
   }
 
   newMeal(day: Day): Meal {
+    console.info("new meal");
     var meal: Meal = {mealFoods: []};
     day.meals.push(meal);
     return meal;

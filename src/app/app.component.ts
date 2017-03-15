@@ -14,6 +14,7 @@ export class AppComponent {
   selectedDay: Day;
 
   constructor(private dataService: DataService) {
+    console.debug("constructor");
     this.days = this.dataService.loadDays();
     if (this.days == null) {
       this.days = [this.dataService.newDay()];
@@ -44,5 +45,9 @@ export class AppComponent {
     console.debug("food selected : " + JSON.stringify(food));
     //test service
     this.dataService.addMealFood(food);
+  }
+
+  isSelected(day: Day): boolean {
+    return this.selectedDay == day;
   }
 }

@@ -25,7 +25,7 @@
     <div class="card-block">
       <ul class="nav nav-tabs">
         <li class="nav-item" *ngFor="let day of days">
-          <a class="nav-link active" href="#" (click)="selectDay(day)">Jour X</a>
+          <a class="nav-link" [class.active]="isSelected(day)" href="#" (click)="selectDay(day)">Jour X</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="addDay()">+</a>
