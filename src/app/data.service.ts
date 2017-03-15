@@ -39,6 +39,10 @@ export class DataService {
     console.info("add meal food ", JSON.stringify(mealFood));
     this.selectedMeal.mealFoods.push(mealFood);
     this.mealSource.next(this.selectedMeal);
+    this.saveMenu();
+  }
+
+  saveMenu() {
     localStorage.setItem('menu', JSON.stringify(this.days));
   }
 
@@ -48,7 +52,7 @@ export class DataService {
     var day:Day = {meals: [meal]};
     this.days.push(day);
     console.log(this.days.length + " days in total");
-    localStorage.setItem('menu', JSON.stringify(this.days));
+    this.saveMenu();
     return day;
   }
 
@@ -56,6 +60,7 @@ export class DataService {
     console.info("new meal");
     var meal:Meal = {mealFoods: []};
     day.meals.push(meal);
+    this.saveMenu();
     return meal;
   }
 
@@ -63,7 +68,7 @@ export class DataService {
     console.info("remove meal food ", JSON.stringify(mealFood));
     meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
     this.mealSource.next(meal);
-    localStorage.setItem('menu', JSON.stringify(this.days));
+    this.saveMenu();
   }
 
   setCaloriesBase(calories:number) {
@@ -92,7 +97,7 @@ export class DataService {
   }
 
   setSelectedMeal(meal:Meal):void {
-    console.info("select meal " + this.selectedDay.meals.indexOf(meal) + " on day " + this.days.indexOf(this.selectedDay));
+    console.info("select meal " + this.selectedDay.meals.indexOf(meal) + 1 + " on day " + this.days.indexOf(this.selectedDay) + 1);
     this.selectedMeal = meal;
     this.mealSelectedSource.next(meal);
   }
