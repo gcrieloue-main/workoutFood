@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-block">
-    <div *ngFor="let mealFood of foods" class="d-flex flex-row justify-content-between">
+    <div *ngFor="let mealFood of meal.mealFoods" class="d-flex flex-row justify-content-between">
       <div>
         <span class="badge badge-info">{{mealFood.weight}}g</span>
         <span>{{mealFood.food.name}}</span>
