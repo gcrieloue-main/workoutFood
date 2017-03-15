@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy} from "@angular/core";
+import {Component, Input, OnDestroy, ViewChildren} from "@angular/core";
 import {Meal} from "./meal";
 import {Day} from "./day";
 import {MealComponent} from "./meal.component";
