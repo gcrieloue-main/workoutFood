@@ -29,7 +29,7 @@ export class DataService {
       this.days = days;
       console.debug(this.days.length + " days loaded");
     }
-    else{
+    else {
       this.days = [this.newDay()]
     }
     return this.days;
@@ -92,7 +92,7 @@ export class DataService {
   }
 
   setSelectedMeal(meal:Meal):void {
-    console.info("select meal");
+    console.info("select meal " + this.selectedDay.meals.indexOf(meal) + " on day " + this.days.indexOf(this.selectedDay));
     this.selectedMeal = meal;
     this.mealSelectedSource.next(meal);
   }
