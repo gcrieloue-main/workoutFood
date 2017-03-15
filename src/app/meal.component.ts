@@ -12,42 +12,42 @@ import {Meal} from "./meal";
 export class MealComponent implements OnDestroy {
 
   @Input()
-  num:number;
+  num: number;
 
   @Input()
   meal: Meal;
 
-  caloriesBase:number = 0;
-  caloriesTotal:number = 0;
-  caloriesPercentage:number = 0;
+  caloriesBase: number = 0;
+  caloriesTotal: number = 0;
+  caloriesPercentage: number = 0;
 
-  subscription:Subscription;
-  subscriptionCalories:Subscription;
+  subscription: Subscription;
+  subscriptionCalories: Subscription;
 
-  private Math : any;
+  private Math: any;
 
-  constructor(private dataService:DataService) {
+  constructor(private dataService: DataService) {
     console.debug(this.num, " constructor called");
     this.Math = Math;
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     console.debug("ngAfterViewInit");
     this.subscription = this.dataService.mealFoodChanged$.subscribe(
-      mealFood => {
+      (mealFood: MealFood[]) => {
         console.debug(this.num, " reload foods");
         this.meal.mealFoods = mealFood;
         this.computeCalories();
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
-      calories => {
+      (calories: number) => {
         console.debug(this.num, " reload calories base");
         this.caloriesBase = calories;
         this.computeCalories();
       });
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.debug(this.num, " ngOnInit");
   }
 
@@ -55,7 +55,7 @@ export class MealComponent implements OnDestroy {
     console.debug("compute meal calories");
     console.debug("calories base : ", this.caloriesBase);
     if (this.meal.mealFoods.length > 0) {
-      this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1, c2)=>c1 + c2));
+      this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood: MealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1: number, c2: number)=>c1 + c2));
       this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
       if (this.caloriesPercentage > 100) {
         this.caloriesPercentage = 100;
@@ -68,7 +68,7 @@ export class MealComponent implements OnDestroy {
     console.debug("=> total : ", this.caloriesTotal, ", percentage : ", this.caloriesPercentage);
   }
 
-  remove(mealFood:MealFood) {
+  remove(mealFood: MealFood) {
     this.dataService.removeMealFood(this.meal, mealFood);
   }
 
