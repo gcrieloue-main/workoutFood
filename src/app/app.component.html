@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="card mt-3">
+  <div class="card mt-3" id="card-menu">
     <div class="card-header">
       Votre menu
     </div>
@@ -21,7 +21,7 @@
       <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
       <ul class="nav nav-tabs">
         <li class="nav-item" *ngFor="let day of days; let i = index">
-          <a class="nav-link" [class.active]="isSelected(day)" href="#" (click)="selectDay(day)">Jour {{i+1}}
+          <a class="nav-link" [class.active]="isSelected(day)" href="#card-menu" (click)="selectDay(day)">Jour {{i+1}}
             <button type="button" (click)="remove(day)" class="close close-tab" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
