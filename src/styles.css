@@ -1,7 +1,11 @@
-header{
-  color:white;
+header {
+  padding: 1em 0;
   background-color: #336699;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  color: white;
 }
 
 h1 {
