@@ -16,10 +16,10 @@ export class CaloriesComponent {
   profile: Profile = {
     size: undefined,
     weight: undefined,
-    age: undefined
+    age: undefined,
+    activityIntensity:number = 0
   };
 
-  activityIntensity: number = 0;
   compute: boolean = false;
   calories: number = 0;
 
@@ -67,8 +67,8 @@ export class CaloriesComponent {
       }
       var metabolicRate = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
       console.debug("metabolic rate : " + metabolicRate);
-      console.debug("activity intensity : " + this.activityIntensity);
-      this.calories = Math.ceil(metabolicRate * this.activityIntensity);
+      console.debug("activity intensity : " + this.profile.activityIntensity);
+      this.calories = Math.ceil(metabolicRate * this.profile.activityIntensity);
       this.dataService.setCaloriesBase(this.calories);
       this.onCaloriesChange(this.calories);
     }
