@@ -1,5 +1,5 @@
 <div class="card meal mb-2" (click)="onSelectMeal()" [class.card-outline-primary]="isSelected">
-  <div class="card-top align-middle" [style.background-image]="'url(assets/img/meal-pic0'+(num+1)%6+'.png)'">Repas {{num}}</div>
+  <div class="card-top align-middle" [style.background-image]="'url(assets/img/meal-pic0'+(num+1)%5+'.png)'">Repas {{num}}</div>
   <div class="card-block">
     <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"></i>
     <div *ngFor="let mealFood of meal.mealFoods" class="d-flex flex-row justify-content-between">
