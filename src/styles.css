@@ -28,3 +28,10 @@ input.ng-invalid.ng-touched {
   top: 3px;
   right: 3px;
 }
+
+.card-top{
+  border-top-right-radius: calc(.25rem - 1px);
+  border-top-left-radius: calc(.25rem - 1px);
+  height: 50px;
+  background-position: center;
+}
