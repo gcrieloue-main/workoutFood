@@ -44,7 +44,7 @@ export class MealComponent implements OnDestroy {
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       (calories:number) => {
-        console.debug("reload calories base");
+        console.debug("reload calories base : " + calories);
         this.caloriesBase = calories;
         this.computeCalories();
       });
@@ -82,7 +82,7 @@ export class MealComponent implements OnDestroy {
     this.dataService.removeMealFood(this.meal, mealFood);
   }
 
-  removeMeal(){
+  removeMeal() {
     this.dataService.removeMeal(this.meal);
   }
 
