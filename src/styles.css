@@ -35,4 +35,5 @@ input.ng-invalid.ng-touched {
   height: 50px;
   background-position: center;
   background-size: 100%;
+  font-size: 150%;
 }
