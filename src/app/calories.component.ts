@@ -2,9 +2,10 @@ import {Component, Input} from "@angular/core";
 import {DataService} from "./data.service";
 
 export class Profile {
-  size: number;
-  weight: number;
-  age: number;
+  size:number;
+  weight:number;
+  age:number;
+  activityIntensity:number;
 }
 
 @Component({
@@ -13,21 +14,21 @@ export class Profile {
 })
 export class CaloriesComponent {
 
-  profile: Profile = {
+  profile:Profile = {
     size: undefined,
     weight: undefined,
     age: undefined,
-    activityIntensity:number = 0
+    activityIntensity: 0
   };
 
-  compute: boolean = false;
-  calories: number = 0;
+  compute:boolean = false;
+  calories:number = 0;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService:DataService) {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit():void {
     console.debug("ngOnInit");
   }
 
@@ -41,10 +42,10 @@ export class CaloriesComponent {
     }, 1);
   }
 
-  computeCalories(): void {
+  computeCalories():void {
     console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      var factor1: number, factor2: number, factor3: number;
+      var factor1:number, factor2:number, factor3:number;
       if (this.profile.age <= 18) {
         factor1 = 15.6;
         factor2 = 266;
@@ -75,7 +76,7 @@ export class CaloriesComponent {
   }
 
 
-  onSubmit(): void {
+  onSubmit():void {
     localStorage.setItem('profile', JSON.stringify(this.profile));
     this.computeCalories();
     if (this.calories > 0) {
@@ -83,12 +84,12 @@ export class CaloriesComponent {
     }
   }
 
-  onCaloriesChange(calories: number) {
+  onCaloriesChange(calories:number) {
     this.calories = calories;
     this.dataService.setCaloriesBase(this.calories);
   }
 
-  toggleCompute(): void {
+  toggleCompute():void {
     this.compute = !this.compute;
   }
 }
