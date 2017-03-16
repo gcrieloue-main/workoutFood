@@ -4,7 +4,7 @@
   </div>
   <div class="card-block">
     <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"></i>
-    <p *ngIf="meal.mealFoods.length == 0">Cliquez sur ce menu pour y ajouter des aliments.</p>
+    <p *ngIf="meal.mealFoods.length == 0 && !isSelected">Cliquez sur ce menu pour y ajouter des aliments.</p>
     <div *ngFor="let mealFood of meal.mealFoods" class="d-flex flex-row justify-content-between">
       <div>
         <span class="badge badge-info">{{mealFood.weight}}g</span>
