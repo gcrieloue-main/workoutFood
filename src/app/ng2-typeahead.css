@@ -3,7 +3,7 @@
   text-align: left;
   vertical-align: top;
   padding-bottom: 2.5em;
-  width : 500px;
+  flex-grow: 1;
 }
 
 .typeahead-input {

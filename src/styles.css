@@ -23,6 +23,11 @@ input.ng-invalid.ng-touched {
   cursor: pointer;
 }
 
+.form-food-select{
+  display: flex;
+  justify-content: space-between;
+}
+
 .close-tab {
   position: relative;
   right: -10px;
