@@ -18,7 +18,7 @@
       Votre menu
     </div>
     <div class="card-block">
-      <food-selector (onFoodSelected)="onFoodSelected($event)" class="mb-3"></food-selector>
+      <food-selector (onFoodSelected)="onFoodSelected($event)"></food-selector>
       <ul class="nav nav-tabs">
         <li class="nav-item" *ngFor="let day of days; let i = index">
           <a class="nav-link" [class.active]="isSelected(day)" href="#" (click)="selectDay(day)">Jour {{i+1}}
