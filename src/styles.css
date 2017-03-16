@@ -50,5 +50,5 @@ input.ng-invalid.ng-touched {
   color: #333;
   padding: 0.2em;
   text-shadow: 1px 1px 1px white;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
