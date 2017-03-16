@@ -23,7 +23,11 @@ input.ng-invalid.ng-touched {
   cursor: pointer;
 }
 
-.form-food-select{
+.food-search {
+  flex-grow: 1;
+}
+
+.form-food-select {
   display: flex;
   justify-content: space-between;
 }
