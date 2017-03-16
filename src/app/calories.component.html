@@ -4,10 +4,7 @@
     <button (click)="toggleCompute()" class="btn btn-success mb-2">Calculer</button>
   </p>
 </div>
-<div class="mt-2">
-    <span>Calories par jour : <input type="number" [(ngModel)]="calories" class="form-control"
-                                     (ngModelChange)="onCaloriesChange($event)"/></span>
-</div>
+
 <form (ngSubmit)="onSubmit()" #caloriesBaseForm="ngForm" *ngIf="compute" class="card">
   <div class="card-block">
     <h2>Profile</h2>
@@ -76,3 +73,8 @@
     </div>
   </div>
 </form>
+
+<div class="mt-2">
+    <span>Calories par jour : <input type="number" [(ngModel)]="calories" class="form-control"
+                                     (ngModelChange)="onCaloriesChange($event)"/></span>
+</div>
