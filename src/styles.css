@@ -37,4 +37,5 @@ input.ng-invalid.ng-touched {
   font-size: 150%;
   color: white;
   padding: 0.2em;
+  text-shadow: 1px 1px 1px black;
 }
