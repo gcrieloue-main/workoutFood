@@ -36,4 +36,6 @@ input.ng-invalid.ng-touched {
   background-position: center;
   background-size: 100%;
   font-size: 150%;
+  color: white;
+  padding: 1em;
 }
