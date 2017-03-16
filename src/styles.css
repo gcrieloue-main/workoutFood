@@ -34,8 +34,8 @@ input.ng-invalid.ng-touched {
   border-top-left-radius: calc(.25rem - 1px);
   background-position: center;
   background-size: 100%;
-  font-size: 150%;
-  color: white;
+  font-size: 120%;
+  color: #333;
   padding: 0.2em;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px white;
 }
