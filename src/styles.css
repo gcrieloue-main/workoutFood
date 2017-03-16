@@ -1,3 +1,9 @@
+.header{
+  color:white;
+  background-color: #336699;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
