@@ -7,7 +7,7 @@ import {Meal} from "./meal";
 
 @Component({
   selector: 'meal',
-  templateUrl: 'app/meal.component.html'
+  templateUrl: './meal.component.html'
 })
 export class MealComponent implements OnDestroy {
 

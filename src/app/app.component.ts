@@ -5,7 +5,7 @@ import {Day} from "./shared/day";
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/app.component.html',
+  templateUrl: './app.component.html',
   providers: [DataService]
 })
 export class AppComponent {

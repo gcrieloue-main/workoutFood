@@ -4,7 +4,7 @@ import {DataService} from "../shared/data.service";
 
 @Component({
   selector: 'day',
-  templateUrl: 'app/day.component.html'
+  templateUrl: './day.component.html'
 })
 export class DayComponent {
   @Input()

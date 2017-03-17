@@ -4,7 +4,7 @@ import {Food} from "../shared/food";
 
 @Component({
   selector: 'food-search',
-  templateUrl: 'app/food-search.component.html',
+  templateUrl: './food-search.component.html',
   styles: [`
         .typeahead-input,
         .typeahead-typeahead{

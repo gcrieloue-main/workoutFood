@@ -10,7 +10,7 @@ export class Profile {
 
 @Component({
   selector: 'calories-selector',
-  templateUrl: 'app/calories.component.html'
+  templateUrl: './calories.component.html'
 })
 export class CaloriesComponent {
 
