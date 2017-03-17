@@ -49,7 +49,6 @@ export class MealComponent implements OnDestroy {
         this.computeCalories();
       });
 
-    this.computeCalories();
     this.Math = Math;
   }
 
@@ -59,6 +58,7 @@ export class MealComponent implements OnDestroy {
 
   ngOnInit() {
     console.debug("ngOnInit");
+    this.computeCalories();
     this.isSelected = this.dataService.getSelectedMeal() == this.meal;
   }
 
