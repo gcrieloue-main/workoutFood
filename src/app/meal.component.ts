@@ -58,6 +58,7 @@ export class MealComponent implements OnDestroy {
 
   ngOnInit() {
     console.debug("ngOnInit");
+    this.caloriesBase = this.dataService.loadCaloriesBase();
     this.computeCalories();
     this.isSelected = this.dataService.getSelectedMeal() == this.meal;
   }
