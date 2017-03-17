@@ -19,7 +19,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
 @Component({
   selector: 'typeahead',
   templateUrl: 'app/ng2-typeahead.html',
-  styleUrls: ['assets/ng2-typeahead.css'],
+  styleUrls: ['assets/css/ng2-typeahead.css'],
   providers: [TYPEAHEAD_CONTROL_VALUE_ACCESSOR]
 })
 export class Typeahead implements OnInit, ControlValueAccessor {
