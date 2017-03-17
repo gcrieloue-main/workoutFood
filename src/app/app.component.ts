@@ -4,6 +4,7 @@ import {DataService} from "./shared/data.service";
 import {Day} from "./shared/day";
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
   templateUrl: './app.component.html',
   providers: [DataService]

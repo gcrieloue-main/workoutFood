@@ -17,6 +17,7 @@ export const TYPEAHEAD_CONTROL_VALUE_ACCESSOR:any = {
 
 
 @Component({
+  moduleId: module.id,
   selector: 'typeahead',
   templateUrl: './ng2-typeahead.html',
   styleUrls: ['ng2-typeahead.css'],

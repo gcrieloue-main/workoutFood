@@ -3,6 +3,7 @@ import {FoodService} from "../food/food.service";
 import {Food} from "../shared/food";
 
 @Component({
+  moduleId: module.id,
   selector: 'food-search',
   templateUrl: './food-search.component.html',
   styles: [`
