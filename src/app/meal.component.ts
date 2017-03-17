@@ -49,6 +49,7 @@ export class MealComponent implements OnDestroy {
         this.computeCalories();
       });
 
+    this.computeCalories();
     this.Math = Math;
   }
 
