@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {DataService} from "./data.service";
+import {DataService} from "../shared/data.service";
 
 export class Profile {
   size:number;

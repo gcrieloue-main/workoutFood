@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {MealFood} from "./mealFood";
-import {DataService} from "./data.service";
-import {Day} from "./day";
+import {MealFood} from "./shared/mealFood";
+import {DataService} from "./shared/data.service";
+import {Day} from "./shared/day";
 
 @Component({
   selector: 'my-app',

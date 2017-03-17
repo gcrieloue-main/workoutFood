@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {Food} from './food';
+import {Food} from '../shared/food';
 
 export const FOODS:Food[] = [
   {name:'Abricot au sirop',calories:108,proteins:1,carbohydrates:28,fats:0},

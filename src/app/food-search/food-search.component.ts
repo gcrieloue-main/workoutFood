@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
-import {FoodService} from "./food.service";
-import {Food} from "./food";
+import {FoodService} from "../food/food.service";
+import {Food} from "../shared/food";
 
 @Component({
   selector: 'food-search',

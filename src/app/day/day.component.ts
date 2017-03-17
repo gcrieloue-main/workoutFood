@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, ViewChildren} from "@angular/core";
-import {Day} from "./day";
-import {DataService} from "./data.service";
+import {Day} from "../shared/day";
+import {DataService} from "../shared/data.service";
 
 @Component({
   selector: 'day',

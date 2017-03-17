@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy} from "@angular/core";
-import {MealFood} from "./mealFood";
-import {DataService} from "./data.service";
+import {MealFood} from "../shared/mealFood";
+import {DataService} from "../shared/data.service";
 import {Subscription} from "rxjs/Subscription";
 import {Meal} from "./meal";
 
