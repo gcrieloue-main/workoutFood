@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter} from "@angular/core";
-import {FoodService} from "app/food/food.service";
+import {FoodService} from "../food/food.service";
 
 @Component({
   moduleId: module.id,
