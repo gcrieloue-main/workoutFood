@@ -6,10 +6,10 @@ import {Day} from "./shared/day";
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl: './app.component.html',
+  templateUrl: './core.component.html',
   providers: [DataService]
 })
-export class AppComponent {
+export class CoreComponent {
   calories:number = 0;
   days:Day[];
   selectedDay:Day;
