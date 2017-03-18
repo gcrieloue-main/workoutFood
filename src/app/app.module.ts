@@ -19,7 +19,7 @@ import { RouterModule }   from '@angular/router';
     RouterModule.forRoot([
       {
         path: 'foods',
-        component: FoodComponent
+        component: FoodListComponent
       }
     ])
   ],

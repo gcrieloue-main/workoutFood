@@ -6,7 +6,7 @@ import {MealFood} from "../shared/mealFood";
 @Component({
   moduleId: module.id,
   selector: 'food-selector',
-  templateUrl: './food.component.html',
+  templateUrl: './food-list.component.html',
   providers: [FoodService]
 })
 export class FoodComponent {
