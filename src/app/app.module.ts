@@ -24,7 +24,7 @@ import { RouterModule }   from '@angular/router';
       }
     ])
   ],
-  declarations: [CoreComponent, CaloriesComponent, FoodComponent, DayComponent, MealComponent, FoodSearchComponent, Typeahead],
+  declarations: [CoreComponent, CaloriesComponent, FoodComponent, DayComponent, MealComponent, FoodSearchComponent, Typeahead, FoodListComponent],
   bootstrap: [CoreComponent]
 })
 export class AppModule {
