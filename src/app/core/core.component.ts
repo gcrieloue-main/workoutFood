@@ -1,11 +1,11 @@
 import {Component} from "@angular/core";
-import {MealFood} from "./shared/mealFood";
-import {DataService} from "./shared/data.service";
-import {Day} from "./shared/day";
+import {MealFood} from "../shared/mealFood";
+import {DataService} from "../shared/data.service";
+import {Day} from "../shared/day";
 
 @Component({
   moduleId: module.id,
-  selector: 'my-app',
+  selector: 'workout-food',
   templateUrl: './core.component.html',
   providers: [DataService]
 })
