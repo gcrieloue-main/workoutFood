@@ -9,8 +9,10 @@ import {FoodService} from "../food/food.service";
 })
 export class FoodListComponent {
 
-  constructor(private foodService:FoodService) {
+  foods:Food[];
 
+  constructor(private foodService:FoodService) {
+    this.foods = foodService.getFoods();
   }
 
 }
