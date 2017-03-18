@@ -19,6 +19,10 @@ input.ng-invalid.ng-touched {
   border-bottom: 1px solid #e74c3c !important;
 }
 
+.nav-link {
+  cursor: pointer;
+}
+
 .meal {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.4);
