@@ -34,7 +34,7 @@ import {AppComponent} from "./app.component";
       }
     ])
   ],
-  declarations: [CoreComponent, CaloriesComponent, FoodComponent, DayComponent, MealComponent, FoodSearchComponent, Typeahead, FoodListComponent],
+  declarations: [AppComponent, CoreComponent, CaloriesComponent, FoodComponent, DayComponent, MealComponent, FoodSearchComponent, Typeahead, FoodListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
