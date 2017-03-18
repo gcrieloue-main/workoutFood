@@ -8,6 +8,7 @@ import {MealComponent} from "./meal/meal.component";
 import {FoodSearchComponent} from "./food-search/food-search.component";
 import {Typeahead} from "./ng2-typeahead/ng2-typeahead";
 import {DayComponent} from "./day/day.component";
+import {FoodListComponent} from './food-list/food-list.component'
 import { RouterModule }   from '@angular/router';
 
 
