@@ -143,4 +143,17 @@ export class DataService {
     console.info("select day");
     this.selectedDay = day;
   }
+
+  getCustomFoods(){
+    let customFoods = JSON.parse(localStorage.getItem('customFoods'));
+    if (customFoods != null) {
+      console.info("retrieve customFoods : ", JSON.stringify(customFoods));
+      return customFoods;
+    }
+    return [];
+  }
+
+  setCustomFoods(customFoods:Food[]){
+    localStorage.setItem('customFoods', JSON.stringify(customFoods));
+  }
 }

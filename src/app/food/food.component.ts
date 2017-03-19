@@ -1,6 +1,6 @@
 import {Component, Output, EventEmitter} from "@angular/core";
 import {Food} from "../shared/food";
-import {FoodService} from "./food.service";
+import {FoodService} from "../shared/food.service";
 import {MealFood} from "../shared/mealFood";
 
 @Component({

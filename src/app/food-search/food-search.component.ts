@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
-import {FoodService} from "../food/food.service";
+import {FoodService} from "../shared/food.service";
 import {Food} from "../shared/food";
+import {DataService} from "../shared/data.service";
 
 @Component({
   moduleId: module.id,
@@ -25,12 +26,12 @@ export class FoodSearchComponent {
 
   @Input() weight:number;
 
-  constructor(private foodService:FoodService) {
+  constructor(private foodService:FoodService, private dataService:DataService) {
 
   }
 
   ngOnInit():void {
-    this.foods = this.foodService.getFoods();
+    this.foods = this.foodService.getFoods().concat(this.dataService.getCustomFoods());
   }
 
   public foodSelected(food:Food) {
