@@ -32,7 +32,11 @@ export class FoodListComponent {
       this.dataService.setCustomFoods(this.customFoods);
       this.customFood = {};
     }
+  }
 
+  removeFood(food:Food) {
+    this.customFoods.splice(this.customFoods.indexOf(food), 1);
+    this.dataService.setCustomFoods(this.customFoods);
   }
 
 }

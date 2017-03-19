@@ -15,6 +15,7 @@
             <th>Protéines</th>
             <th>Glucides</th>
             <th>Lipides</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
@@ -24,6 +25,11 @@
             <td>{{food.proteins}}</td>
             <td>{{food.carbohydrates}}</td>
             <td>{{food.fats}}</td>
+            <td>
+              <button type="button" (click)="removeFood(food)" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </td>
           </tr>
           <tr>
             <td>
