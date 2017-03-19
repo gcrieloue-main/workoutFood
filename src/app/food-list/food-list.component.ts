@@ -19,7 +19,7 @@ export class FoodListComponent {
 
   constructor(private foodService:FoodService, private dataService:DataService) {
     this.foods = foodService.getFoods();
-    this.customFoods = foodService.getCustomFoods();
+    this.customFoods = dataService.getCustomFoods();
   }
 
   addCustomFood() {
