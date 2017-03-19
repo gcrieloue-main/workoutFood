@@ -18,4 +18,8 @@ export class FoodListComponent {
     this.foods = foodService.getFoods();
   }
 
+  addCustomFood() {
+    this.customFoods.push(customFood);
+  }
+
 }
