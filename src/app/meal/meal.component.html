@@ -1,4 +1,4 @@
-<div class="card meal mb-2" (click)="onSelectMeal()" [class.card-outline-primary]="isSelected">
+<div class="card meal mb-2" (click)="onSelectMeal()" [class.meal-selected]="isSelected">
   <div class="card-top align-middle" [style.background-image]="'url(assets/img/meal-pic0'+(((num+1)%6)+1)+'.png)'">Repas
     {{num+1}}
   </div>
