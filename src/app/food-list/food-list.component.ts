@@ -14,6 +14,8 @@ export class FoodListComponent {
   customFoods:Food[] = [];
   customFood:Food = {};
 
+  @ViewChild('customFoodForm') customFoodForm;
+
   constructor(private foodService:FoodService) {
     this.foods = foodService.getFoods();
   }
