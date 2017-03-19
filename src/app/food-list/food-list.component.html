@@ -26,10 +26,10 @@
         </tr>
         <tr>
           <td>
-            <input class="form-control" [(ngModel)]="customFood.name" name="age">
+            <input class="form-control" [(ngModel)]="customFood.name" name="name">
           </td>
           <td>
-            <input class="form-control" type="number" [(ngModel)]="customFood.name" name="name">
+            <input class="form-control" type="number" [(ngModel)]="customFood.calories" name="calories">
           </td>
           <td>
             <input class="form-control" type="number" [(ngModel)]="customFood.proteins" name="proteins">
@@ -43,7 +43,7 @@
         </tr>
         </tbody>
       </table>
-      <button type="button" (click)="addCustomFood()">Ajouter</button>
+      <button type="button" class="btn" (click)="addCustomFood()">Ajouter</button>
     </div>
   </div>
 
