@@ -24,7 +24,8 @@ export class FoodListComponent {
     if (this.customFoodForm.valid) {
       if (!(this.customFood.calories > 0)) this.customFood.calories = 0;
       if (!(this.customFood.fats > 0)) this.customFood.fats = 0;
-      if (!(this.customFood.carbohydrates > 0)) this.customFood.calories = 0;
+      if (!(this.customFood.carbohydrates > 0)) this.customFood.carbohydrates = 0;
+      if (!(this.customFood.proteins > 0)) this.customFood.proteins = 0;
       this.customFoods.push(this.customFood);
       this.customFood = {};
     }
