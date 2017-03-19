@@ -6,7 +6,7 @@ import {DataService} from "../shared/data.service";
   moduleId: module.id,
   selector: 'food-list-selector',
   templateUrl: './food-list.component.html',
-  providers: [FoodService]
+  providers: [FoodService, DataService]
 })
 export class FoodListComponent {
 
