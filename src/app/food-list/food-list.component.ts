@@ -19,8 +19,11 @@ export class FoodListComponent {
   }
 
   addCustomFood() {
-    this.customFoods.push(this.customFood);
-    this.customFood = {};
+    if (this.customFoodForm.valid) {
+      this.customFoods.push(this.customFood);
+      this.customFood = {};
+    }
+
   }
 
 }
