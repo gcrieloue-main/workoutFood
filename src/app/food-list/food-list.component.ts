@@ -11,7 +11,8 @@ export class FoodListComponent {
 
   foods:Food[];
 
-  customFood:Food;
+  customFoods:Food[] = [];
+  customFood:Food = {};
 
   constructor(private foodService:FoodService) {
     this.foods = foodService.getFoods();
