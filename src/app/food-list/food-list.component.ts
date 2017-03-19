@@ -19,7 +19,8 @@ export class FoodListComponent {
   }
 
   addCustomFood() {
-    this.customFoods.push(customFood);
+    this.customFoods.push(this.customFood);
+    this.customFood = {};
   }
 
 }
