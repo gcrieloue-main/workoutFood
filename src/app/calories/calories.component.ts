@@ -2,6 +2,7 @@ import {Component, Input} from "@angular/core";
 import {DataService} from "../shared/data.service";
 
 export class Profile {
+  gender:string;
   size:number;
   weight:number;
   age:number;
@@ -16,6 +17,7 @@ export class Profile {
 export class CaloriesComponent {
 
   profile:Profile = {
+    gender: 'male',
     size: undefined,
     weight: undefined,
     age: undefined,
