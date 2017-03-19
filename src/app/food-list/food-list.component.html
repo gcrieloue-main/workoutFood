@@ -1,4 +1,51 @@
 <div class="container">
+
+  <div class="card mt-3">
+    <div class="card-header">
+      Vos aliments personalisés
+    </div>
+    <div class="card-block">
+      <p>En plus de la liste d'aliment pré-définie, vous pouvez ajouter les votres :</p>
+      <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Calories</th>
+          <th>Protéines</th>
+          <th>Glucides</th>
+          <th>Lipides</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let food of foods">
+          <td>{{food.name}}</td>
+          <td>{{food.calories}}</td>
+          <td>{{food.proteins}}</td>
+          <td>{{food.carbohydrates}}</td>
+          <td>{{food.fats}}</td>
+        </tr>
+        <tr>
+          <td>
+            <input class="form-control" [(ngModel)]="customFood.name" name="age">
+          </td>
+          <td>
+            <input class="form-control" type="number" [(ngModel)]="customFood.name" name="name">
+          </td>
+          <td>
+            <input class="form-control" type="number" [(ngModel)]="customFood.proteins" name="proteins">
+          </td>
+          <td>
+            <input class="form-control" type="number" [(ngModel)]="customFood.carbohydrates" name="carbohydrates">
+          </td>
+          <td>
+            <input class="form-control" type="number" [(ngModel)]="customFood.fats" name="fats">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="card mt-3">
     <div class="card-header">
       Liste des aliments
