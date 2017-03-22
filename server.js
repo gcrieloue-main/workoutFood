@@ -5,7 +5,7 @@ var port = 3000;
 var rootPath = path.normalize(__dirname);
 var appPath = rootPath + "/src";
 
-app.use(express.static(appPath);
+app.use(express.static(appPath));
 app.use('/node_modules', express.static(rootPath + '/node_modules'));
 
 app.get('/', function (req, res) {
