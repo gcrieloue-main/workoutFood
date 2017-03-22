@@ -10,7 +10,7 @@ app.use('/node_modules', express.static(rootPath + '/node_modules'));
 
 app.get('/', function (req, res) {
   console.log("access to /");
-  res.sendFile(rootPath + '/index.html');
+  res.sendFile(rootPath + '/src/index.html');
 });
 
 var port = 3000;
