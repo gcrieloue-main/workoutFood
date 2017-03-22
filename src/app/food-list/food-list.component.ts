@@ -14,7 +14,7 @@ export class FoodListComponent {
   foods:Food[];
 
   customFoods:Food[] = [];
-  customFood:Food = {};
+  customFood:Food = null;
 
   @ViewChild('customFoodForm') customFoodForm:any;
 
