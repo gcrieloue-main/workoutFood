@@ -1,6 +1,4 @@
 var express = require('express');
-var mysql = require('mysql');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var path = require('path');
 
