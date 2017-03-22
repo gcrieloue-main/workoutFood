@@ -31,7 +31,7 @@ export class FoodListComponent {
       if (!(this.customFood.proteins > 0)) this.customFood.proteins = 0;
       this.customFoods.push(this.customFood);
       this.dataService.setCustomFoods(this.customFoods);
-      this.customFood = {};
+      this.customFood = null;
     }
   }
 
