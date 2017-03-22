@@ -1,8 +1,7 @@
 var express = require('express');
 var path = require('path');
-
 var app = express();
-
+var port = 3000;
 var rootPath = path.normalize(__dirname);
 var appPath = rootPath + "/src";
 
@@ -14,11 +13,10 @@ app.get('/', function (req, res) {
   res.sendFile(appPath + '/index.html');
 });
 
-var port = 3000;
-var server = app.listen(port, function () {
-  console.log("run server on port :" + port);
-  console.log("routPath: " + rootPath);
-  console.log("appPath: " + appPath);
-});
+var server = app.listen(port);
+
+console.log("run server on port :" + port);
+console.log("routPath: " + rootPath);
+console.log("appPath: " + appPath);
 
 module.exports = app;
