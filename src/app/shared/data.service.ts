@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
 import {MealFood} from "./mealFood";
 import {Day} from "./day";
+import {Food} from "./food";
 import {Meal} from "../meal/meal";
 import {Profile} from "../calories/calories.component";
 

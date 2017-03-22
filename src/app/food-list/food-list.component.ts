@@ -1,6 +1,7 @@
 import {Component, Output, EventEmitter, ViewChild} from "@angular/core";
 import {FoodService} from "../shared/food.service";
 import {DataService} from "../shared/data.service";
+import {Food} from "../shared/food";
 
 @Component({
   moduleId: module.id,
@@ -15,7 +16,7 @@ export class FoodListComponent {
   customFoods:Food[] = [];
   customFood:Food = {};
 
-  @ViewChild('customFoodForm') customFoodForm;
+  @ViewChild('customFoodForm') customFoodForm:any;
 
   constructor(private foodService:FoodService, private dataService:DataService) {
     this.foods = foodService.getFoods();
