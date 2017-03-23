@@ -49,25 +49,49 @@ export class CaloriesComponent {
     console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
       var factor1:number, factor2:number, factor3:number;
-      if (this.profile.age <= 18) {
-        factor1 = 15.6;
-        factor2 = 266;
-        factor3 = 299;
+      if (this.profile.gender == 'male') {
+        if (this.profile.age <= 18) {
+          factor1 = 15.6;
+          factor2 = 266;
+          factor3 = 299;
+        }
+        else if (this.profile.age <= 30) {
+          factor1 = 14.4;
+          factor2 = 313;
+          factor3 = 113;
+        }
+        else if (this.profile.age <= 60) {
+          factor1 = 11.4;
+          factor2 = 541;
+          factor3 = -137;
+        }
+        else if (this.profile.age > 60) {
+          factor1 = 11.4;
+          factor2 = 541;
+          factor3 = -256;
+        }
       }
-      else if (this.profile.age <= 30) {
-        factor1 = 14.4;
-        factor2 = 313;
-        factor3 = 113;
-      }
-      else if (this.profile.age <= 60) {
-        factor1 = 11.4;
-        factor2 = 541;
-        factor3 = 137;
-      }
-      else if (this.profile.age > 60) {
-        factor1 = 11.4;
-        factor2 = 541;
-        factor3 = 256;
+      else{
+        if (this.profile.age <= 18) {
+          factor1 = 9.40;
+          factor2 = 249;
+          factor3 = 462;
+        }
+        else if (this.profile.age <= 30) {
+          factor1 = 10.4;
+          factor2 = 615;
+          factor3 = -282;
+        }
+        else if (this.profile.age <= 60) {
+          factor1 = 8.18;
+          factor2 = 502;
+          factor3 = -11.6;
+        }
+        else if (this.profile.age > 60) {
+          factor1 = 8.52;
+          factor2 = 421;
+          factor3 = 10.7;
+        }
       }
       var metabolicRate = Math.ceil(factor1 * this.profile.weight + factor2 * this.profile.size / 100 + factor3);
       console.debug("metabolic rate : " + metabolicRate);
