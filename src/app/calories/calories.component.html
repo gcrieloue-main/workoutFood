@@ -1,8 +1,6 @@
 <div *ngIf="!compute">
   <p>Indiquez votre base calorique. Il s'agit du nombre de calories nécessaire pour que vous conserviez un poids stable.<br/>
-    Si vous ne la connaissez pas, vous pouvez la calculer simplement&nbsp;: (<a
-      href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1368980005001394">équations
-      développées par l'université d'Oxford <i class="fa fa-external-link" aria-hidden="true"></i>)</a></p>
+    Si vous ne la connaissez pas, vous pouvez la calculer simplement&nbsp;: </p>
   <p>
     <button (click)="toggleCompute()" class="btn btn-success mb-2">Calculer</button>
   </p>
@@ -93,6 +91,9 @@
         </fieldset>
       </div>
     </div>
+    <p><em>Note : Cette méthode est conçue à partir des <a
+      href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1368980005001394">équations
+      développées par l'université d'Oxford <i class="fa fa-external-link" aria-hidden="true"></i></a></em></p>
   </div>
 </form>
 
