@@ -101,10 +101,13 @@
 </form>
 
 <div class="mt-2">
-  <label for="caloriesBase">Calories par jour :</label>
-  <div class="input-group">
-    <input type="number" [(ngModel)]="calories" class="form-control"
-           (ngModelChange)="onCaloriesChange($event)" id="caloriesBase"/>
-    <div class="input-group-addon">cal</div>
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label" for="caloriesBase">Calories par jour :</label>
+    <div class="input-group col-sm-10">
+      <input type="number" [(ngModel)]="calories" class="form-control"
+             (ngModelChange)="onCaloriesChange($event)" id="caloriesBase"/>
+      <div class="input-group-addon">cal</div>
+    </div>
   </div>
+
 </div>
