@@ -11,14 +11,14 @@ import {Food} from "../shared/food";
 })
 export class FoodListComponent {
 
-  foods:Food[];
+  foods: Food[];
 
-  customFoods:Food[] = [];
-  customFood:Food = {name:""};
+  customFoods: Food[] = [];
+  customFood: Food = new Food(undefined, undefined, undefined, undefined, undefined);
 
-  @ViewChild('customFoodForm') customFoodForm:any;
+  @ViewChild('customFoodForm') customFoodForm: any;
 
-  constructor(private foodService:FoodService, private dataService:DataService) {
+  constructor(private foodService: FoodService, private dataService: DataService) {
     this.foods = foodService.getFoods();
     this.customFoods = dataService.getCustomFoods();
   }
@@ -31,11 +31,11 @@ export class FoodListComponent {
       if (!(this.customFood.proteins > 0)) this.customFood.proteins = 0;
       this.customFoods.push(this.customFood);
       this.dataService.setCustomFoods(this.customFoods);
-      this.customFood = {name:""};
+      this.customFood = new Food(undefined, undefined, undefined, undefined, undefined);
     }
   }
 
-  removeFood(food:Food) {
+  removeFood(food: Food) {
     this.customFoods.splice(this.customFoods.indexOf(food), 1);
     this.dataService.setCustomFoods(this.customFoods);
   }
