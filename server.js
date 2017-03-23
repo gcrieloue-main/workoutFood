@@ -1,15 +1,14 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var port = 3000;
+var port = 8080;
 var rootPath = path.normalize(__dirname);
 var appPath = rootPath + "/src";
 
 app.use(express.static(appPath));
 app.use('/node_modules', express.static(rootPath + '/node_modules'));
 
-app.get('/', function (req, res) {
-  console.log("access to /");
+app.get('/*', function (req, res) {
   res.sendFile(appPath + '/index.html');
 });
 
