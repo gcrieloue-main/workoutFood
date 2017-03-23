@@ -5,6 +5,6 @@ import { AppModule } from './app/app.module';
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
-if (!/www\.workout-food\.com/.test(document.location.host)) {
+if (/www\.workout-food\.com/.test(document.location.host)) {
   enableProdMode();
 }
