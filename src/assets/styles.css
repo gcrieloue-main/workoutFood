@@ -1,3 +1,7 @@
+body{
+  background-image: url(img/ep_naturalwhite.png);
+}
+
 header {
   padding: 0.5em 0;
   background-image: url(img/classy_fabric.png);
