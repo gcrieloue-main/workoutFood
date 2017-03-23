@@ -1,8 +1,6 @@
 <div *ngIf="!compute">
   <p>Indiquez votre base calorique. Il s'agit du nombre de calories nécessaire pour que vous conserviez un poids stable.<br/>
-    Si vous ne la connaissez pas, vous pouvez la calculer simplement&nbsp;: </p>
-  <p>
-    <button (click)="toggleCompute()" class="btn btn-success mb-2">Calculer</button>
+    Si vous ne la connaissez pas, vous pouvez la calculer simplement&nbsp;: <button (click)="toggleCompute()" class="btn btn-success mb-2 btn-sm">Calculer</button>
   </p>
 </div>
 
@@ -102,8 +100,8 @@
 
 <div class="mt-2">
   <div class="form-group row">
-    <label  class="col-sm-2 col-form-label" for="caloriesBase">Calories par jour :</label>
-    <div class="input-group col-sm-10">
+    <label class="col-12 col-md-2 col-form-label" for="caloriesBase">Base calorique&nbsp;:</label>
+    <div class="input-group col-12 col-md-10">
       <input type="number" [(ngModel)]="calories" class="form-control"
              (ngModelChange)="onCaloriesChange($event)" id="caloriesBase"/>
       <div class="input-group-addon">cal</div>
