@@ -446,7 +446,7 @@ export const FOODS:Food[] = [
   {name: 'Semoule de maïs', calories: 365, proteins: 8.8, carbohydrates: 78, fats: 1, ig: 0},
   {name: 'Soja (grain sec)', calories: 422, proteins: 35, carbohydrates: 30, fats: 18, ig: 0},
   {name: 'Sole', calories: 75, proteins: 16.5, carbohydrates: 0, fats: 1, ig: 0},
-  {name: 'Soupe à l\'oignon', calories: 64, proteins: 3.7, carbohydrates: 8, fats: 1.8},
+  {name: 'Soupe à l\'oignon', calories: 64, proteins: 3.7, carbohydrates: 8, fats: 1.8, ig: 0},
   {name: 'Soupe au poulet', calories: 180, proteins: 12.7, carbohydrates: 17.3, fats: 6.6, ig: 0},
   {name: 'Soupe aux champignons', calories: 127, proteins: 2.3, carbohydrates: 9.4, fats: 8.9, ig: 0},
   {name: 'Soupe legumes', calories: 123, proteins: 3.5, carbohydrates: 19, fats: 3.7, ig: 0},
