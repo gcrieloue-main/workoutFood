@@ -14,7 +14,7 @@ export class FoodListComponent {
   foods: Food[];
 
   customFoods: Food[] = [];
-  customFood: Food = new Food(undefined, undefined, undefined, undefined, undefined);
+  customFood: Food = new Food(undefined, undefined, undefined, undefined, undefined, undefined);
 
   @ViewChild('customFoodForm') customFoodForm: any;
 
@@ -31,7 +31,7 @@ export class FoodListComponent {
       if (!(this.customFood.proteins > 0)) this.customFood.proteins = 0;
       this.customFoods.push(this.customFood);
       this.dataService.setCustomFoods(this.customFoods);
-      this.customFood = new Food(undefined, undefined, undefined, undefined, undefined);
+      this.customFood = new Food(undefined, undefined, undefined, undefined, undefined, undefined);
     }
   }
 
