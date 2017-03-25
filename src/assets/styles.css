@@ -1,4 +1,11 @@
-body{
+@font-face {
+  font-family: 'BuffaloScript-Regular';
+  src: url('fonts/BuffaloScript-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
   background-image: url(img/cheap_diagonal_fabric.png);
 }
 
@@ -6,6 +13,10 @@ header {
   padding: 0.5em 0;
   background-image: url(img/classy_fabric.png);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-family: 'BuffaloScript-Regular';
 }
 
 header h1, header p {
