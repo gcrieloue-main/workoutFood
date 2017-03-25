@@ -361,7 +361,7 @@ export const FOODS:Food[] = [
   {name: 'Pain au raisin', calories: 262, proteins: 6.5, carbohydrates: 52, fats: 3, ig: 0},
   {name: 'Pain blanc', calories: 255, proteins: 7, carbohydrates: 55, fats: 0.8, ig: 0},
   {name: 'Pain complet', calories: 240, proteins: 8, carbohydrates: 50, fats: 0.8, ig: 0},
-  {name: 'Pain de seigle', calories: 241, proteins: 7, carbohydrates: 51, fats: 1},
+  {name: 'Pain de seigle', calories: 241, proteins: 7, carbohydrates: 51, fats: 1, ig: 0},
   {name: 'Pain d\'épice', calories: 385, proteins: 5, carbohydrates: 72, fats: 5, ig: 0},
   {name: 'Pain grille', calories: 355, proteins: 13, carbohydrates: 72.9, fats: 6.5, ig: 0},
   {name: 'Pamplemousse', calories: 40, proteins: 0.6, carbohydrates: 9, fats: 0, ig: 0},
