@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'BuffaloScript-Regular';
-  src: url('fonts/BuffaloScript-Regular.otf') format('truetype');
+  font-family: 'Bernier-Regular';
+  src: url('fonts/Bernier-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@ header {
 }
 
 header h1 {
-  font-family: 'BuffaloScript-Regular';
+  font-family: 'Bernier-Regular';
 }
 
 header h1, header p {
