@@ -60,7 +60,7 @@ export class Typeahead implements OnInit, ControlValueAccessor {
   /**
    * Handle to the input element.
    */
-  @ViewChild('inputElement') private inputElement:any;
+  @ViewChild('inputElement') inputElement:any;
 
   /**
    * The input element's value.
