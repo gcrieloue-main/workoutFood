@@ -6,7 +6,6 @@ import {Meal} from "./meal";
 
 
 @Component({
-  moduleId: module.id,
   selector: 'meal',
   templateUrl: './meal.component.html'
 })
