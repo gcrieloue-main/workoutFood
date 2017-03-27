@@ -65,12 +65,12 @@ export class Typeahead implements OnInit, ControlValueAccessor {
   /**
    * The input element's value.
    */
-  private input:string;
+  input:string;
 
   /**
    * The typeahead element's value. This element is displayed behind the input element.
    */
-  private typeahead:string;
+  typeahead:string;
 
   /**
    * The previously entered input string.
@@ -80,12 +80,12 @@ export class Typeahead implements OnInit, ControlValueAccessor {
   /**
    * The filtered list of suggestions.
    */
-  private suggestions:any[] = [];
+  suggestions:any[] = [];
 
   /**
    * Indicates whether the suggestions are visible.
    */
-  private areSuggestionsVisible:boolean = false;
+  areSuggestionsVisible:boolean = false;
 
   /**
    * The currently selected suggestion.
@@ -100,9 +100,9 @@ export class Typeahead implements OnInit, ControlValueAccessor {
   /**
    * Indicates whether the control is disabled.
    */
-  private isDisabled:boolean = false;
+  isDisabled:boolean = false;
 
-  private Math : any;
+  private Math:any;
 
   /**
    * Creates and initializes a new typeahead component.
