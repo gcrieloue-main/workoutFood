@@ -4,7 +4,6 @@ import {DataService} from "../shared/data.service";
 import {Day} from "../shared/day";
 
 @Component({
-  moduleId: module.id,
   selector: 'workout-food',
   templateUrl: './core.component.html',
   providers: [DataService]

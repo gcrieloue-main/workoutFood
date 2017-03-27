@@ -4,7 +4,6 @@ import {FoodService} from "../shared/food.service";
 import {MealFood} from "../shared/mealFood";
 
 @Component({
-  moduleId: module.id,
   selector: 'food-selector',
   templateUrl: './food.component.html',
   providers: [FoodService]

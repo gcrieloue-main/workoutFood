@@ -4,7 +4,6 @@ import {DataService} from "../shared/data.service";
 import {Food} from "../shared/food";
 
 @Component({
-  moduleId: module.id,
   selector: 'food-list-selector',
   templateUrl: './food-list.component.html',
   providers: [FoodService, DataService]
