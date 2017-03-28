@@ -26,27 +26,28 @@ header h1, header p {
 
 header a {
   color: white;
+  text-align: center;
 }
 
-header a:hover {
+header a:hover, header a:active, header a:visited {
   color: white;
   text-decoration: none;
 }
 
 header nav {
   display: flex;
-  align-items:stretch;
+  align-items: stretch;
 }
 
 header nav ul {
   display: flex;
-  align-items:stretch;
+  align-items: stretch;
   margin: 0;
   padding: 0;
 }
 
 header nav ul li {
-  display: flex!important;
+  display: flex !important;
   align-items: center;
   margin: 0 0 0 1em;
   padding: 0;
