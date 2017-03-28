@@ -1,10 +1,10 @@
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {enableProdMode} from "@angular/core";
-import {AppModule} from "./app/app.module";
+import {AppModuleNgFactory} from "../aot/src/app/app.module.ngfactory";
 
 if (/www\.workout-food\.com/.test(document.location.host)) {
   enableProdMode();
 }
 
-console.log('Running JIT')
-platformBrowserDynamic().bootstrapModule(AppModule);
+console.log('Running AOT compiled');
+platformBrowserDynamic().bootstrapModuleFactory(AppModuleNgFactory);
