@@ -6,7 +6,8 @@ import uglify      from 'rollup-plugin-uglify'
 export default {
   entry: 'src/main-aot.js',
   dest: 'aot/dist/build.js', // output a single application bundle
-  sourceMap: false,
+  sourceMap: true,
+  sourceMapFile: 'aot/dist/build.js.map',
   format: 'iife',
   onwarn: function (warning) {
     // Skip certain warnings

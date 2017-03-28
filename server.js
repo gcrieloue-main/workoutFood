@@ -3,19 +3,19 @@ var path = require('path');
 var app = express();
 var port = 8080;
 var rootPath = path.normalize(__dirname);
-var appPath = rootPath + "/src";
+var appPath = rootPath + "/aot";
 
 app.use(express.static(appPath));
-app.use('/node_modules', express.static(rootPath + '/node_modules'));
-
+app.use('/fonts', express.static(rootPath + '/src/assets/fonts'));
+app.use('/img', express.static(rootPath + '/src/assets/img'));
 app.get('/*', function (req, res) {
   res.sendFile(appPath + '/index.html');
 });
 
 var server = app.listen(port);
 
-console.log("run server on port :" + port);
-console.log("routPath: " + rootPath);
+console.log("run server on port: " + port);
+console.log("rootPath: " + rootPath);
 console.log("appPath: " + appPath);
 
 module.exports = app;
