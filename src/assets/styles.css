@@ -24,6 +24,10 @@ header h1, header p {
   margin: 0;
 }
 
+header a {
+  color: white;
+}
+
 header nav ul {
   margin: 0;
   padding: 0;
