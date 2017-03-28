@@ -3,7 +3,8 @@
     {{num+1}}
   </div>
   <div class="card-block">
-    <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"></i>
+    <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"
+       data-toggle="tooltip" data-placement="bottom" title="Supprimer ce repas"></i>
     <p *ngIf="meal.mealFoods.length == 0">
       <span *ngIf="isSelected">Ajoutez des aliments.</span>
       <span *ngIf="!isSelected">Cliquez sur ce menu pour y ajouter des aliments.</span>
