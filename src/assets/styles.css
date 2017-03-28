@@ -29,11 +29,15 @@ header a {
 }
 
 header nav ul {
+  display: flex;
+  align-items:stretch;
   margin: 0;
   padding: 0;
 }
 
 header nav ul li {
+  display: flex;
+  align-items: center;
   margin: 0 0 0 1em;
   padding: 0;
   display: inline;
