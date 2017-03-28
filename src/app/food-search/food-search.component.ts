@@ -4,6 +4,7 @@ import {Food} from "../shared/food";
 import {DataService} from "../shared/data.service";
 
 @Component({
+  moduleId: module.id,
   selector: 'food-search',
   templateUrl: './food-search.component.html',
   styles: [`

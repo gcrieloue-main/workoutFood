@@ -10,6 +10,7 @@ export class Profile {
 }
 
 @Component({
+  moduleId: module.id,
   selector: 'calories-selector',
   templateUrl: './calories.component.html'
 })
