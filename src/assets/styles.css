@@ -28,6 +28,11 @@ header a {
   color: white;
 }
 
+header a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 header nav {
   display: flex;
   align-items:stretch;
