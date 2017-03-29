@@ -23,44 +23,8 @@ export class DataService {
   mealChanged$ = this.mealSource.asObservable();
   mealSelected$ = this.mealSelectedSource.asObservable();
 
-  loadDays():Day[] {
-    console.info("load menu from local storage");
-    let days:Day[] = JSON.parse(localStorage.getItem('menu'));
-    if (days != null) {
-      this.days = days;
-      console.debug(this.days.length + " days loaded");
-    }
-    else {
-      this.days = [this.newDay()]
-    }
-    return this.days;
-  }
-
-  getDays():Day[] {
-    return this.days;
-  }
-
-  addMealFood(mealFood:MealFood) {
-    if (this.selectedMeal != null && this.selectedMeal !== undefined) {
-      console.info("add meal food ", JSON.stringify(mealFood));
-      this.selectedMeal.mealFoods.push(mealFood);
-      this.mealSource.next(this.selectedMeal);
-      this.saveMenu();
-    }
-  }
-
   saveMenu() {
     localStorage.setItem('menu', JSON.stringify(this.days));
-  }
-
-  newDay():Day {
-    console.info("new day");
-    var meal:Meal = {mealFoods: []};
-    var day:Day = {meals: [meal]};
-    this.days.push(day);
-    console.log(this.days.length + " days in total");
-    this.saveMenu();
-    return day;
   }
 
   newMeal(day:Day):Meal {
@@ -96,6 +60,15 @@ export class DataService {
     this.saveMenu();
   }
 
+  addMealFood(mealFood:MealFood) {
+    if (this.selectedMeal != null && this.selectedMeal !== undefined) {
+      console.info("add meal food ", JSON.stringify(mealFood));
+      this.selectedMeal.mealFoods.push(mealFood);
+      this.mealSource.next(this.selectedMeal);
+      this.saveMenu();
+    }
+  }
+
   removeMealFood(meal:Meal, mealFood:MealFood) {
     console.info("remove meal food ", JSON.stringify(mealFood));
     meal.mealFoods.splice(meal.mealFoods.indexOf(mealFood), 1);
@@ -103,10 +76,47 @@ export class DataService {
     this.saveMenu();
   }
 
+  loadDays():Day[] {
+    console.info("load menu from local storage");
+    let days:Day[] = JSON.parse(localStorage.getItem('menu'));
+    if (days != null) {
+      this.days = days;
+      console.debug(this.days.length + " days loaded");
+    }
+    else {
+      this.days = [this.newDay()]
+    }
+    return this.days;
+  }
+
+  getDays():Day[] {
+    return this.days;
+  }
+
+  newDay():Day {
+    console.info("new day");
+    var meal:Meal = {mealFoods: []};
+    var day:Day = {meals: [meal]};
+    this.days.push(day);
+    console.log(this.days.length + " days in total");
+    this.saveMenu();
+    return day;
+  }
+
   removeDay(day:Day) {
     console.info("remove day " + (this.days.indexOf(day) + 1));
     this.days.splice(this.days.indexOf(day), 1);
     this.saveMenu();
+  }
+
+  setSelectedDay(day:Day) {
+    console.info("select day");
+    this.selectedDay = day;
+    this.dayChanged$.next(day);
+  }
+
+  getSelectedDay():Day {
+    return this.selectedDay;
   }
 
   setCaloriesBase(calories:number) {
@@ -142,16 +152,6 @@ export class DataService {
 
   getSelectedMeal():Meal {
     return this.selectedMeal;
-  }
-
-  setSelectedDay(day:Day) {
-    console.info("select day");
-    this.dayChanged$.newDay(day);
-    this.selectedDay = day;
-  }
-
-  getSelectedDay():Day {
-    return this.selectedDay;
   }
 
   getCustomFoods() {

@@ -62,11 +62,16 @@ export class SummaryComponent {
 
   // events
   public chartClicked(e:any):void {
-    console.log(e);
   }
 
   public chartHovered(e:any):void {
-    console.log(e);
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+    this.subscriptionCalories.unsubscribe();
+    this.subscriptionDay.unsubscribe();
   }
 
 }
