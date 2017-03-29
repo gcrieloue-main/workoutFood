@@ -34,31 +34,21 @@ export class SummaryComponent {
 
     var proteins:number = 0;
     var glucids:number = 0;
-    var lipids:number = 0;
+    var carbohydrates:number = 0;
     var fats:number = 0;
     var days = this.dataService.getDays();
-    console.log("days: " + JSON.stringify(days));
     for (let day:Day of days) {
-      console.log("day: " + JSON.stringify(day));
       for (let meal:Meal of day.meals) {
-        console.log("meal: " + JSON.stringify(meal));
         for (let food:MealFood of meal.mealFoods) {
-          console.log("food: " + JSON.stringify(food));
-
           proteins += food.weight * food.food.proteins;
-          glucids += food.weight * food.food.proteins;
-          lipids += food.weight * food.food.proteins;
-          fats += food.weight * food.food.proteins;
+          glucids += food.weight * food.food.glucids;
+          carbohydrates += food.weight * food.food.carbohydrates;
+          fats += food.weight * food.food.fats;
         }
       }
     }
 
-    console.log("proteins: " + proteins +
-      ", glucids:" + glucids +
-      ", lipids:" + lipids +
-      ", fats:" + fats
-    );
-    this.doughnutChartData = [proteins, glucids, lipids, fats];
+    this.doughnutChartData = [proteins, glucids, carbohydrates, fats];
   }
 
   // Doughnut
