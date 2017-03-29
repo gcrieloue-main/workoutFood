@@ -13,6 +13,7 @@ import {MealFood} from "../shared/mealFood";
 export class SummaryComponent {
   subscription:Subscription;
   subscriptionCalories:Subscription;
+  subscriptionDay:Subscription;
 
   constructor(private dataService:DataService) {
     this.subscription = this.dataService.mealChanged$.subscribe(
@@ -22,6 +23,10 @@ export class SummaryComponent {
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       (calories:number) => {
         this.compute();
+      });
+    this.subscriptionDay = this.dataService.dayChanged$.subscribe(
+      (day:Day)=> {
+        this.compute()
       });
   }
 
@@ -47,7 +52,7 @@ export class SummaryComponent {
       }
     }
 
-    this.doughnutChartData = [proteins, glucids, carbohydrates, fats];
+    this.doughnutChartData = [proteins, carbohydrates, fats];
   }
 
   // Doughnut
