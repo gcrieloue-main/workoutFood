@@ -112,7 +112,7 @@ export class DataService {
   setSelectedDay(day:Day) {
     console.info("select day");
     this.selectedDay = day;
-    this.dayChanged$.next(day);
+    this.daySource.next(day);
   }
 
   getSelectedDay():Day {
