@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, ViewChildren} from "@angular/core";
 import {DataService} from "../shared/data.service";
-import {Meal} from '../meal/meal';
-import {Subscription} from 'rxjs/Subscription';
+import {Meal} from "../meal/meal";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   moduleId: module.id,
@@ -9,20 +9,34 @@ import {Subscription} from 'rxjs/Subscription';
   templateUrl: './summary.component.html'
 })
 export class SummaryComponent {
-subscription: Subscription;
+  subscription: Subscription;
   subscriptionCalories: Subscription;
-    subscriptionMealSelect: Subscription;
+  subscriptionMealSelect: Subscription;
 
 
-  constructor(private dataService:DataService) {
+  constructor(private dataService: DataService) {
     this.subscription = this.dataService.mealChanged$.subscribe(
-      (meal:Meal) => {
+      (meal: Meal) => {
 
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
-      (calories:number) => {
+      (calories: number) => {
 
       });
+  }
+
+  // Doughnut
+  public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData:number[] = [350, 450, 100];
+  public doughnutChartType:string = 'doughnut';
+
+  // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
   }
 
 }
