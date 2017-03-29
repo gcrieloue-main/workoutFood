@@ -38,11 +38,11 @@ export class SummaryComponent {
     var fats:number = 0;
     var days = this.dataService.getDays();
     console.log("days: " + JSON.stringify(days));
-    for (let day:Day in days) {
+    for (let day:Day of days) {
       console.log("day: " + JSON.stringify(day));
-      for (let meal:Meal in day.meals) {
+      for (let meal:Meal of day.meals) {
         console.log("meal: " + JSON.stringify(meal));
-        for (let food:MealFood in meal.mealFoods) {
+        for (let food:MealFood of meal.mealFoods) {
           console.log("food: " + JSON.stringify(food));
 
           proteins += food.weight * food.food.proteins;
