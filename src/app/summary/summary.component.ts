@@ -37,7 +37,7 @@ export class SummaryComponent {
     var lipids:number = 0;
     var fats:number = 0;
     var days = this.dataService.getDays();
-    console.log(json.stringify());
+    console.log(JSON.stringify(days));
     for (let day:Day in days) {
       for (let meal:Meal in day) {
         for (let food:MealFood in meal.mealFoods) {
