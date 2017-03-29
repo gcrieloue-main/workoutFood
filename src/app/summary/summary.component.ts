@@ -41,7 +41,6 @@ export class SummaryComponent {
       for (let meal:Meal of day.meals) {
         for (let food:MealFood of meal.mealFoods) {
           proteins += food.weight * food.food.proteins;
-          glucids += food.weight * food.food.glucids;
           carbohydrates += food.weight * food.food.carbohydrates;
           fats += food.weight * food.food.fats;
         }
@@ -52,8 +51,8 @@ export class SummaryComponent {
   }
 
   // Doughnut
-  public doughnutChartLabels:string[] = ['Proteins', 'Glucids', 'Lipids', 'Fats'];
-  public doughnutChartData:number[] = [350, 450, 100, 100];
+  public doughnutChartLabels:string[] = ['Proteins', 'Carbohydrates', 'Fats'];
+  public doughnutChartData:number[] = [0, 0, 0];
   public doughnutChartType:string = 'doughnut';
 
   // events
