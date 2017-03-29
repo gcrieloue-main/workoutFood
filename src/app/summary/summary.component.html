@@ -1,4 +1,8 @@
-<div class="row">
+<div *ngIf="!displaySummary">
+  Nous afficherons un bilan de la journée sélectionnée ainsi que votre semaine ici une fois que vous aurez ajouté des
+  aliments à votre menu.
+</div>
+<div class="row" *ngIf="displaySummary">
   <div class="col-12 col-md-4">
     <div style="display: block">
       <canvas baseChart

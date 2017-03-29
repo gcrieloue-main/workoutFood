@@ -15,6 +15,8 @@ export class SummaryComponent {
   subscriptionCalories:Subscription;
   subscriptionDay:Subscription;
 
+  displaySummary:boolean = false;
+
   constructor(private dataService:DataService) {
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal:Meal) => {
@@ -37,6 +39,8 @@ export class SummaryComponent {
   compute():void {
     console.log("compute summary");
 
+    this.displaySummary = false;
+
     var proteins:number = 0;
     var glucids:number = 0;
     var carbohydrates:number = 0;
@@ -48,6 +52,8 @@ export class SummaryComponent {
           proteins += food.weight * food.food.proteins;
           carbohydrates += food.weight * food.food.carbohydrates;
           fats += food.weight * food.food.fats;
+
+          this.displaySummary = true;
         }
       }
     }
