@@ -25,6 +25,10 @@ export class SummaryComponent {
       });
   }
 
+  ngOnInit() {
+    this.compute();
+  }
+
   compute():void {
     var proteins:number = 0;
     var glucids:number = 0;
