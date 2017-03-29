@@ -30,4 +30,19 @@
       <day [day]="selectedDay"></day>
     </div>
   </div>
+  <div class="card mt-3" id="card-menu">
+    <div class="card-header">
+      Bilan
+    </div>
+    <div class="card-block">
+      <div style="display: block">
+         <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
 </div>
