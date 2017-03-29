@@ -4,13 +4,15 @@
 </div>
 <div class="row" *ngIf="displaySummary">
   <div class="col-12 col-md-4">
-    <div style="display: block">
+    <figure>
       <canvas baseChart
               [data]="doughnutChartData"
               [labels]="doughnutChartLabels"
               [chartType]="doughnutChartType"
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
-    </div>
+      <figcaption>Proportions des macro-nutriments</figcaption>
+    </figure>
   </div>
+</div>
 </div>
