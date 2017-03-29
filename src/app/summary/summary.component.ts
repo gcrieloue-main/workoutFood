@@ -30,11 +30,14 @@ export class SummaryComponent {
   }
 
   compute():void {
+    console.log("compute summary");
+
     var proteins:number = 0;
     var glucids:number = 0;
     var lipids:number = 0;
     var fats:number = 0;
     var days = this.dataService.getDays();
+    console.log(json.stringify());
     for (let day:Day in days) {
       for (let meal:Meal in day) {
         for (let food:MealFood in meal.mealFoods) {
@@ -47,8 +50,8 @@ export class SummaryComponent {
     }
 
     console.log("proteins: " + proteins +
-      "glucids:" + glucids +
-      " , lipids:" + lipids +
+      ", glucids:" + glucids +
+      ", lipids:" + lipids +
       ", fats:" + fats
     );
     this.doughnutChartData = [proteins, glucids, lipids, fats];
