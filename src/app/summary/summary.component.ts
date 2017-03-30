@@ -111,9 +111,11 @@ export class SummaryComponent {
 
     if (proteinsPerDay > 0) {
       var caloriesPerCarbohydratesGram = 4;
-      var carbohydratesPerDay = this.caloriesBase - (fatsPerDay * caloriesPerFatGram) - (proteinsPerDay * caloriesPerProteinGram);
+      var fatsCalories = (fatsPerDay * caloriesPerFatGram);
+      var proteinsCalories = proteinsPerDay * caloriesPerProteinGram;
+      var carbohydratesPerDay = this.caloriesBase - fatsCalories - proteinsCalories;
       this.carbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / carbohydratesPerDay;
-      console.debug("proteinsPercentage : " + this.carbohydratesPercentage + ")");
+      console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsCalories + ", proteins calories : " + proteinsCalories + ")");
     }
   }
 
