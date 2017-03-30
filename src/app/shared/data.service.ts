@@ -38,6 +38,7 @@ export class DataService {
   }
 
   setProfile(profile:Profile) {
+    console.info("set profile : ", JSON.stringify(profile));
     this.profile = profile;
     localStorage.setItem('profile', JSON.stringify(profile));
     this.profileSource.next(this.profile);

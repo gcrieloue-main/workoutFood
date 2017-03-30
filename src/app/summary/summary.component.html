@@ -17,12 +17,12 @@
   <div class="col-12 col-md-4">
     <div class="progress">
       <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="caloriesPercentage + '%'"
-           [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" [attr.aria-valuenow]="caloriesBase">Calories
+           [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100">Calories
       </div>
     </div>
     <div class="progress">
-      <div class="progress-bar progress-bar-animate" role="progressbar" style="width: 75%" aria-valuenow="0"
-           aria-valuemin="0" aria-valuemax="100">Protéines
+      <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="proteinsPercentage + '%'"
+           [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
       </div>
     </div>
     <div class="progress">

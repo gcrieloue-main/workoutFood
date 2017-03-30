@@ -14,10 +14,12 @@ export class SummaryComponent {
   subscription:Subscription;
   subscriptionCalories:Subscription;
   subscriptionDay:Subscription;
+  subscriptionProfile:Subscription;
 
   displaySummary:boolean = false;
 
   caloriesPercentage:number = 0;
+  proteinsPercentage:number = 0;
   caloriesBase:number = 0;
 
   constructor(private dataService:DataService) {
@@ -32,6 +34,10 @@ export class SummaryComponent {
       });
     this.subscriptionDay = this.dataService.dayChanged$.subscribe(
       (day:Day)=> {
+        this.compute()
+      });
+    this.subscriptionProfile = this.dataService.profileChanged$.subscribe(
+      (profile:Profile)=> {
         this.compute()
       });
   }
@@ -82,7 +88,15 @@ export class SummaryComponent {
       }
     }
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
-    console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
+    this.console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
+
+    var weight = this.dataService.getProfile().weight;
+    var proteinsPerKg = 2;
+    if (weight > 0) {
+      var proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
+      this.proteinsPercentage = (proteins * 100) / proteinsPerDay;
+      this.console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
+    }
   }
 
   // Doughnut
@@ -102,6 +116,7 @@ export class SummaryComponent {
     this.subscription.unsubscribe();
     this.subscriptionCalories.unsubscribe();
     this.subscriptionDay.unsubscribe();
+    this.subscriptionProfile.unsubscribe();
   }
 
 }
