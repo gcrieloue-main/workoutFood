@@ -126,6 +126,7 @@ export const FOODS:Food[] = [
   {name: 'Brandade de morue', calories: 299, proteins: 5, carbohydrates: 31, fats: 16, ig: 0},
   {name: 'Bretzel', calories: 361, proteins: 9, carbohydrates: 74, fats: 3, ig: 0},
   {name: 'Brochet', calories: 93, proteins: 21, carbohydrates: 0, fats: 1, ig: 0},
+  {name: 'Brocolis', calories: 34, proteins: 2.8, carbohydrates: 7, fats: 0.4, ig: 0},
   {name: 'Cabillaud', calories: 74, proteins: 16, carbohydrates: 0, fats: 1, ig: 0},
   {name: 'Cacahuètes', calories: 576, proteins: 23, carbohydrates: 22, fats: 44, ig: 0},
   {name: 'Café filtre (1 tasse)', calories: 4.3, proteins: 0, carbohydrates: 0.74, fats: 0.01, ig: 0},
