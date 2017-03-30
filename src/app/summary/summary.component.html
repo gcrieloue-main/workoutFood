@@ -15,28 +15,33 @@
     </figure>
   </div>
   <div class="col-12 col-md-4">
-    <div class="progress">
-      <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="caloriesPercentage + '%'"
-           [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100">Calories
+    <div class="d-flex flex-column justify-content-between" style=" height: 100%;">
+      <div class="d-flex flex-column justify-content-center" style="height: 100%;">
+        <div class="progress">
+          <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="caloriesPercentage + '%'"
+               [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100">Calories
+          </div>
+        </div>
+        <div class="progress" data-toggle="tooltip" data-placement="right" title="2g par kg de poid de corps">
+          <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="proteinsPercentage + '%'"
+               [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-animate" role="progressbar"
+               [style.width]="carbohydratesPercentage + '%'"
+               [attr.aria-valuenow]="carbohydratesPercentage"
+               aria-valuemin="0" aria-valuemax="100">Glucides
+          </div>
+        </div>
+        <div class="progress" data-toggle="tooltip" data-placement="right" title="20% des apports caloriques">
+          <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="fatsPercentage + '%'"
+               [attr.aria-valuenow]="fatsPercentage"
+               aria-valuemin="0" aria-valuemax="100">Lipides
+          </div>
+        </div>
       </div>
+      <p class="text-center">Objectifs de la journée</p>
     </div>
-    <div class="progress" data-toggle="tooltip" data-placement="right" title="2g par kg de poid de corps">
-      <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="proteinsPercentage + '%'"
-           [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
-      </div>
-    </div>
-    <div class="progress">
-      <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="carbohydratesPercentage + '%'"
-           [attr.aria-valuenow]="carbohydratesPercentage"
-           aria-valuemin="0" aria-valuemax="100">Glucides
-      </div>
-    </div>
-    <div class="progress" data-toggle="tooltip" data-placement="right" title="20% des apports caloriques">
-      <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="fatsPercentage + '%'"
-           [attr.aria-valuenow]="fatsPercentage"
-           aria-valuemin="0" aria-valuemax="100">Lipides
-      </div>
-    </div>
-    <p class="text-center">Objectifs de la journée</p>
   </div>
 </div>
