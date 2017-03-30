@@ -26,7 +26,8 @@
       </div>
     </div>
     <div class="progress">
-      <div class="progress-bar progress-bar-animate" role="progressbar" style="width: 0%" aria-valuenow="0"
+      <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="carbohydratesPercentage + '%'"
+           [attr.aria-valuenow]="carbohydratesPercentage"
            aria-valuemin="0" aria-valuemax="100">Glucides
       </div>
     </div>
