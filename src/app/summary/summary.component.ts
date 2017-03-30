@@ -99,6 +99,9 @@ export class SummaryComponent {
         console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
       }
     }
+
+    var fatsPerDay = this.caloriesBase * 20 / 100;
+    this.fatsPercentage = fats * 100 / fatsPerDay;
   }
 
   // Doughnut
