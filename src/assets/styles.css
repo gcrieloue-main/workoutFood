@@ -112,3 +112,7 @@ input.ng-invalid.ng-touched {
   text-shadow: 1px 1px 1px white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
+
+.progress-bar-animate {
+  transition: width 2s ease-out;
+}
