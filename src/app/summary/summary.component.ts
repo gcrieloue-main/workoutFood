@@ -111,9 +111,8 @@ export class SummaryComponent {
 
     if (proteinsPerDay > 0) {
       var caloriesPerCarbohydratesGram = 4;
-      var fatsCalories = (fatsPerDay * caloriesPerFatGram);
       var proteinsCalories = proteinsPerDay * caloriesPerProteinGram;
-      var carbohydratesPerDay = this.caloriesBase - fatsCalories - proteinsCalories;
+      var carbohydratesPerDay = this.caloriesBase - fatsPerDay - proteinsCalories;
       this.carbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / carbohydratesPerDay;
       console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsCalories + ", proteins calories : " + proteinsCalories + ")");
     }
