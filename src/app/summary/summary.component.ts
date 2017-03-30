@@ -17,6 +17,9 @@ export class SummaryComponent {
 
   displaySummary:boolean = false;
 
+  caloriesPercentage:number = 0;
+  caloriesBase:number = 0;
+
   constructor(private dataService:DataService) {
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal:Meal) => {
@@ -24,7 +27,7 @@ export class SummaryComponent {
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       (calories:number) => {
-        this.compute();
+        this.caloriesBase = calories;
       });
     this.subscriptionDay = this.dataService.dayChanged$.subscribe(
       (day:Day)=> {
@@ -42,7 +45,6 @@ export class SummaryComponent {
     this.displaySummary = false;
 
     var proteins:number = 0;
-    var glucids:number = 0;
     var carbohydrates:number = 0;
     var fats:number = 0;
     var days = this.dataService.getDays();
@@ -59,6 +61,25 @@ export class SummaryComponent {
     }
 
     this.doughnutChartData = [proteins, carbohydrates, fats];
+
+    this.computeDay();
+  }
+
+  computeDay():void {
+    var calories:number = 0;
+    var proteins:number = 0;
+    var carbohydrates:number = 0;
+    var fats:number = 0;
+    var day:Day = this.dataService.getSelectedDay();
+    for (let meal:Meal of day.meals) {
+      for (let food:MealFood of meal.mealFoods) {
+        proteins += food.weight * food.food.proteins;
+        carbohydrates += food.weight * food.food.carbohydrates;
+        fats += food.weight * food.food.fats;
+        calories += food.weight * food.food.calories;
+      }
+    }
+    this.caloriesPercentage = (calories * 100) / this.caloriesBase;
   }
 
   // Doughnut
