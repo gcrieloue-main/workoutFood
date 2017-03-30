@@ -116,3 +116,7 @@ input.ng-invalid.ng-touched {
 .progress-bar-animate {
   transition: width 2s ease-out;
 }
+
+.summary .progress {
+  margin-bottom: 1em;
+}
