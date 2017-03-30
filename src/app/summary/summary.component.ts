@@ -100,8 +100,9 @@ export class SummaryComponent {
       }
     }
 
+    var caloriesPerFatGram = 9;
     var fatsPerDay = this.caloriesBase * 20 / 100;
-    this.fatsPercentage = fats * 100 / fatsPerDay;
+    this.fatsPercentage = (fats * caloriesPerFatGram * 100) / fatsPerDay;
   }
 
   // Doughnut
