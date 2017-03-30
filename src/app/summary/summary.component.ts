@@ -88,14 +88,14 @@ export class SummaryComponent {
       }
     }
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
-    this.console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
+    console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
 
     var weight = this.dataService.getProfile().weight;
     var proteinsPerKg = 2;
     if (weight > 0) {
       var proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
       this.proteinsPercentage = (proteins * 100) / proteinsPerDay;
-      this.console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
+      console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
     }
   }
 
