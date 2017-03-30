@@ -20,6 +20,8 @@ export class SummaryComponent {
 
   caloriesPercentage:number = 0;
   proteinsPercentage:number = 0;
+  fatsPercentage:number = 0;
+  carbohydratesPercentage:number = 0;
   caloriesBase:number = 0;
 
   constructor(private dataService:DataService) {
@@ -90,11 +92,13 @@ export class SummaryComponent {
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
     console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
 
+    var proteinsPerDay = 0;
+    var caloriesPerProteinGram = 4;
     if (this.dataService.getProfile() != undefined) {
       var weight = this.dataService.getProfile().weight;
       var proteinsPerKg = 2;
       if (weight > 0) {
-        var proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
+        proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
         this.proteinsPercentage = (proteins * 100) / proteinsPerDay;
         console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
       }
@@ -103,6 +107,11 @@ export class SummaryComponent {
     var caloriesPerFatGram = 9;
     var fatsPerDay = this.caloriesBase * 20 / 100;
     this.fatsPercentage = (fats * caloriesPerFatGram * 100) / fatsPerDay;
+
+    if (proteinsPerDay > 0) {
+      var carbohydratesPerDay = this.caloriesBase - (fatsPerDay * caloriesPerFatGram) - (proteinsPerDay * caloriesPerProteinGram);
+      this.carbohydratesPercentage = 0;
+    }
   }
 
   // Doughnut
