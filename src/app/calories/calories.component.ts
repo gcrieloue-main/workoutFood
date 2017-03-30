@@ -71,7 +71,7 @@ export class CaloriesComponent {
           factor3 = -256;
         }
       }
-      else{
+      else {
         if (this.profile.age <= 18) {
           factor1 = 9.40;
           factor2 = 249;
@@ -102,9 +102,8 @@ export class CaloriesComponent {
     }
   }
 
-
   onSubmit():void {
-    localStorage.setItem('profile', JSON.stringify(this.profile));
+    this.dataService.setProfile(this.profile);
     this.computeCalories();
     if (this.calories > 0) {
       this.toggleCompute();

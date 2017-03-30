@@ -12,16 +12,40 @@ export class DataService {
   private daySource = new Subject<Day>();
   private mealSource = new Subject<Meal>();
   private mealSelectedSource = new Subject<Meal>();
+  private profileSource = new Subject<Profile>();
   private days:Day[] = [];
 
   private selectedDay:Day;
   private selectedMeal:Meal;
+  private profile:Profile;
 
   // observable
   caloriesBaseChanged$ = this.caloriesBaseSource.asObservable();
   dayChanged$ = this.daySource.asObservable();
   mealChanged$ = this.mealSource.asObservable();
+  profileChanged$ = this.profileSource.asObservable();
   mealSelected$ = this.mealSelectedSource.asObservable();
+
+  loadProfile():Profile {
+    let profile = JSON.parse(localStorage.getItem('profile'));
+    if (profile != null) {
+      console.info("retrieve profile : ", JSON.stringify(profile));
+      this.profile = profile;
+      this.profileSource.next(this.profile);
+      return profile;
+    }
+    return null;
+  }
+
+  setProfile(profile:Profile) {
+    this.profile = profile;
+    localStorage.setItem('profile', JSON.stringify(profile));
+    this.profileSource.next(this.profile);
+  }
+
+  getProfile():Profile {
+    return this.profile;
+  }
 
   saveMenu() {
     localStorage.setItem('menu', JSON.stringify(this.days));
@@ -125,14 +149,6 @@ export class DataService {
     this.caloriesBaseSource.next(calories);
   }
 
-  loadProfile():Profile {
-    let profile = JSON.parse(localStorage.getItem('profile'));
-    if (profile != null) {
-      console.info("retrieve profile : ", JSON.stringify(profile));
-      return profile;
-    }
-    return null;
-  }
 
   loadCaloriesBase():number {
     let calories = Number(localStorage.getItem('calories'));
