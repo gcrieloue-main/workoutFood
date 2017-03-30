@@ -56,21 +56,18 @@ export class SummaryComponent {
     var proteins:number = 0;
     var carbohydrates:number = 0;
     var fats:number = 0;
-    var days = this.dataService.getDays();
-    for (let day:Day of days) {
-      for (let meal:Meal of day.meals) {
-        for (let food:MealFood of meal.mealFoods) {
-          proteins += food.weight * food.food.proteins / 100;
-          carbohydrates += food.weight * food.food.carbohydrates / 100;
-          fats += food.weight * food.food.fats / 100;
+    var day = this.dataService.getSelectedDay();
+    for (let meal:Meal of day.meals) {
+      for (let food:MealFood of meal.mealFoods) {
+        proteins += food.weight * food.food.proteins / 100;
+        carbohydrates += food.weight * food.food.carbohydrates / 100;
+        fats += food.weight * food.food.fats / 100;
 
-          this.displaySummary = true;
-        }
+        this.displaySummary = true;
       }
     }
 
     this.doughnutChartData = [proteins, carbohydrates, fats];
-
     this.computeDay();
   }
 
