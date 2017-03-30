@@ -28,6 +28,7 @@ export class SummaryComponent {
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
       (calories:number) => {
         this.caloriesBase = calories;
+        this.compute();
       });
     this.subscriptionDay = this.dataService.dayChanged$.subscribe(
       (day:Day)=> {
@@ -51,9 +52,9 @@ export class SummaryComponent {
     for (let day:Day of days) {
       for (let meal:Meal of day.meals) {
         for (let food:MealFood of meal.mealFoods) {
-          proteins += food.weight * food.food.proteins;
-          carbohydrates += food.weight * food.food.carbohydrates;
-          fats += food.weight * food.food.fats;
+          proteins += food.weight * food.food.proteins / 100;
+          carbohydrates += food.weight * food.food.carbohydrates / 100;
+          fats += food.weight * food.food.fats / 100;
 
           this.displaySummary = true;
         }
@@ -74,10 +75,10 @@ export class SummaryComponent {
     var day:Day = this.dataService.getSelectedDay();
     for (let meal:Meal of day.meals) {
       for (let food:MealFood of meal.mealFoods) {
-        proteins += food.weight * food.food.proteins;
-        carbohydrates += food.weight * food.food.carbohydrates;
-        fats += food.weight * food.food.fats;
-        calories += food.weight * food.food.calories;
+        proteins += food.weight * food.food.proteins / 100;
+        carbohydrates += food.weight * food.food.carbohydrates / 100;
+        fats += food.weight * food.food.fats / 100;
+        calories += food.weight * food.food.calories / 100;
       }
     }
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
