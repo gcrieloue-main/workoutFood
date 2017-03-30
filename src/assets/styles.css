@@ -119,8 +119,6 @@ input.ng-invalid.ng-touched {
 
 .summary .progress {
   margin-bottom: 1em;
-}
-
-.summary .progress-bar {
   border: 1px solid #ddd;
 }
+
