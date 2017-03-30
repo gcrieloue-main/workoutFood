@@ -84,6 +84,7 @@ export const FOODS:Food[] = [
   {name: 'Beurre', calories: 741, proteins: 0.8, carbohydrates: 0, fats: 82, ig: 0},
   {name: 'Beurre allégé', calories: 401, proteins: 7, carbohydrates: 1, fats: 41, ig: 0},
   {name: 'Beurre demi sel', calories: 740, proteins: 1, carbohydrates: 1, fats: 82, ig: 0},
+  {name: 'Beurre de cacahuètes', calories: 588, proteins: 25, carbohydrates: 20, fats: 50, ig: 0},
   {name: 'Biche', calories: 116, proteins: 33, carbohydrates: 0, fats: 4, ig: 0},
   {name: 'Bière blonde (33 cl)', calories: 146, proteins: 1.07, carbohydrates: 13, fats: 0, ig: 0},
   {name: 'Bière ordinaire', calories: 33, proteins: 0.4, carbohydrates: 3.5, fats: 0, ig: 0},
