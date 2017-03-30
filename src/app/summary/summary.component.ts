@@ -66,6 +66,7 @@ export class SummaryComponent {
   }
 
   computeDay():void {
+    console.debug("compute day")
     var calories:number = 0;
     var proteins:number = 0;
     var carbohydrates:number = 0;
@@ -80,6 +81,7 @@ export class SummaryComponent {
       }
     }
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
+    console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
   }
 
   // Doughnut
