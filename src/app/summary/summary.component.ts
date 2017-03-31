@@ -22,6 +22,12 @@ export class SummaryComponent {
   proteinsPercentage:number = 0;
   fatsPercentage:number = 0;
   carbohydratesPercentage:number = 0;
+
+  weekCaloriesPercentage:number = 0;
+  weekProteinsPercentage:number = 0;
+  weekFatsPercentage:number = 0;
+  weekCarbohydratesPercentage:number = 0;
+
   caloriesBase:number = 0;
 
   constructor(private dataService:DataService) {
@@ -69,6 +75,7 @@ export class SummaryComponent {
 
     this.doughnutChartData = [proteins, carbohydrates, fats];
     this.computeDay();
+    this.computeWeek();
   }
 
   computeDay():void {
@@ -112,6 +119,52 @@ export class SummaryComponent {
       var carbohydratesPerDay = this.caloriesBase - fatsPerDay - proteinsCalories;
       this.carbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / carbohydratesPerDay;
       console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
+    }
+  }
+
+  computeWeek():void {
+    console.debug("compute week")
+    var calories:number = 0;
+    var proteins:number = 0;
+    var carbohydrates:number = 0;
+    var fats:number = 0;
+    var days = this.dataService.getDays();
+    for (let day:Day of days) {
+      for (let meal:Meal of day.meals) {
+        for (let food:MealFood of meal.mealFoods) {
+          proteins += food.weight * food.food.proteins / 100;
+          carbohydrates += food.weight * food.food.carbohydrates / 100;
+          fats += food.weight * food.food.fats / 100;
+          calories += food.weight * food.food.calories / 100;
+        }
+      }
+    }
+    this.weekCaloriesPercentage = (calories * 100) / (this.caloriesBase * days.length);
+    console.debug("week caloriesPercentage : " + this.weekCaloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
+
+    var proteinsPerDay = 0;
+    var caloriesPerProteinGram = 4;
+    if (this.dataService.getProfile() != undefined) {
+      var weight = this.dataService.getProfile().weight;
+      var proteinsPerKg = 2;
+      if (weight > 0) {
+        proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
+        this.weekProteinsPercentage = (proteins * 100) / (proteinsPerDay * days.length);
+        console.debug("week proteinsPercentage : " + this.weekProteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
+      }
+    }
+
+    var caloriesPerFatGram = 9;
+    var fatsPerDay = this.caloriesBase * 20 / 100;
+    this.weekFatsPercentage = (fats * caloriesPerFatGram * 100) / (fatsPerDay * days.length);
+    console.debug("week fatsPercentage : " + this.weekFatsPercentage + " (fats : " + fats + ", fats per day: " + fatsPerDay + ")");
+
+    if (proteinsPerDay > 0) {
+      var caloriesPerCarbohydratesGram = 4;
+      var proteinsCalories = proteinsPerDay * caloriesPerProteinGram;
+      var carbohydratesPerDay = this.caloriesBase - fatsPerDay - proteinsCalories;
+      this.weekCarbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / carbohydratesPerDay;
+      console.debug("week carbohydratesPercentage : " + this.weekCarbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
     }
   }
 
