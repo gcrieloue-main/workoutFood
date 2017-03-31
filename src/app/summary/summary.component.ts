@@ -163,7 +163,7 @@ export class SummaryComponent {
       var caloriesPerCarbohydratesGram = 4;
       var proteinsCalories = proteinsPerDay * caloriesPerProteinGram;
       var carbohydratesPerDay = this.caloriesBase - fatsPerDay - proteinsCalories;
-      this.weekCarbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / carbohydratesPerDay;
+      this.weekCarbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / (carbohydratesPerDay * days.length);
       console.debug("week carbohydratesPercentage : " + this.weekCarbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
     }
   }
