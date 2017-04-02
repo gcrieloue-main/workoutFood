@@ -4,6 +4,7 @@ import {Meal} from "../meal/meal";
 import {Subscription} from "rxjs/Subscription";
 import {Day} from "../shared/day";
 import {MealFood} from "../shared/mealFood";
+import {Profile} from "../calories/calories.component";
 
 @Component({
   moduleId: module.id,
@@ -63,8 +64,8 @@ export class SummaryComponent {
     var carbohydrates:number = 0;
     var fats:number = 0;
     var day = this.dataService.getSelectedDay();
-    for (let meal:Meal of day.meals) {
-      for (let food:MealFood of meal.mealFoods) {
+    for (let meal of day.meals) {
+      for (let food of meal.mealFoods) {
         proteins += food.weight * food.food.proteins / 100;
         carbohydrates += food.weight * food.food.carbohydrates / 100;
         fats += food.weight * food.food.fats / 100;
@@ -85,8 +86,8 @@ export class SummaryComponent {
     var carbohydrates:number = 0;
     var fats:number = 0;
     var day:Day = this.dataService.getSelectedDay();
-    for (let meal:Meal of day.meals) {
-      for (let food:MealFood of meal.mealFoods) {
+    for (let meal of day.meals) {
+      for (let food of meal.mealFoods) {
         proteins += food.weight * food.food.proteins / 100;
         carbohydrates += food.weight * food.food.carbohydrates / 100;
         fats += food.weight * food.food.fats / 100;
@@ -129,9 +130,9 @@ export class SummaryComponent {
     var carbohydrates:number = 0;
     var fats:number = 0;
     var days = this.dataService.getDays();
-    for (let day:Day of days) {
-      for (let meal:Meal of day.meals) {
-        for (let food:MealFood of meal.mealFoods) {
+    for (let day of days) {
+      for (let meal of day.meals) {
+        for (let food of meal.mealFoods) {
           proteins += food.weight * food.food.proteins / 100;
           carbohydrates += food.weight * food.food.carbohydrates / 100;
           fats += food.weight * food.food.fats / 100;
