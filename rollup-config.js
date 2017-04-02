@@ -17,7 +17,7 @@ export default {
       return;
     }
     // intercepts in some rollup versions
-    if (warning.indexOf("The 'this' keyword is equivalent to 'undefined'") > -1) {
+    if (warning.indexOf && warning.indexOf("The 'this' keyword is equivalent to 'undefined'") > -1) {
       return;
     }
 
