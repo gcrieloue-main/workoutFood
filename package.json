@@ -8,7 +8,6 @@
     "build:aot": "ngc -p tsconfig-aot.json",
     "rollup": "rollup -c rollup-config.js",
     "serve": "lite-server -c=bs-config.json",
-    "prestart": "npm run build",
     "startdev": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "start": "node server.js",
     "lint": "tslint ./src/**/*.ts -t verbose"
@@ -27,11 +26,12 @@
     "@angular/platform-browser-dynamic": "~4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "~4.0.0",
+    "@types/node": "^7.0.12",
     "angular-in-memory-web-api": "~0.3.1",
     "chart.js": "^2.5.0",
+    "ng2-charts": "^1.5.0",
     "core-js": "^2.4.1",
     "express": "^4.15.2",
-    "ng2-charts": "^1.5.0",
     "rxjs": "5.2.0",
     "systemjs": "0.19.47",
     "zone.js": "^0.8.5"
