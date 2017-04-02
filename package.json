@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
-    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
+    "build:aot": "ngc -p tsconfig-aot.json",
+    "rollup": "rollup -c rollup-config.js",
     "serve": "lite-server -c=bs-config.json",
     "prestart": "npm run build",
     "startdev": "concurrently \"npm run build:watch\" \"npm run serve\"",
