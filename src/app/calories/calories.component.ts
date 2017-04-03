@@ -54,17 +54,6 @@ export class CaloriesComponent {
   ngOnInit(): void {
   }
 
-  ngAfterViewChecked() {
-    this.formChanged();
-  }
-
-  formChanged() {
-    if (this.caloriesBaseForm) {
-      this.caloriesBaseForm.valueChanges
-        .subscribe(data => this.onValueChanged(data));
-    }
-  }
-
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
     setTimeout(() => {
@@ -142,6 +131,7 @@ export class CaloriesComponent {
 
   onProfileChange(): void {
     this.dataService.setProfile(this.profile);
+    this.onValueChanged();
   }
 
   onCaloriesChange(calories: number) {
@@ -153,7 +143,7 @@ export class CaloriesComponent {
     this.compute = !this.compute;
   }
 
-  onValueChanged(data?: any) {
+  onValueChanged() {
     console.info("onValueChanged");
     if (!this.caloriesBaseForm) {
       return;
