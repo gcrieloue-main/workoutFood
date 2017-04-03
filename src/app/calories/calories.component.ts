@@ -53,8 +53,10 @@ export class CaloriesComponent {
 
   ngOnInit(): void {
     console.debug("ngOnInit");
-    this.caloriesBaseForm.valueChanges
-      .subscribe(data => this.onValueChanged(data));
+    if (this.caloriesBaseForm){
+      this.caloriesBaseForm.valueChanges
+        .subscribe(data => this.onValueChanged(data));
+    }
   }
 
   ngAfterViewInit() {
