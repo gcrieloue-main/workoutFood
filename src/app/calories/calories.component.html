@@ -7,14 +7,14 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label">
               <input class="form-check-input" type="radio" name="genderRadios" id="male" value="female" checked
-                     [(ngModel)]="profile.gender" (ngModelChange)="onProfileChange($event)">
+                     [(ngModel)]="profile.gender" (ngModelChange)="onProfileChange($event)" required>
               <i class="fa fa-venus" aria-hidden="true"></i> Femme
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
               <input class="form-check-input" type="radio" name="genderRadios" id="female" value="male"
-                     [(ngModel)]="profile.gender" (ngModelChange)="onProfileChange($event)">
+                     [(ngModel)]="profile.gender" (ngModelChange)="onProfileChange($event)" required>
               <i class="fa fa-mars" aria-hidden="true"></i> Homme
             </label>
           </div>
@@ -24,7 +24,7 @@
         <label class="col-sm-2 col-form-label">Taille</label>
         <div class="col-sm-10 input-group">
           <input class="form-control" type="number" [(ngModel)]="profile.size" name="size"
-                 placeholder="example: 180" (ngModelChange)="onProfileChange($event)">
+                 placeholder="example: 180" (ngModelChange)="onProfileChange($event)" required>
           <div class="input-group-addon">cm</div>
         </div>
       </div>
@@ -34,14 +34,14 @@
         <label class="col-sm-2 col-form-label">Age</label>
         <div class="col-sm-10">
           <input class="form-control" type="number" [(ngModel)]="profile.age" name="age" placeholder="example: 30"
-                 (ngModelChange)="onProfileChange($event)">
+                 (ngModelChange)="onProfileChange($event)" required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Poids</label>
         <div class="col-sm-10 input-group">
           <input class="form-control" type="number" [(ngModel)]="profile.weight" name="weight"
-                 placeholder="example: 75" (ngModelChange)="onProfileChange($event)">
+                 placeholder="example: 75" (ngModelChange)="onProfileChange($event)" required>
           <div class="input-group-addon">kg</div>
         </div>
       </div>
