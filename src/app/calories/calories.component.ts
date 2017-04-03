@@ -40,7 +40,8 @@ export class CaloriesComponent {
       'required': 'Name is required.',
       'minlength': 'Name must be at least 4 characters long.',
       'maxlength': 'Name cannot be more than 24 characters long.',
-      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
+      'forbiddenName': 'Someone named "Bob" cannot be a hero.',
+      'min': 'test'
     },
     'power': {
       'required': 'Power is required.'
@@ -153,11 +154,13 @@ export class CaloriesComponent {
   }
 
   onValueChanged(data?: any) {
+    console.info("onValueChanged");
     if (!this.caloriesBaseForm) {
       return;
     }
     const form = this.caloriesBaseForm;
     for (const field in this.formErrors) {
+      console.debug("field:" + field);
       // clear previous error message (if any)
       this.formErrors[field] = '';
       const control = form.get(field);
