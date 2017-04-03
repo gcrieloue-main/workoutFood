@@ -140,7 +140,7 @@ export class CaloriesComponent {
   }
 
   onValueChanged() {
-    console.info("onValueChanged");
+    console.info("onValueChanged" + this.caloriesBaseForm);
     if (!this.caloriesBaseForm) {
       return;
     }
