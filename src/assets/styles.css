@@ -126,3 +126,9 @@ input.ng-invalid.ng-touched {
   border: 1px solid #ddd;
 }
 
+.summary .progress-caption {
+  margin-top: 0;
+  text-align: center;
+  color: #666666;
+}
+
