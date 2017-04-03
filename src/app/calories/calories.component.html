@@ -6,8 +6,6 @@
 </div>
 
 <form (ngSubmit)="onSubmit()" #caloriesBaseForm="ngForm" *ngIf="compute" class="card">
-  <h3>Profil</h3>
-  <p>Afin de calculer votre dépense d'énergie quotidienne, renseignez les informations suivantes.</p>
   <div class="row">
     <div class="col-12 col-md-6">
       <div class="form-group row">
@@ -56,54 +54,51 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="card-block">
-      <h3>Profil</h3>
-      <p>Afin de calculer votre dépense d'énergie quotidienne, renseignez les informations suivantes.</p>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <fieldset class="form-group row">
-            <legend class="col-form-legend">Activité physique</legend>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1.2" checked
-                         [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
-                  Immobile – bloqué au lit
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="1.4"
-                         [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
-                  Travail sédentaire (ex&nbsp;: secrétaire) et peu voir pas d’exercice.
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="1.7"
-                         [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
-                  Travail à activité modérée (ex&nbsp;: assistant de vente) – exercice 2-3 x par semaines
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="2"
-                         [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
-                  Travail physique (ex&nbsp;: ouvrier) – exercice 3-4 x par semaine
-                </label>
-              </div>
+  <div class="card-block">
+    <p>Afin de calculer votre dépense d'énergie quotidienne, renseignez les informations suivantes.</p>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <fieldset class="form-group row">
+          <legend class="col-form-legend">Activité physique</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1.2" checked
+                       [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
+                Immobile – bloqué au lit
+              </label>
             </div>
-          </fieldset>
-        </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="1.4"
+                       [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
+                Travail sédentaire (ex&nbsp;: secrétaire) et peu voir pas d’exercice.
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="1.7"
+                       [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
+                Travail à activité modérée (ex&nbsp;: assistant de vente) – exercice 2-3 x par semaines
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="2"
+                       [(ngModel)]="profile.activityIntensity" (ngModelChange)="onProfileChange($event)">
+                Travail physique (ex&nbsp;: ouvrier) – exercice 3-4 x par semaine
+              </label>
+            </div>
+          </div>
+        </fieldset>
       </div>
-      <p>
-        <button type="submit" class="btn btn-success mrb-2">Calculer</button>
-      </p>
-      <p class="mt-2 mb-0"><em>Note : Cette méthode est conçue à partir des <a
-        href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1368980005001394">équations
-        développées par l'université d'Oxford <i class="fa fa-external-link" aria-hidden="true"></i></a></em></p>
     </div>
+    <p>
+      <button type="submit" class="btn btn-success mrb-2">Calculer</button>
+    </p>
+    <p class="mt-2 mb-0"><em>Note : Cette méthode est conçue à partir des <a
+      href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1368980005001394">équations
+      développées par l'université d'Oxford <i class="fa fa-external-link" aria-hidden="true"></i></a></em></p>
   </div>
 </form>
 
