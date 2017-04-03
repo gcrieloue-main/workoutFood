@@ -28,22 +28,6 @@ export class CaloriesComponent {
   compute: boolean = false;
   calories: number = 0;
 
-  caloriesBaseForm: NgForm;
-
-  formErrors = {
-    'genreRadios': '',
-    'size': '',
-    'age': '',
-    'weight': ''
-  };
-
-  validationMessages = {
-    'size': {
-      'required': 'Size is required.',
-      'min': 'min test'
-    }
-  };
-
   constructor(private dataService: DataService) {
   }
 
@@ -127,7 +111,6 @@ export class CaloriesComponent {
 
   onProfileChange(): void {
     this.dataService.setProfile(this.profile);
-    this.onValueChanged();
   }
 
   onCaloriesChange(calories: number) {
@@ -137,25 +120,5 @@ export class CaloriesComponent {
 
   toggleCompute(): void {
     this.compute = !this.compute;
-  }
-
-  onValueChanged(caloriesForm: NgForm) {
-    console.info("onValueChanged" + this.caloriesBaseForm);
-    if (!caloriesForm) {
-      return;
-    }
-    const form = caloriesForm.form;
-    for (const field in this.formErrors) {
-      console.info("field:" + field);
-      // clear previous error message (if any)
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
-    }
   }
 }
