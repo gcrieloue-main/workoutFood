@@ -12,41 +12,41 @@ import {Profile} from "../calories/calories.component";
   templateUrl: './summary.component.html'
 })
 export class SummaryComponent {
-  subscription:Subscription;
-  subscriptionCalories:Subscription;
-  subscriptionDay:Subscription;
-  subscriptionProfile:Subscription;
+  subscription: Subscription;
+  subscriptionCalories: Subscription;
+  subscriptionDay: Subscription;
+  subscriptionProfile: Subscription;
 
-  displaySummary:boolean = false;
+  displaySummary: boolean = false;
 
-  caloriesPercentage:number = 0;
-  proteinsPercentage:number = 0;
-  fatsPercentage:number = 0;
-  carbohydratesPercentage:number = 0;
+  caloriesPercentage: number = 0;
+  proteinsPercentage: number = 0;
+  fatsPercentage: number = 0;
+  carbohydratesPercentage: number = 0;
 
-  weekCaloriesPercentage:number = 0;
-  weekProteinsPercentage:number = 0;
-  weekFatsPercentage:number = 0;
-  weekCarbohydratesPercentage:number = 0;
+  weekCaloriesPercentage: number = 0;
+  weekProteinsPercentage: number = 0;
+  weekFatsPercentage: number = 0;
+  weekCarbohydratesPercentage: number = 0;
 
-  caloriesBase:number = 0;
+  caloriesBase: number = 0;
 
-  constructor(private dataService:DataService) {
+  constructor(private dataService: DataService) {
     this.subscription = this.dataService.mealChanged$.subscribe(
-      (meal:Meal) => {
+      (meal: Meal) => {
         this.compute();
       });
     this.subscriptionCalories = this.dataService.caloriesBaseChanged$.subscribe(
-      (calories:number) => {
+      (calories: number) => {
         this.caloriesBase = calories;
         this.compute();
       });
     this.subscriptionDay = this.dataService.dayChanged$.subscribe(
-      (day:Day)=> {
+      (day: Day) => {
         this.compute()
       });
     this.subscriptionProfile = this.dataService.profileChanged$.subscribe(
-      (profile:Profile)=> {
+      (profile: Profile) => {
         this.compute()
       });
   }
@@ -55,14 +55,14 @@ export class SummaryComponent {
     this.compute();
   }
 
-  compute():void {
+  compute(): void {
     console.log("compute summary");
 
     this.displaySummary = false;
 
-    var proteins:number = 0;
-    var carbohydrates:number = 0;
-    var fats:number = 0;
+    var proteins: number = 0;
+    var carbohydrates: number = 0;
+    var fats: number = 0;
     var day = this.dataService.getSelectedDay();
     for (let meal of day.meals) {
       for (let food of meal.mealFoods) {
@@ -74,18 +74,22 @@ export class SummaryComponent {
       }
     }
 
+    if (this.caloriesBase <= 0) {
+      this.displaySummary = false;
+    }
+
     this.doughnutChartData = [proteins, carbohydrates, fats];
     this.computeDay();
     this.computeWeek();
   }
 
-  computeDay():void {
+  computeDay(): void {
     console.debug("compute day")
-    var calories:number = 0;
-    var proteins:number = 0;
-    var carbohydrates:number = 0;
-    var fats:number = 0;
-    var day:Day = this.dataService.getSelectedDay();
+    var calories: number = 0;
+    var proteins: number = 0;
+    var carbohydrates: number = 0;
+    var fats: number = 0;
+    var day: Day = this.dataService.getSelectedDay();
     for (let meal of day.meals) {
       for (let food of meal.mealFoods) {
         proteins += food.weight * food.food.proteins / 100;
@@ -123,12 +127,12 @@ export class SummaryComponent {
     }
   }
 
-  computeWeek():void {
+  computeWeek(): void {
     console.debug("compute week")
-    var calories:number = 0;
-    var proteins:number = 0;
-    var carbohydrates:number = 0;
-    var fats:number = 0;
+    var calories: number = 0;
+    var proteins: number = 0;
+    var carbohydrates: number = 0;
+    var fats: number = 0;
     var days = this.dataService.getDays();
     for (let day of days) {
       for (let meal of day.meals) {
@@ -170,15 +174,15 @@ export class SummaryComponent {
   }
 
   // Doughnut
-  public doughnutChartLabels:string[] = ['Proteins', 'Carbohydrates', 'Fats'];
-  public doughnutChartData:number[] = [0, 0, 0];
-  public doughnutChartType:string = 'doughnut';
+  public doughnutChartLabels: string[] = ['Proteins', 'Carbohydrates', 'Fats'];
+  public doughnutChartData: number[] = [0, 0, 0];
+  public doughnutChartType: string = 'doughnut';
 
   // events
-  public chartClicked(e:any):void {
+  public chartClicked(e: any): void {
   }
 
-  public chartHovered(e:any):void {
+  public chartHovered(e: any): void {
   }
 
   ngOnDestroy() {
