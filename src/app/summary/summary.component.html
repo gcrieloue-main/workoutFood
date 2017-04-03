@@ -24,12 +24,14 @@
         </div>
         <p class="progress-caption">{{Math.ceil(caloriesDay)}}/{{caloriesBase}} cal.</p>
 
-        <div class="progress" data-toggle="tooltip" data-placement="right" title="2g par kg de poid de corps">
-          <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="proteinsPercentage + '%'"
-               [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
+        <div data-toggle="tooltip" data-placement="right" title="2g par kg de poid de corps">
+          <div class="progress">
+            <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="proteinsPercentage + '%'"
+                 [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
+            </div>
           </div>
+          <p class="progress-caption">{{Math.ceil(proteinsDay)}}/{{proteinsPerDay}}g</p>
         </div>
-        <p class="progress-caption">{{Math.ceil(proteinsDay)}}/{{proteinsPerDay}}g</p>
 
         <div class="progress">
           <div class="progress-bar progress-bar-animate" role="progressbar"
@@ -39,12 +41,14 @@
         </div>
         <p class="progress-caption">{{Math.ceil(carbohydratesDay)}}/{{Math.ceil(carbohydratesPerDay)}}g</p>
 
-        <div class="progress" data-toggle="tooltip" data-placement="right" title="20% des apports caloriques">
-          <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="fatsPercentage + '%'"
-               [attr.aria-valuenow]="fatsPercentage" aria-valuemin="0" aria-valuemax="100">Lipides
+        <div data-toggle="tooltip" data-placement="right" title="20% des apports caloriques">
+          <div class="progress">
+            <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="fatsPercentage + '%'"
+                 [attr.aria-valuenow]="fatsPercentage" aria-valuemin="0" aria-valuemax="100">Lipides
+            </div>
           </div>
+          <p class="progress-caption">{{Math.ceil(fatsDay)}}/{{Math.ceil(fatsPerDay)}}g</p>
         </div>
-        <p class="progress-caption">{{Math.ceil(fatsDay)}}/{{Math.ceil(fatsPerDay)}}g</p>
       </div>
       <p class="text-center">Objectifs de la journée</p>
     </div>
