@@ -29,6 +29,7 @@ export class SummaryComponent {
   weekFatsPercentage: number = 0;
   weekCarbohydratesPercentage: number = 0;
 
+  caloriesDay: number = 0;
   caloriesBase: number = 0;
 
   constructor(private dataService: DataService) {
@@ -98,6 +99,7 @@ export class SummaryComponent {
         calories += food.weight * food.food.calories / 100;
       }
     }
+    this.caloriesDay = calories;
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
     console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
 

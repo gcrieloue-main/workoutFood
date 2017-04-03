@@ -22,6 +22,7 @@
                [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0" aria-valuemax="100">Calories
           </div>
         </div>
+        <p>{{caloriesDay}}/{{caloriesBase}}</p>
         <div class="progress" data-toggle="tooltip" data-placement="right" title="2g par kg de poid de corps">
           <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="proteinsPercentage + '%'"
                [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
