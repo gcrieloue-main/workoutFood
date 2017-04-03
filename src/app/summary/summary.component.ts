@@ -131,8 +131,8 @@ export class SummaryComponent {
     }
 
     var caloriesPerFatGram = 9;
-    this.fatsPerDay = this.caloriesBase * 20 / 100;
-    this.fatsPercentage = (fats * caloriesPerFatGram * 100) / this.fatsPerDay;
+    this.fatsPerDay = (this.caloriesBase * 20 / 100) / caloriesPerFatGram;
+    this.fatsPercentage = (fats * 100) / this.fatsPerDay;
     console.debug("fatsPercentage : " + this.fatsPercentage + " (fats : " + fats + ", fats per day: " + this.fatsPerDay + ")");
 
     if (this.proteinsPerDay > 0) {

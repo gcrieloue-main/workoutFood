@@ -29,24 +29,22 @@
                [attr.aria-valuenow]="proteinsPercentage" aria-valuemin="0" aria-valuemax="100">Protéines
           </div>
         </div>
-        <p class="progress-caption">{{Math.ceil(proteinsDay)}}/{{proteinsPerDay}} g.</p>
+        <p class="progress-caption">{{Math.ceil(proteinsDay)}}/{{proteinsPerDay}}g</p>
 
         <div class="progress">
           <div class="progress-bar progress-bar-animate" role="progressbar"
                [style.width]="carbohydratesPercentage + '%'"
-               [attr.aria-valuenow]="carbohydratesPercentage"
-               aria-valuemin="0" aria-valuemax="100">Glucides
+               [attr.aria-valuenow]="carbohydratesPercentage" aria-valuemin="0" aria-valuemax="100">Glucides
           </div>
         </div>
-        <p class="progress-caption">{{Math.ceil(carbohydratesDay)}}/{{carbohydratesPerDay}} g.</p>
+        <p class="progress-caption">{{Math.ceil(carbohydratesDay)}}/{{carbohydratesPerDay}}g</p>
 
         <div class="progress" data-toggle="tooltip" data-placement="right" title="20% des apports caloriques">
           <div class="progress-bar progress-bar-animate" role="progressbar" [style.width]="fatsPercentage + '%'"
-               [attr.aria-valuenow]="fatsPercentage"
-               aria-valuemin="0" aria-valuemax="100">Lipides
+               [attr.aria-valuenow]="fatsPercentage" aria-valuemin="0" aria-valuemax="100">Lipides
           </div>
         </div>
-        <p class="progress-caption">{{Math.ceil(fatsDay)}}/{{fatsPerDay}} g.</p>
+        <p class="progress-caption">{{Math.ceil(fatsDay)}}/{{fatsPerDay}}g</p>
       </div>
       <p class="text-center">Objectifs de la journée</p>
     </div>
