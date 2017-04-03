@@ -150,7 +150,7 @@ export class CaloriesComponent {
     }
     const form = this.caloriesBaseForm;
     for (const field in this.formErrors) {
-      console.debug("field:" + field);
+      console.info("field:" + field);
       // clear previous error message (if any)
       this.formErrors[field] = '';
       const control = form.get(field);
