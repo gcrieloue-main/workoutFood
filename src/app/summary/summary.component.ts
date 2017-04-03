@@ -91,7 +91,6 @@ export class SummaryComponent {
       this.displaySummary = false;
     }
 
-    this.doughnutChartData = [proteins, carbohydrates, fats];
     this.computeDay();
     this.computeWeek();
   }
@@ -144,6 +143,8 @@ export class SummaryComponent {
       this.carbohydratesPerDay = carbohydratesCaloriesDay / caloriesPerCarbohydratesGram;
       console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + this.fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
     }
+
+    this.doughnutChartData = [Math.ceil(this.proteinsDay), Math.ceil(this.carbohydratesDay), Math.ceil(this.fatsDay)];
   }
 
   computeWeek(): void {
