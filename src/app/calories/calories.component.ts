@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, NgForm} from '@angular/forms';
 import {DataService} from "../shared/data.service";
 
 export class Profile {
@@ -28,23 +28,19 @@ export class CaloriesComponent {
   compute: boolean = false;
   calories: number = 0;
 
-  caloriesBaseForm: FormGroup;
+  caloriesBaseForm: NgForm;
 
   formErrors = {
-    'name': '',
-    'power': ''
+    'genreRadios': '',
+    'size': '',
+    'age': '',
+    'weight': ''
   };
 
   validationMessages = {
-    'name': {
-      'required': 'Name is required.',
-      'minlength': 'Name must be at least 4 characters long.',
-      'maxlength': 'Name cannot be more than 24 characters long.',
-      'forbiddenName': 'Someone named "Bob" cannot be a hero.',
-      'min': 'test'
-    },
-    'power': {
-      'required': 'Power is required.'
+    'size': {
+      'required': 'Size is required.',
+      'min': 'min test'
     }
   };
 
