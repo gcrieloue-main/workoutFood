@@ -41,6 +41,8 @@ export class SummaryComponent {
   caloriesDay: number = 0;
   caloriesBase: number = 0;
 
+  Math: any;
+
   constructor(private dataService: DataService) {
     this.subscription = this.dataService.mealChanged$.subscribe(
       (meal: Meal) => {
@@ -59,6 +61,7 @@ export class SummaryComponent {
       (profile: Profile) => {
         this.compute()
       });
+    this.Math = Math;
   }
 
   ngOnInit() {
