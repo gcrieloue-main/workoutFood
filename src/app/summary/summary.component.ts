@@ -138,8 +138,10 @@ export class SummaryComponent {
     if (this.proteinsPerDay > 0) {
       var caloriesPerCarbohydratesGram = 4;
       var proteinsCalories = this.proteinsPerDay * caloriesPerProteinGram;
-      this.carbohydratesPerDay = this.caloriesBase - this.fatsPerDay - proteinsCalories;
-      this.carbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / this.carbohydratesPerDay;
+      var fatsCalories = this.fatsDay * caloriesPerFatGram;
+      var carbohydratesCaloriesDay = this.caloriesBase - fatsCalories - proteinsCalories;
+      this.carbohydratesPercentage = (this.carbohydratesDay * caloriesPerCarbohydratesGram) * 100 / carbohydratesCaloriesDay;
+      this.carbohydratesPerDay = carbohydratesCaloriesDay * caloriesPerCarbohydratesGram;
       console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + this.fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
     }
   }
