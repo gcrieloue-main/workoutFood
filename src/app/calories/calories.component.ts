@@ -48,12 +48,17 @@ export class CaloriesComponent {
   };
 
   constructor(private dataService: DataService) {
-
   }
 
   ngOnInit(): void {
-    console.debug("ngOnInit");
-    if (this.caloriesBaseForm){
+  }
+
+  ngAfterViewChecked() {
+    this.formChanged();
+  }
+
+  formChanged() {
+    if (this.caloriesBaseForm) {
       this.caloriesBaseForm.valueChanges
         .subscribe(data => this.onValueChanged(data));
     }
