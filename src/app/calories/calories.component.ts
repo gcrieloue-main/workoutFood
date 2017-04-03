@@ -110,6 +110,10 @@ export class CaloriesComponent {
     }
   }
 
+  onProfileChange():void{
+    this.dataService.setProfile(this.profile);
+  }
+
   onCaloriesChange(calories:number) {
     this.calories = calories;
     this.dataService.setCaloriesBase(this.calories);
