@@ -480,7 +480,7 @@ export const FOODS:Food[] = [
   {name: 'Vinaigre', calories: 9, proteins: 0, carbohydrates: 1, fats: 0, ig: 5},
   {name: 'Vinaigrette type (olive)', calories: 260.54, proteins: 0.44, carbohydrates: 2.19, fats: 27.39, ig: 0},
   {name: 'Vodka', calories: 238, proteins: 0, carbohydrates: 0, fats: 0, ig: 0},
-  {name: 'Whey Gold Standard (Optimun Nutrition)', calories: 378, proteins: 81.6, carbohydrates: 5.5, fats: 3.3, ig: 0},
+  {name: 'Whey Gold Standard (Optimum Nutrition)', calories: 378, proteins: 81.6, carbohydrates: 5.5, fats: 3.3, ig: 0},
   {name: 'Whisky', calories: 238, proteins: 0, carbohydrates: 0.03, fats: 0, ig: 0},
   {name: 'Yaourt aux fruits', calories: 115, proteins: 3, carbohydrates: 19.6, fats: 2.7, ig: 0},
   {name: 'Yaourt nature', calories: 65, proteins: 4, carbohydrates: 4.6, fats: 3.5, ig: 35}
