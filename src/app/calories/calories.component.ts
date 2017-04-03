@@ -1,12 +1,13 @@
 import {Component, Input} from "@angular/core";
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {DataService} from "../shared/data.service";
 
 export class Profile {
-  gender:string;
-  size:number;
-  weight:number;
-  age:number;
-  activityIntensity:number;
+  gender: string;
+  size: number;
+  weight: number;
+  age: number;
+  activityIntensity: number;
 }
 
 @Component({
@@ -16,7 +17,7 @@ export class Profile {
 })
 export class CaloriesComponent {
 
-  profile:Profile = {
+  profile: Profile = {
     gender: 'male',
     size: undefined,
     weight: undefined,
@@ -24,20 +25,41 @@ export class CaloriesComponent {
     activityIntensity: 0
   };
 
-  compute:boolean = false;
-  calories:number = 0;
+  compute: boolean = false;
+  calories: number = 0;
 
-  constructor(private dataService:DataService) {
+  caloriesBaseForm: FormGroup;
+
+  formErrors = {
+    'name': '',
+    'power': ''
+  };
+
+  validationMessages = {
+    'name': {
+      'required': 'Name is required.',
+      'minlength': 'Name must be at least 4 characters long.',
+      'maxlength': 'Name cannot be more than 24 characters long.',
+      'forbiddenName': 'Someone named "Bob" cannot be a hero.'
+    },
+    'power': {
+      'required': 'Power is required.'
+    }
+  };
+
+  constructor(private dataService: DataService) {
 
   }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     console.debug("ngOnInit");
+    this.caloriesBaseForm.valueChanges
+      .subscribe(data => this.onValueChanged(data));
   }
 
   ngAfterViewInit() {
     console.debug("ngAfterViewInit");
-    setTimeout(()=> {
+    setTimeout(() => {
       let profile = this.dataService.loadProfile();
       if (profile != null) this.profile = profile;
       let calories = this.dataService.loadCaloriesBase();
@@ -45,10 +67,10 @@ export class CaloriesComponent {
     }, 1);
   }
 
-  computeCalories():void {
+  computeCalories(): void {
     console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
-      var factor1:number, factor2:number, factor3:number;
+      var factor1: number, factor2: number, factor3: number;
       if (this.profile.gender == 'male') {
         if (this.profile.age <= 18) {
           factor1 = 15.6;
@@ -102,7 +124,7 @@ export class CaloriesComponent {
     }
   }
 
-  onSubmit():void {
+  onSubmit(): void {
     this.dataService.setProfile(this.profile);
     this.computeCalories();
     if (this.calories > 0) {
@@ -110,16 +132,34 @@ export class CaloriesComponent {
     }
   }
 
-  onProfileChange():void{
+  onProfileChange(): void {
     this.dataService.setProfile(this.profile);
   }
 
-  onCaloriesChange(calories:number) {
+  onCaloriesChange(calories: number) {
     this.calories = calories;
     this.dataService.setCaloriesBase(this.calories);
   }
 
-  toggleCompute():void {
+  toggleCompute(): void {
     this.compute = !this.compute;
+  }
+
+  onValueChanged(data?: any) {
+    if (!this.caloriesBaseForm) {
+      return;
+    }
+    const form = this.caloriesBaseForm;
+    for (const field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
   }
 }
