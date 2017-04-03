@@ -20,8 +20,17 @@ export class SummaryComponent {
   displaySummary: boolean = false;
 
   caloriesPercentage: number = 0;
+
+  proteinsDay: number = 0;
+  proteinsPerDay: number = 0;
   proteinsPercentage: number = 0;
+
+  fatsDay: number = 0;
+  fatsPerDay: number = 0;
   fatsPercentage: number = 0;
+
+  carbohydratesDay: number = 0;
+  carbohydratesPerDay: number = 0;
   carbohydratesPercentage: number = 0;
 
   weekCaloriesPercentage: number = 0;
@@ -100,32 +109,35 @@ export class SummaryComponent {
       }
     }
     this.caloriesDay = calories;
+    this.proteinsDay = proteins;
+    this.fatsDay = fats;
+    this.carbohydratesDay = carbohydrates;
+
     this.caloriesPercentage = (calories * 100) / this.caloriesBase;
     console.debug("caloriesPercentage : " + this.caloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
 
-    var proteinsPerDay = 0;
     var caloriesPerProteinGram = 4;
     if (this.dataService.getProfile() != undefined) {
       var weight = this.dataService.getProfile().weight;
       var proteinsPerKg = 2;
       if (weight > 0) {
-        proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
-        this.proteinsPercentage = (proteins * 100) / proteinsPerDay;
-        console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
+        this.proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
+        this.proteinsPercentage = (proteins * 100) / this.proteinsPerDay;
+        console.debug("proteinsPercentage : " + this.proteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + this.proteinsPerDay + ")");
       }
     }
 
     var caloriesPerFatGram = 9;
-    var fatsPerDay = this.caloriesBase * 20 / 100;
-    this.fatsPercentage = (fats * caloriesPerFatGram * 100) / fatsPerDay;
-    console.debug("fatsPercentage : " + this.fatsPercentage + " (fats : " + fats + ", fats per day: " + fatsPerDay + ")");
+    this.fatsPerDay = this.caloriesBase * 20 / 100;
+    this.fatsPercentage = (fats * caloriesPerFatGram * 100) / this.fatsPerDay;
+    console.debug("fatsPercentage : " + this.fatsPercentage + " (fats : " + fats + ", fats per day: " + this.fatsPerDay + ")");
 
-    if (proteinsPerDay > 0) {
+    if (this.proteinsPerDay > 0) {
       var caloriesPerCarbohydratesGram = 4;
-      var proteinsCalories = proteinsPerDay * caloriesPerProteinGram;
-      var carbohydratesPerDay = this.caloriesBase - fatsPerDay - proteinsCalories;
-      this.carbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / carbohydratesPerDay;
-      console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
+      var proteinsCalories = this.proteinsPerDay * caloriesPerProteinGram;
+      this.carbohydratesPerDay = this.caloriesBase - this.fatsPerDay - proteinsCalories;
+      this.carbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / this.carbohydratesPerDay;
+      console.debug("carbohydratesPercentage : " + this.carbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + this.fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
     }
   }
 
