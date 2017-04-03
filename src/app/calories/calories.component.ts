@@ -139,12 +139,12 @@ export class CaloriesComponent {
     this.compute = !this.compute;
   }
 
-  onValueChanged() {
+  onValueChanged(caloriesForm: NgForm) {
     console.info("onValueChanged" + this.caloriesBaseForm);
-    if (!this.caloriesBaseForm) {
+    if (!caloriesForm) {
       return;
     }
-    const form = this.caloriesBaseForm.form;
+    const form = caloriesForm.form;
     for (const field in this.formErrors) {
       console.info("field:" + field);
       // clear previous error message (if any)
