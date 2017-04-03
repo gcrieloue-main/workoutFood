@@ -145,6 +145,7 @@ export class CaloriesComponent {
       return;
     }
     const form = this.caloriesBaseForm;
+    console.info(this.caloriesBaseForm);
     for (const field in this.formErrors) {
       console.info("field:" + field);
       // clear previous error message (if any)
