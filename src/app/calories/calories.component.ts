@@ -71,31 +71,27 @@ export class CaloriesComponent {
 
   buildForm(): void {
     this.profileForm = this.formBuilder.group({
-      'gender': [
+      gender: [
         '',
         [Validators.required]
       ],
-      'size': [
+      size: [
         '',
         [Validators.required]
-      ]
-      ,
-      'age': [
+      ],
+      age: [
         '',
         [Validators.required]
-      ]
-      ,
-      'weight': [
+      ],
+      weight: [
         '',
         [Validators.required]
-      ]
-      ,
-      'activityIntensity': [
+      ],
+      activityIntensity: [
         '',
         [Validators.required]
-      ]
-      ,
-      'calories': [
+      ],
+      calories: [
         '',
         [Validators.required]
       ]
