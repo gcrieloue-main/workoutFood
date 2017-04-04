@@ -54,7 +54,7 @@ export class CoreComponent {
     this.dataService.removeDay(day);
     if (this.days.length == 0) {
       var newDay = this.dataService.newDay();
-      this.dataService.setSelectedDay(newDay);
+      this.selectDay(newDay);
     }
   }
 }
