@@ -186,12 +186,14 @@ export class CaloriesComponent {
         this.formErrors[field] = '';
         const control = form.get(field);
         if (control && control.dirty && !control.valid) {
+          console.info("error field : " + field);
           const messages = this.validationMessages[field];
           for (const key in control.errors) {
             this.formErrors[field] += messages[key] + ' ';
           }
         }
       }
+      console.info("form errors : " + this.formErrors);
     }
   }
 
