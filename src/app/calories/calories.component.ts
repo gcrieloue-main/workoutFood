@@ -43,7 +43,6 @@ export class CaloriesComponent {
   }
 
   ngOnInit(): void {
-    this.buildForm();
   }
 
   ngAfterViewInit() {
@@ -54,6 +53,8 @@ export class CaloriesComponent {
       let calories = this.dataService.loadCaloriesBase();
       if (calories != null) this.calories = calories;
     }, 1);
+
+    this.buildForm();
   }
 
   buildForm(): void {
