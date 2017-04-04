@@ -110,6 +110,8 @@ export class CaloriesComponent {
       }
     }
 
+    console.info(JSON.stringify(this.profileForm.value));
+    this.profile.size = this.profileForm.value['size'];
     this.dataService.setProfile(this.profile);
   }
 
