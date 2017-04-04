@@ -28,10 +28,19 @@ export class CaloriesComponent {
   profileForm: FormGroup;
 
   formErrors = {
-    'size': ''
+    size: '',
+    weight: '',
+    age: ''
   };
+
   validationMessages = {
-    'size': {
+    size: {
+      'required': 'Size is required.'
+    },
+    weight: {
+      'required': 'Size is required.'
+    },
+    age: {
       'required': 'Size is required.'
     }
   };
@@ -193,7 +202,7 @@ export class CaloriesComponent {
           }
         }
       }
-      console.info("form errors : " + this.formErrors);
+      console.info("form errors : " + JSON.stringify(this.formErrors));
     }
   }
 
