@@ -68,17 +68,17 @@ export class CaloriesComponent {
       ]
       ,
       'age': [
-        this.profile.size,
+        this.profile.age,
         [Validators.required]
       ]
       ,
       'weight': [
-        this.profile.size,
+        this.profile.weight,
         [Validators.required]
       ]
       ,
       'activityIntensity': [
-        this.profile.size,
+        this.profile.activityIntensity,
         [Validators.required]
       ]
       ,
