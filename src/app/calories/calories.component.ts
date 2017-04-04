@@ -62,7 +62,6 @@ export class CaloriesComponent {
     this.profileForm.setValue({
       gender: this.profile.gender,
       size: this.profile.size,
-      age: this.profile.age,
       weigh: this.profile.weight,
       activityIntensity: this.profile.activityIntensity,
       calories: this.calories
