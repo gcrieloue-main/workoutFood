@@ -61,10 +61,6 @@ h1 {
   font-size: 250%;
 }
 
-input.ng-invalid.ng-touched {
-  border-bottom: 1px solid #e74c3c !important;
-}
-
 .meal {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.4);
