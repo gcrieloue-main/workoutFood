@@ -29,6 +29,7 @@ export class CaloriesComponent {
 
   compute: boolean = false;
   calories: number = 0;
+  isInvalid: boolean = false;
 
   constructor(private dataService: DataService, private formBuilder: FormBuilder) {
   }
@@ -165,6 +166,7 @@ export class CaloriesComponent {
 
   onSubmit(): void {
     this.errorMessage = '';
+    this.isInvalid = false;
     if (this.profileForm.status == "VALID") {
       this.computeCalories();
       if (this.calories > 0) {
@@ -172,6 +174,7 @@ export class CaloriesComponent {
       }
     }
     else {
+      this.isInvalid = true;
       this.errorMessage = "Certaines informations sont incorrectes."
     }
   }

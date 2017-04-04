@@ -138,3 +138,7 @@ input.ng-invalid.ng-touched {
   color: #666666;
 }
 
+form.invalid input.ng-invalid {
+  border-bottom: 5px solid #e74c3c !important;
+}
+
