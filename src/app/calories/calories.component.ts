@@ -30,6 +30,7 @@ export class CaloriesComponent {
   compute: boolean = false;
   calories: number = 0;
   isInvalid: boolean = false;
+  errorMessage: string = '';
 
   constructor(private dataService: DataService, private formBuilder: FormBuilder) {
   }
