@@ -56,6 +56,41 @@ export class CaloriesComponent {
     }, 1);
   }
 
+  buildForm(): void {
+    this.profileForm = this.formBuilder.group({
+      'gender': [
+        this.profile.gender,
+        [Validators.required]
+      ],
+      'size': [
+        this.profile.size,
+        [Validators.required]
+      ]
+    });
+
+    this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
+
+    this.onValueChanged();
+  }
+
+  onValueChanged(data?: any) {
+    if (!this.profileForm) {
+      return;
+    }
+    const form = this.profileForm;
+    for (const field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
   computeCalories(): void {
     console.debug("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
@@ -134,38 +169,5 @@ export class CaloriesComponent {
     this.compute = !this.compute;
   }
 
-  buildForm(): void {
-    this.profileForm = this.formBuilder.group({
-      'profile.gender': [
-        this.profile.gender,
-        [Validators.required]
-      ],
-      'profile.size': [
-        this.profile.size,
-        [Validators.required]
-      ]
-    });
 
-    this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
-
-    this.onValueChanged();
-  }
-
-  onValueChanged(data?: any) {
-    if (!this.profileForm) {
-      return;
-    }
-    const form = this.profileForm;
-    for (const field in this.formErrors) {
-      // clear previous error message (if any)
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
-    }
-  }
 }
