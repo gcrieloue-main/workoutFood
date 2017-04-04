@@ -43,6 +43,7 @@ export class CaloriesComponent {
   }
 
   ngOnInit(): void {
+    this.buildForm();
   }
 
   ngAfterViewInit() {
@@ -52,46 +53,55 @@ export class CaloriesComponent {
       if (profile != null) this.profile = profile;
       let calories = this.dataService.loadCaloriesBase();
       if (calories != null) this.calories = calories;
-    }, 1);
 
-    this.buildForm();
+      this.loadForm();
+    }, 1);
+  }
+
+  loadForm(): void {
+    this.profileForm.setValue({
+      gender: this.profile.gender,
+      size: this.profile.size,
+      age: this.profile.age,
+      weigh: this.profile.weight,
+      activityIntensity: this.profile.activityIntensity,
+      calories: this.calories
+    });
   }
 
   buildForm(): void {
     this.profileForm = this.formBuilder.group({
       'gender': [
-        this.profile.gender,
+        '',
         [Validators.required]
       ],
       'size': [
-        this.profile.size,
+        '',
         [Validators.required]
       ]
       ,
       'age': [
-        this.profile.age,
+        '',
         [Validators.required]
       ]
       ,
       'weight': [
-        this.profile.weight,
+        '',
         [Validators.required]
       ]
       ,
       'activityIntensity': [
-        this.profile.activityIntensity,
+        '',
         [Validators.required]
       ]
       ,
       'calories': [
-        this.calories,
+        '',
         [Validators.required]
       ]
     });
 
     this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
-
-    this.onValueChanged();
   }
 
   onValueChanged(data?: any) {
