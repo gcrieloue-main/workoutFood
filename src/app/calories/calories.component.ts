@@ -22,7 +22,7 @@ export class CaloriesComponent {
     size: undefined,
     weight: undefined,
     age: undefined,
-    activityIntensity: 0
+    activityIntensity: 1.2
   };
 
   profileForm: FormGroup;
