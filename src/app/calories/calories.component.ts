@@ -25,6 +25,17 @@ export class CaloriesComponent {
     activityIntensity: 0
   };
 
+  profileForm: FormsGroup;
+
+  formErrors = {
+    'size': ''
+  };
+  validationMessages = {
+    'size': {
+      'required': 'Size is required.'
+    }
+  };
+
   compute: boolean = false;
   calories: number = 0;
 
@@ -125,8 +136,12 @@ export class CaloriesComponent {
 
   buildForm(): void {
     this.profileForm = this.formBuilder.group({
-      'gender': [
+      'profile.gender': [
         this.profile.gender,
+        [Validators.required]
+      ],
+      'profile.size': [
+        this.profile.size,
         [Validators.required]
       ]
     });
@@ -134,5 +149,23 @@ export class CaloriesComponent {
     this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
 
     this.onValueChanged();
+  }
+
+  onValueChanged(data?: any) {
+    if (!this.profileForm) {
+      return;
+    }
+    const form = this.profileForm;
+    for (const field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
   }
 }
