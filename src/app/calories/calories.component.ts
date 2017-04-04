@@ -27,24 +27,6 @@ export class CaloriesComponent {
 
   profileForm: FormGroup;
 
-  formErrors = {
-    size: '',
-    weight: '',
-    age: ''
-  };
-
-  validationMessages = {
-    size: {
-      'required': 'Size is required.'
-    },
-    weight: {
-      'required': 'Size is required.'
-    },
-    age: {
-      'required': 'Size is required.'
-    }
-  };
-
   compute: boolean = false;
   calories: number = 0;
 
@@ -182,6 +164,7 @@ export class CaloriesComponent {
   }
 
   onSubmit(): void {
+    this.errorMessage = '';
     if (this.profileForm.status == "VALID") {
       this.computeCalories();
       if (this.calories > 0) {
@@ -189,20 +172,7 @@ export class CaloriesComponent {
       }
     }
     else {
-      const form = this.profileForm;
-      for (const field in this.formErrors) {
-        // clear previous error message (if any)
-        this.formErrors[field] = '';
-        const control = form.get(field);
-        if (control && !control.valid) {
-          console.info("error field : " + field);
-          const messages = this.validationMessages[field];
-          for (const key in control.errors) {
-            this.formErrors[field] += messages[key] + ' ';
-          }
-        }
-      }
-      console.info("form errors : " + JSON.stringify(this.formErrors));
+      this.errorMessage = "Certaines informations sont incorrectes."
     }
   }
 
