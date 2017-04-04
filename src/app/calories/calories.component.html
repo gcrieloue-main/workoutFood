@@ -7,15 +7,13 @@
         <div class="col-sm-10">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" id="male" value="female" checked
-                     formControlName="gender" (ngModelChange)="onProfileChange($event)" required>
+              <input class="form-check-input" type="radio" id="male" value="female" checked formControlName="gender" required>
               <i class="fa fa-venus" aria-hidden="true"></i> Femme
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" id="female" value="male"
-                    formControlName="gender" (ngModelChange)="onProfileChange($event)" required>
+              <input class="form-check-input" type="radio" id="female" value="male" formControlName="gender" required>
               <i class="fa fa-mars" aria-hidden="true"></i> Homme
             </label>
           </div>
@@ -26,8 +24,7 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Poids</label>
         <div class="col-sm-10 input-group">
-          <input class="form-control" type="number" formControlName="weight" name="weight"
-                 placeholder="example: 75" (ngModelChange)="onProfileChange($event)" min="1">
+          <input class="form-control" type="number" formControlName="weight" name="weight" placeholder="example: 75" min="1">
           <div class="input-group-addon">kg</div>
         </div>
       </div>
@@ -50,16 +47,14 @@
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Taille</label>
             <div class="col-sm-10 input-group">
-              <input class="form-control" type="number" formControlName="size" name="size"
-                     placeholder="example: 180" (ngModelChange)="onProfileChange($event)" min="1">
+              <input class="form-control" type="number" formControlName="size" name="size" placeholder="example: 180">
               <div class="input-group-addon">cm</div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Age</label>
             <div class="col-sm-10">
-              <input class="form-control" type="number" formControlName="age" name="age" placeholder="example: 30"
-                     (ngModelChange)="onProfileChange($event)" min="1">
+              <input class="form-control" type="number" formControlName="age" name="age" placeholder="example: 30">
             </div>
           </div>
         </div>
@@ -69,29 +64,25 @@
             <div class="col-sm-10">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" id="activityIntensity" value="1.2" checked
-                         formControlName="activityIntensity" (ngModelChange)="onProfileChange($event)">
+                  <input class="form-check-input" type="radio" id="activityIntensity" value="1.2" checked formControlName="activityIntensity">
                   Immobile – bloqué au lit
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" id="gridRadios2" value="1.4"
-                         formControlName="activityIntensity" (ngModelChange)="onProfileChange($event)">
+                  <input class="form-check-input" type="radio" id="gridRadios2" value="1.4" formControlName="activityIntensity">
                   Travail sédentaire (ex&nbsp;: secrétaire) et peu voir pas d’exercice.
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" id="gridRadios3" value="1.7"
-                         formControlName="activityIntensity" (ngModelChange)="onProfileChange($event)">
+                  <input class="form-check-input" type="radio" id="gridRadios3" value="1.7" formControlName="activityIntensity">
                   Travail à activité modérée (ex&nbsp;: assistant de vente) – exercice 2-3 x par semaines
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="radio" id="gridRadios4" value="2"
-                         formControlName="activityIntensity" (ngModelChange)="onProfileChange($event)">
+                  <input class="form-check-input" type="radio" id="gridRadios4" value="2" formControlName="activityIntensity">
                   Travail physique (ex&nbsp;: ouvrier) – exercice 3-4 x par semaine
                 </label>
               </div>
@@ -112,8 +103,7 @@
     <div class="form-group row">
       <label class="col-12 col-md-2 col-form-label" for="caloriesBase">Base calorique&nbsp;:</label>
       <div class="input-group col-12 col-md-10">
-        <input type="number" formControlName="calories" class="form-control"
-               (ngModelChange)="onCaloriesChange($event)" id="caloriesBase"/>
+        <input type="number" formControlName="calories" class="form-control" id="caloriesBase"/>
         <div class="input-group-addon">cal</div>
       </div>
     </div>
