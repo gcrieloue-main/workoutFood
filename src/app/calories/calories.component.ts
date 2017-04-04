@@ -59,7 +59,7 @@ export class CaloriesComponent {
   }
 
   loadForm(): void {
-    this.profileForm.setValue({
+    this.profileForm.patchValue({
       gender: this.profile.gender,
       size: this.profile.size,
       weigh: this.profile.weight,
