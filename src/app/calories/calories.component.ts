@@ -177,6 +177,7 @@ export class CaloriesComponent {
       console.debug("metabolic rate : " + metabolicRate);
       console.debug("activity intensity : " + this.profile.activityIntensity);
       this.calories = Math.ceil(metabolicRate * this.profile.activityIntensity);
+      this.profileForm.patchValue({calories: this.calories});
       this.dataService.setCaloriesBase(this.calories);
       this.onCaloriesChange(this.calories);
     }
@@ -190,10 +191,6 @@ export class CaloriesComponent {
     }
   }
 
-  onProfileChange(): void {
-    this.dataService.setProfile(this.profile);
-  }
-
   onCaloriesChange(calories: number) {
     this.calories = calories;
     this.dataService.setCaloriesBase(this.calories);
@@ -202,6 +199,5 @@ export class CaloriesComponent {
   toggleCompute(): void {
     this.compute = !this.compute;
   }
-
 
 }
