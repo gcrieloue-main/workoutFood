@@ -98,6 +98,8 @@ export class CaloriesComponent {
       return;
     }
 
+    console.info("changes : " + JSON.stringify(data));
+
     this.profile.age = this.profileForm.value["age"];
     this.profile.gender = this.profileForm.value["gender"];
     this.profile.size = this.profileForm.value["size"];
