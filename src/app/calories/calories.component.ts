@@ -117,6 +117,7 @@ export class CaloriesComponent {
       }
     }
 
+    this.profile.age = this.profileForm.value["age"];
     this.profile.gender = this.profileForm.value["gender"];
     this.profile.size = this.profileForm.value["size"];
     this.profile.weight = this.profileForm.value["weight"];
@@ -126,7 +127,7 @@ export class CaloriesComponent {
   }
 
   computeCalories(): void {
-    console.debug("compute calories")
+    console.info("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
       var factor1: number, factor2: number, factor3: number;
       if (this.profile.gender == 'male') {
