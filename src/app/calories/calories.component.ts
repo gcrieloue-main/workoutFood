@@ -25,7 +25,7 @@ export class CaloriesComponent {
     activityIntensity: 0
   };
 
-  profileForm: FormsGroup;
+  profileForm: FormGroup;
 
   formErrors = {
     'size': ''
