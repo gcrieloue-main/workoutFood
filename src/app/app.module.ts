@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ChartsModule} from "ng2-charts/ng2-charts";
 import {CoreComponent} from "./core/core.component";
 import {CaloriesComponent} from "./calories/calories.component";
@@ -19,6 +19,7 @@ import {SummaryComponent} from "./summary/summary.component";
     ChartsModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',

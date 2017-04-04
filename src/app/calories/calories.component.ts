@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {FormGroup, FormBuilder, Validators, NgForm} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, NgForm} from "@angular/forms";
 import {DataService} from "../shared/data.service";
 
 export class Profile {
@@ -28,10 +28,11 @@ export class CaloriesComponent {
   compute: boolean = false;
   calories: number = 0;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.buildForm();
   }
 
   ngAfterViewInit() {
@@ -120,5 +121,18 @@ export class CaloriesComponent {
 
   toggleCompute(): void {
     this.compute = !this.compute;
+  }
+
+  buildForm(): void {
+    this.profileForm = this.formBuilder.group({
+      'gender': [
+        this.profile.gender,
+        [Validators.required]
+      ]
+    });
+
+    this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
+
+    this.onValueChanged();
   }
 }
