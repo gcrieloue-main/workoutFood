@@ -62,7 +62,8 @@ export class CaloriesComponent {
     this.profileForm.patchValue({
       gender: this.profile.gender,
       size: this.profile.size,
-      weigh: this.profile.weight,
+      age: this.profile.age,
+      weight: this.profile.weight,
       activityIntensity: this.profile.activityIntensity,
       calories: this.calories
     });
