@@ -66,6 +66,26 @@ export class CaloriesComponent {
         this.profile.size,
         [Validators.required]
       ]
+      ,
+      'age': [
+        this.profile.size,
+        [Validators.required]
+      ]
+      ,
+      'weight': [
+        this.profile.size,
+        [Validators.required]
+      ]
+      ,
+      'activityIntensity': [
+        this.profile.size,
+        [Validators.required]
+      ]
+      ,
+      'calories': [
+        this.calories,
+        [Validators.required]
+      ]
     });
 
     this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
