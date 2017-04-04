@@ -109,6 +109,8 @@ export class CaloriesComponent {
         }
       }
     }
+
+    this.dataService.setProfile(this.profile);
   }
 
   computeCalories(): void {
