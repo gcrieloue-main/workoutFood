@@ -139,6 +139,10 @@ input.ng-invalid.ng-touched {
 }
 
 form.invalid input.ng-invalid {
-  border-bottom: 5px solid #e74c3c !important;
+  border-bottom: 2px solid #e74c3c !important;
+}
+
+span.errorMessage {
+  color: #e74c3c;
 }
 
