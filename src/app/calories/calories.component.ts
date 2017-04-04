@@ -167,7 +167,6 @@ export class CaloriesComponent {
       this.calories = Math.ceil(metabolicRate * this.profile.activityIntensity);
       this.profileForm.patchValue({calories: this.calories});
       this.dataService.setCaloriesBase(this.calories);
-      this.setCaloriesBase(this.calories);
     }
   }
 
