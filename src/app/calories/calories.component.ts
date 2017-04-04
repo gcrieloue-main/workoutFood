@@ -100,6 +100,10 @@ export class CaloriesComponent {
 
     console.info("changes : " + JSON.stringify(data));
 
+    if (this.calories != this.profileForm.value["calories"]) {
+      this.dataService.setCaloriesBase(this.calories);
+    }
+
     this.profile.age = this.profileForm.value["age"];
     this.profile.gender = this.profileForm.value["gender"];
     this.profile.size = this.profileForm.value["size"];
@@ -180,11 +184,6 @@ export class CaloriesComponent {
       this.isInvalid = true;
       this.errorMessage = "Certaines informations sont incorrectes."
     }
-  }
-
-  onCaloriesChange(calories: number) {
-    this.calories = calories;
-    this.dataService.setCaloriesBase(this.calories);
   }
 
   toggleCompute(): void {
