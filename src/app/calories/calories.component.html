@@ -24,7 +24,7 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Poids</label>
         <div class="col-sm-10 input-group">
-          <input class="form-control" type="number" formControlName="weight" name="weight" placeholder="example: 75">
+          <input class="form-control" type="number" formControlName="weight" name="weight" placeholder="exemple: 75">
           <div class="input-group-addon">kg</div>
         </div>
       </div>
@@ -47,14 +47,14 @@
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Taille</label>
             <div class="col-sm-10 input-group">
-              <input class="form-control" type="number" formControlName="size" name="size" placeholder="example: 180">
+              <input class="form-control" type="number" formControlName="size" name="size" placeholder="exemple: 180">
               <div class="input-group-addon">cm</div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Age</label>
             <div class="col-sm-10">
-              <input class="form-control" type="number" formControlName="age" name="age" placeholder="example: 30">
+              <input class="form-control" type="number" formControlName="age" name="age" placeholder="exemple: 30">
             </div>
           </div>
         </div>
@@ -93,8 +93,8 @@
       <p>
         <button type="submit" class="btn btn-success mrb-2">Calculer</button>
       </p>
-      <div *ngIf="formErrors.name" class="alert alert-danger">
-        {{ formErrors.size }}
+      <div *ngFor="let error of formErrors" class="alert alert-danger">
+        {{ error | JSON }}
       </div>
       <p class="mt-2 mb-0"><em>Note : Cette méthode est conçue à partir des <a
         href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1368980005001394">équations

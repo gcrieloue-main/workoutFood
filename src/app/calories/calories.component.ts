@@ -194,7 +194,7 @@ export class CaloriesComponent {
         // clear previous error message (if any)
         this.formErrors[field] = '';
         const control = form.get(field);
-        if (control && control.dirty && !control.valid) {
+        if (control && !control.valid) {
           console.info("error field : " + field);
           const messages = this.validationMessages[field];
           for (const key in control.errors) {
