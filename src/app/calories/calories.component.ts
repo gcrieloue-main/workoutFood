@@ -104,18 +104,6 @@ export class CaloriesComponent {
     if (!this.profileForm) {
       return;
     }
-    const form = this.profileForm;
-    for (const field in this.formErrors) {
-      // clear previous error message (if any)
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
-    }
 
     this.profile.age = this.profileForm.value["age"];
     this.profile.gender = this.profileForm.value["gender"];
@@ -185,10 +173,25 @@ export class CaloriesComponent {
   }
 
   onSubmit(): void {
-    this.dataService.setProfile(this.profile);
-    this.computeCalories();
-    if (this.calories > 0) {
-      this.toggleCompute();
+    if (this.profileForm.status == "VALID") {
+      this.computeCalories();
+      if (this.calories > 0) {
+        this.toggleCompute();
+      }
+    }
+    else {
+      const form = this.profileForm;
+      for (const field in this.formErrors) {
+        // clear previous error message (if any)
+        this.formErrors[field] = '';
+        const control = form.get(field);
+        if (control && control.dirty && !control.valid) {
+          const messages = this.validationMessages[field];
+          for (const key in control.errors) {
+            this.formErrors[field] += messages[key] + ' ';
+          }
+        }
+      }
     }
   }
 
