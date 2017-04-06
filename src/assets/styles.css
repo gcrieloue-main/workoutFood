@@ -142,3 +142,6 @@ span.errorMessage {
   color: #e74c3c;
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
