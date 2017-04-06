@@ -138,3 +138,6 @@ input.ng-invalid.ng-touched {
   color: #666666;
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
