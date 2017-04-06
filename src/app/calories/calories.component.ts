@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {FormGroup, FormBuilder, Validators, NgForm} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, NgForm} from "@angular/forms";
 import {DataService} from "../shared/data.service";
 
 export class Profile {
@@ -22,16 +22,21 @@ export class CaloriesComponent {
     size: undefined,
     weight: undefined,
     age: undefined,
-    activityIntensity: 0
+    activityIntensity: 1.2
   };
+
+  profileForm: FormGroup;
 
   compute: boolean = false;
   calories: number = 0;
+  isInvalid: boolean = false;
+  errorMessage: string = '';
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.buildForm();
   }
 
   ngAfterViewInit() {
@@ -41,11 +46,75 @@ export class CaloriesComponent {
       if (profile != null) this.profile = profile;
       let calories = this.dataService.loadCaloriesBase();
       if (calories != null) this.calories = calories;
+
+      this.loadForm();
     }, 1);
   }
 
+  loadForm(): void {
+    this.profileForm.patchValue({
+      gender: this.profile.gender,
+      size: this.profile.size,
+      age: this.profile.age,
+      weight: this.profile.weight,
+      activityIntensity: this.profile.activityIntensity,
+      calories: this.calories
+    });
+  }
+
+  buildForm(): void {
+    this.profileForm = this.formBuilder.group({
+      gender: [
+        '',
+        [Validators.required]
+      ],
+      size: [
+        '',
+        [Validators.required]
+      ],
+      age: [
+        '',
+        [Validators.required]
+      ],
+      weight: [
+        '',
+        [Validators.required]
+      ],
+      activityIntensity: [
+        '',
+        [Validators.required]
+      ],
+      calories: [
+        '',
+        [Validators.required]
+      ]
+    });
+
+    this.profileForm.valueChanges.subscribe(data=>this.onValueChanged(data));
+  }
+
+  onValueChanged(data?: any) {
+    if (!this.profileForm) {
+      return;
+    }
+
+    console.info("changes : " + JSON.stringify(data));
+
+    if (this.calories != this.profileForm.value["calories"]) {
+      this.dataService.setCaloriesBase(this.calories);
+    }
+
+    this.profile.age = this.profileForm.value["age"];
+    this.profile.gender = this.profileForm.value["gender"];
+    this.profile.size = this.profileForm.value["size"];
+    this.profile.weight = this.profileForm.value["weight"];
+    this.profile.activityIntensity = this.profileForm.value["activityIntensity"];
+    this.calories = this.profileForm.value["calories"];
+    this.dataService.setProfile(this.profile);
+  }
+
   computeCalories(): void {
-    console.debug("compute calories")
+    console.info("compute calories")
     if (this.profile.age != undefined && this.profile.size != undefined && this.profile.weight != undefined) {
       var factor1: number, factor2: number, factor3: number;
       if (this.profile.gender == 'male') {
@@ -96,29 +165,28 @@ export class CaloriesComponent {
       console.debug("metabolic rate : " + metabolicRate);
       console.debug("activity intensity : " + this.profile.activityIntensity);
       this.calories = Math.ceil(metabolicRate * this.profile.activityIntensity);
+      this.profileForm.patchValue({calories: this.calories});
       this.dataService.setCaloriesBase(this.calories);
-      this.onCaloriesChange(this.calories);
     }
   }
 
   onSubmit(): void {
-    this.dataService.setProfile(this.profile);
-    this.computeCalories();
-    if (this.calories > 0) {
-      this.toggleCompute();
+    this.errorMessage = '';
+    this.isInvalid = false;
+    if (this.profileForm.status == "VALID") {
+      this.computeCalories();
+      if (this.calories > 0) {
+        this.toggleCompute();
+      }
     }
-  }
-
-  onProfileChange(): void {
-    this.dataService.setProfile(this.profile);
-  }
-
-  onCaloriesChange(calories: number) {
-    this.calories = calories;
-    this.dataService.setCaloriesBase(this.calories);
+    else {
+      this.isInvalid = true;
+      this.errorMessage = "Certaines informations sont incorrectes."
+    }
   }
 
   toggleCompute(): void {
     this.compute = !this.compute;
   }
+
 }

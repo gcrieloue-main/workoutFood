@@ -61,10 +61,6 @@ h1 {
   font-size: 250%;
 }
 
-input.ng-invalid.ng-touched {
-  border-bottom: 1px solid #e74c3c !important;
-}
-
 .meal {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -138,6 +134,11 @@ input.ng-invalid.ng-touched {
   color: #666666;
 }
 
-.text-nowrap {
-  white-space: nowrap;
+form.invalid input.ng-invalid {
+  border-bottom: 2px solid #e74c3c !important;
 }
+
+span.errorMessage {
+  color: #e74c3c;
+}
+

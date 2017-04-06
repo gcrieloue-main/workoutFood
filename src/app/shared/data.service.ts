@@ -125,12 +125,14 @@ export class DataService {
     this.days.push(day);
     console.log(this.days.length + " days in total");
     this.saveMenu();
+    this.daySource.next(day);
     return day;
   }
 
   removeDay(day: Day) {
     console.info("remove day " + (this.days.indexOf(day) + 1));
     this.days.splice(this.days.indexOf(day), 1);
+    this.daySource.next(day);
     this.saveMenu();
   }
 
