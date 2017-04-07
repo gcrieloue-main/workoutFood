@@ -145,3 +145,12 @@ span.errorMessage {
 .text-nowrap {
   white-space: nowrap;
 }
+
+.not-found{
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nickainley-Normal', Arial, Helvetica, sans-serif;
+  font-size: 48px;
+}
