@@ -13,6 +13,7 @@ import {FoodListComponent} from "./food-list/food-list.component";
 import {RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {SummaryComponent} from "./summary/summary.component";
+import {NotFoundComponent} from "./notfound/notfound.component";
 
 @NgModule({
   imports: [
@@ -33,10 +34,26 @@ import {SummaryComponent} from "./summary/summary.component";
       {
         path: 'foods',
         component: FoodListComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent,
+        pathMatch: 'full'
       }
     ])
   ],
-  declarations: [AppComponent, CoreComponent, CaloriesComponent, FoodComponent, DayComponent, MealComponent, FoodSearchComponent, Typeahead, FoodListComponent, SummaryComponent],
+  declarations: [
+    AppComponent,
+    CoreComponent,
+    CaloriesComponent,
+    FoodComponent,
+    DayComponent,
+    MealComponent,
+    FoodSearchComponent,
+    Typeahead,
+    FoodListComponent,
+    SummaryComponent,
+    NotFoundComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
