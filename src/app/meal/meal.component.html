@@ -1,10 +1,9 @@
 <div class="card meal mb-2" (click)="onSelectMeal()" [class.meal-selected]="isSelected" [@fadeInOut]>
-  <div class="card-top align-middle" [style.background-image]="'url(assets/img/meal-pic0'+(((num+1)%6)+1)+'c.png)'">Repas
-    {{num+1}}
+  <div class="card-top align-middle" [style.background-image]="'url(assets/img/meal-pic0'+(((num+1)%6)+1)+'c.png)'">
+    Repas {{num+1}}
   </div>
   <div class="card-block">
-    <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"
-       data-toggle="tooltip" data-placement="bottom" title="Supprimer ce repas"></i>
+    <i class="fa fa-times-circle remove-meal-button" aria-hidden="true" (click)="removeMeal()"></i>
     <p *ngIf="meal.mealFoods.length == 0">
       <span *ngIf="isSelected">Ajoutez des aliments.</span>
       <span *ngIf="!isSelected">Cliquez sur ce menu pour y ajouter des aliments.</span>
@@ -26,7 +25,8 @@
     </div>
     <div>Total calorique : <span class="badge badge-warning">{{caloriesTotal}} cal</span></div>
     <div class="progress" *ngIf="caloriesBase > 0">
-      <div class="progress-bar progress-bar-striped progress-bar-animate" role="progressbar" [style.width]="caloriesPercentage + '%'"
+      <div class="progress-bar progress-bar-striped progress-bar-animate" role="progressbar"
+           [style.width]="caloriesPercentage + '%'"
            [attr.aria-valuenow]="caloriesPercentage" aria-valuemin="0"
            aria-valuemax="100"></div>
     </div>
