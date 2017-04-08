@@ -14,9 +14,11 @@ import {RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {SummaryComponent} from "./summary/summary.component";
 import {NotFoundComponent} from "./notfound/notfound.component";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     ChartsModule,
     BrowserModule,
     FormsModule,
