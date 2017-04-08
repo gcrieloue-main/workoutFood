@@ -3,13 +3,7 @@ import {MealFood} from "../shared/mealFood";
 import {DataService} from "../shared/data.service";
 import {Subscription} from "rxjs/Subscription";
 import {Meal} from "./meal";
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
+import {trigger, state, style, animate, transition} from '@angular/animations';
 
 
 @Component({
