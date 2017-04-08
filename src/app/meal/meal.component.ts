@@ -15,10 +15,11 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
       state('in', style({transform: 'scale(1)'})),
       transition(':enter', [
         style({transform: 'scale(0)'}),
-        animate(100)
+        animate('100ms ease-in')
       ]),
       transition(':leave', [
-        animate(100, style({transform: 'scale(0)'}))
+        style({transform: 'scale(0)'}),
+        animate('100ms ease-out')
       ])
     ])
   ]
