@@ -16,6 +16,7 @@
   "author": "Crieloue Gilles",
   "license": "MIT",
   "dependencies": {
+    "@angular/animations": "~4.0.0",
     "@angular/common": "~4.0.0",
     "@angular/compiler": "~4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -26,15 +27,15 @@
     "@angular/platform-browser-dynamic": "~4.0.0",
     "@angular/platform-server": "^4.0.0",
     "@angular/router": "~4.0.0",
-    "@angular/animations": "~4.0.0",
     "@types/node": "^7.0.12",
     "angular-in-memory-web-api": "~0.3.1",
     "chart.js": "^2.5.0",
-    "ng2-charts": "^1.5.0",
     "core-js": "^2.4.1",
     "express": "^4.15.2",
+    "ng2-charts": "^1.5.0",
     "rxjs": "5.2.0",
     "systemjs": "0.19.47",
+    "web-animations-js": "^2.2.2",
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
