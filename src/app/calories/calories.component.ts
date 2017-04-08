@@ -101,7 +101,7 @@ export class CaloriesComponent {
     console.info("changes : " + JSON.stringify(data));
 
     if (this.calories != this.profileForm.value["calories"]) {
-      this.dataService.setCaloriesBase(this.calories);
+      this.dataService.setCaloriesBase(this.profileForm.value["calories"]);
     }
 
     this.profile.age = this.profileForm.value["age"];
