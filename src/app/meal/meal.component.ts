@@ -3,12 +3,31 @@ import {MealFood} from "../shared/mealFood";
 import {DataService} from "../shared/data.service";
 import {Subscription} from "rxjs/Subscription";
 import {Meal} from "./meal";
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 
 @Component({
   moduleId: module.id,
   selector: 'meal',
-  templateUrl: './meal.component.html'
+  templateUrl: './meal.component.html',
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]
 })
 export class MealComponent implements OnDestroy {
 
@@ -73,7 +92,7 @@ export class MealComponent implements OnDestroy {
     }
 
     if (this.meal !== undefined && this.meal.mealFoods.length > 0) {
-      this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood: MealFood)=>mealFood.weight * mealFood.food.calories / 100).reduce((c1: number, c2: number)=>c1 + c2));
+      this.caloriesTotal = Math.ceil(this.meal.mealFoods.map((mealFood: MealFood) => mealFood.weight * mealFood.food.calories / 100).reduce((c1: number, c2: number) => c1 + c2));
       this.caloriesPercentage = Math.ceil((this.caloriesTotal * 100) / this.caloriesBase);
       if (this.caloriesPercentage > 100) {
         this.caloriesPercentage = 100;
