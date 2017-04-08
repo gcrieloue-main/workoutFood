@@ -11,15 +11,13 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
   selector: 'meal',
   templateUrl: './meal.component.html',
   animations: [
-    trigger('flyInOut', [
-      state('in', style({transform: 'scale(1)'})),
-      transition(':enter', [
-        style({transform: 'scale(0)'}),
-        animate('100ms ease-in')
+    trigger('fadeInOut', [
+      transition(':enter', [   // :enter is alias to 'void => *'
+        style({opacity:0}),
+        animate(500, style({opacity:1}))
       ]),
-      transition(':leave', [
-        style({transform: 'scale(0)'}),
-        animate('100ms ease-out')
+      transition(':leave', [   // :leave is alias to '* => void'
+        animate(500, style({opacity:0}))
       ])
     ])
   ]
