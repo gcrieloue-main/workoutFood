@@ -3,6 +3,7 @@ var resources = [
   'node_modules/core-js/client/shim.min.js',
   'node_modules/zone.js/dist/zone.min.js',
   'node_modules/chart.js/dist/Chart.bundle.min.js',
+  'node_modules/web-animations-js/web-animations.min.js',
   'src/assets/styles.css'
 ];
 resources.map(function (f) {
