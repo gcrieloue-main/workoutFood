@@ -18,13 +18,13 @@ import {
   templateUrl: './meal.component.html',
   animations: [
     trigger('flyInOut', [
-      state('in', style({transform: 'translateX(0)'})),
-      transition('void => *', [
+      state('in', style({transform: 'translateX(-100%) scale(1)'})),
+      transition(':enter', [
         style({transform: 'translateX(-100%)'}),
         animate(100)
       ]),
-      transition('* => void', [
-        animate(100, style({transform: 'translateX(100%)'}))
+      transition(':leave', [
+        animate(100, style({transform: 'translateX(0) scale(0)'}))
       ])
     ])
   ]
