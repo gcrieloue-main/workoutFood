@@ -12,13 +12,13 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
   templateUrl: './meal.component.html',
   animations: [
     trigger('flyInOut', [
-      state('in', style({transform: 'translateX(-100%) scale(1)'})),
+      state('in', style({transform: 'scale(1)'})),
       transition(':enter', [
-        style({transform: 'translateX(-100%)'}),
+        style({transform: 'scale(0)'}),
         animate(100)
       ]),
       transition(':leave', [
-        animate(100, style({transform: 'translateX(0) scale(0)'}))
+        animate(100, style({transform: 'scale(0)'}))
       ])
     ])
   ]
