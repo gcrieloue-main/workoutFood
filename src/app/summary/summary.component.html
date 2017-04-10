@@ -62,26 +62,33 @@
                aria-valuemin="0" aria-valuemax="100">Calories
           </div>
         </div>
+        <p class="progress-caption">{{Math.ceil(weekCalories)}}/{{caloriesBase}} cal.</p>
+
         <div class="progress" data-toggle="tooltip" data-placement="left" title="2g par kg de poid de corps">
           <div class="progress-bar progress-bar-animate" role="progressbar"
                [style.width]="weekProteinsPercentage + '%'" [attr.aria-valuenow]="weekProteinsPercentage"
                aria-valuemin="0" aria-valuemax="100">Protéines
           </div>
         </div>
+        <p class="progress-caption">{{Math.ceil(weekProteins)}}/{{proteinsPerDay}}g</p>
+
         <div class="progress">
           <div class="progress-bar progress-bar-animate" role="progressbar"
                [style.width]="weekCarbohydratesPercentage + '%'" [attr.aria-valuenow]="weekCarbohydratesPercentage"
                aria-valuemin="0" aria-valuemax="100">Glucides
           </div>
         </div>
+        <p class="progress-caption">{{Math.ceil(weekCarbohydrates)}}/{{Math.ceil(carbohydratesPerDay)}}g</p>
+
         <div class="progress" data-toggle="tooltip" data-placement="left" title="20% des apports caloriques">
           <div class="progress-bar progress-bar-animate" role="progressbar"
                [style.width]="weekFatsPercentage + '%'" [attr.aria-valuenow]="weekFatsPercentage"
                aria-valuemin="0" aria-valuemax="100">Lipides
           </div>
         </div>
+        <p class="progress-caption">{{Math.ceil(weekFats)}}/{{Math.ceil(fatsPerDay)}}g</p>
       </div>
-      <p class="text-center">Objectifs de la semaine</p>
+      <p class="text-center">Objectifs de la semaine (moyenne des jours)</p>
     </div>
   </div>
 </div>

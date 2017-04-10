@@ -33,9 +33,16 @@ export class SummaryComponent {
   carbohydratesPerDay: number = 0;
   carbohydratesPercentage: number = 0;
 
+  weekCalories: number = 0;
   weekCaloriesPercentage: number = 0;
+
+  weekProteins: number = 0;
   weekProteinsPercentage: number = 0;
+
+  weekFats: number = 0;
   weekFatsPercentage: number = 0;
+
+  weekCarbohydrates: number = 0;
   weekCarbohydratesPercentage: number = 0;
 
   caloriesDay: number = 0;
@@ -164,7 +171,8 @@ export class SummaryComponent {
         }
       }
     }
-    this.weekCaloriesPercentage = (calories * 100) / (this.caloriesBase * days.length);
+    this.weekCalories = calories / days.length;
+    this.weekCaloriesPercentage = this.weekCalories * 100 / this.caloriesBase;
     console.debug("week caloriesPercentage : " + this.weekCaloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
 
     var proteinsPerDay = 0;
@@ -174,21 +182,24 @@ export class SummaryComponent {
       var proteinsPerKg = 2;
       if (weight > 0) {
         proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
-        this.weekProteinsPercentage = (proteins * 100) / (proteinsPerDay * days.length);
+        this.weekProteins = proteins / days.length;
+        this.weekProteinsPercentage = this.eekProteins * 100 / proteinsPerDay;
         console.debug("week proteinsPercentage : " + this.weekProteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
       }
     }
 
     var caloriesPerFatGram = 9;
     var fatsPerDay = this.caloriesBase * 20 / 100;
-    this.weekFatsPercentage = (fats * caloriesPerFatGram * 100) / (fatsPerDay * days.length);
+    this.weekFats = (fats * caloriesPerFatGram) / days.length
+    this.weekFatsPercentage = this.weekFats * 100 / fatsPerDay;
     console.debug("week fatsPercentage : " + this.weekFatsPercentage + " (fats : " + fats + ", fats per day: " + fatsPerDay + ")");
 
     if (proteinsPerDay > 0) {
       var caloriesPerCarbohydratesGram = 4;
       var proteinsCalories = proteinsPerDay * caloriesPerProteinGram;
       var carbohydratesPerDay = this.caloriesBase - fatsPerDay - proteinsCalories;
-      this.weekCarbohydratesPercentage = (carbohydrates * caloriesPerCarbohydratesGram) * 100 / (carbohydratesPerDay * days.length);
+      this.weekCarbohydrates = (carbohydrates * caloriesPerCarbohydratesGram) / days.length;
+      this.weekCarbohydratesPercentage = this.weekCarbohydrates * 100 / carbohydratesPerDay;
       console.debug("week carbohydratesPercentage : " + this.weekCarbohydratesPercentage + ", calories base : " + this.caloriesBase + ", fats calories : " + fatsPerDay + ", proteins calories : " + proteinsCalories + ")");
     }
   }
