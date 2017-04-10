@@ -183,7 +183,7 @@ export class SummaryComponent {
       if (weight > 0) {
         proteinsPerDay = this.dataService.getProfile().weight * proteinsPerKg;
         this.weekProteins = proteins / days.length;
-        this.weekProteinsPercentage = this.eekProteins * 100 / proteinsPerDay;
+        this.weekProteinsPercentage = this.weekProteins * 100 / proteinsPerDay;
         console.debug("week proteinsPercentage : " + this.weekProteinsPercentage + " (proteins : " + proteins + ", proteins per day: " + proteinsPerDay + ")");
       }
     }
