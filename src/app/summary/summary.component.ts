@@ -161,6 +161,7 @@ export class SummaryComponent {
     var carbohydrates: number = 0;
     var fats: number = 0;
     var days = this.dataService.getDays();
+
     for (let day of days) {
       for (let meal of day.meals) {
         for (let food of meal.mealFoods) {
@@ -171,6 +172,7 @@ export class SummaryComponent {
         }
       }
     }
+
     this.weekCalories = calories / days.length;
     this.weekCaloriesPercentage = this.weekCalories * 100 / this.caloriesBase;
     console.debug("week caloriesPercentage : " + this.weekCaloriesPercentage + " (calories : " + calories + ", base: " + this.caloriesBase + ")");
@@ -189,8 +191,8 @@ export class SummaryComponent {
     }
 
     var caloriesPerFatGram = 9;
-    var fatsPerDay = this.caloriesBase * 20 / 100;
-    this.weekFats = (fats * caloriesPerFatGram) / days.length
+    var fatsPerDay = (this.caloriesBase * 20 / 100) / caloriesPerFatGram;
+    this.weekFats = fats / days.length
     this.weekFatsPercentage = this.weekFats * 100 / fatsPerDay;
     console.debug("week fatsPercentage : " + this.weekFatsPercentage + " (fats : " + fats + ", fats per day: " + fatsPerDay + ")");
 
