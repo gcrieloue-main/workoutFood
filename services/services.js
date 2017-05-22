@@ -10,11 +10,17 @@ var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
-router.get('/test',function(){
+function mongoExec(cmd){
     MongoClient.connect("mongodb://localhost/tutoriel", function(error, db) {
         if (error) return funcCallback(error);
 
         console.log("Connecté à la base de données 'tutoriel'");
+        cmd(db);
+    });
+}
+
+router.get('/test',function(){
+    mongoExec(function(db){
         var obj={nom:"truc",bidule:"bidule"};
         db.collection("col").insert(obj,null,function(error,results){
             if (error) throw error;
