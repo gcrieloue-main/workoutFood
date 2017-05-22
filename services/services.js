@@ -36,11 +36,8 @@ router
   .get('/menus/:menu_id', function (req, res) {
     mongoExec(function (db) {
       db.collection("col").findOne({_id: req.params.menu_id}, function (error, result) {
-        {
-          res.json(result);
-        }
-        ;
-      })
+        res.json(result);
+      });
     })
   })
   .get('/menus/list', function (req, res) {
