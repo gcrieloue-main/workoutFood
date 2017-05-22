@@ -32,6 +32,7 @@ router
         results.forEach(function (obj, i) {
           console.log(i + "/" + obj.nom);
         });
+        req.json(results);
       });
     });
   })
@@ -43,14 +44,17 @@ router
         if (error) throw error;
         console.log("obj " + JSON.stringify(obj) + " added");
       });
+      res.json(obj);
     });
   })
   .get('/list', function (req, res) {
-    db.collection("col").find().toArray(function (error, results) {
-      results.forEach(function (obj, i) {
-        console.log(i + "/" + obj.nom);
+    mongoExec(function (db) {
+      db.collection("col").find().toArray(function (error, results) {
+        results.forEach(function (obj, i) {
+          console.log(i + "/" + obj.nom);
+        });
+        res.json(results);
       });
-      res.json(results);
     });
   });
 
