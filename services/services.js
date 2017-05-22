@@ -20,7 +20,7 @@ function mongoExec(cmd) {
 }
 
 router
-  .get('/test', function () {
+  .get('/test', function (req, res) {
     mongoExec(function (db) {
       var obj = {nom: "truc", bidule: "bidule"};
       db.collection("col").insert(obj, null, function (error, results) {
@@ -32,7 +32,7 @@ router
         results.forEach(function (obj, i) {
           console.log(i + "/" + obj.nom);
         });
-        req.json(results);
+        res.json(results);
       });
     });
   })
