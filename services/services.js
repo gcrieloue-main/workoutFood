@@ -35,17 +35,16 @@ router
   })
   .get('/menus/:menu_id', function (req, res) {
     mongoExec(function (db) {
-      db.collection("col").findOne({_id:req.params.menu_id}).toArray(function (error, results) {
-        res.json(results);
-      });
-    });
+      db.collection("col").findOne({_id: req.params.menu_id}, error, result)
+      {
+        res.json(result);
+      }
+      ;
+    })
   })
   .get('/menus/list', function (req, res) {
     mongoExec(function (db) {
       db.collection("col").find().toArray(function (error, results) {
-        results.forEach(function (obj, i) {
-          console.log(i + "/" + obj.nom);
-        });
         res.json(results);
       });
     });
