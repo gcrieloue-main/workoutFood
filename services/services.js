@@ -7,7 +7,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
-
 var router = express.Router();
 
 function mongoExec(cmd) {
@@ -20,26 +19,13 @@ function mongoExec(cmd) {
 }
 
 router
-  .get('/test', function (req, res) {
-    mongoExec(function (db) {
-      var obj = {nom: "truc", bidule: "bidule"};
-      db.collection("col").insert(obj, null, function (error, results) {
-        if (error) throw error;
-        console.log("obj " + obj.nom + " added");
-      });
-
-      db.collection("col").find().toArray(function (error, results) {
-        results.forEach(function (obj, i) {
-          console.log(i + "/" + obj.nom);
-        });
-        res.json(results);
-      });
-    });
-  })
-  .post('/save', function (req, res) {
+  .post('/menus/save', function (req, res) {
     mongoExec(function (db) {
       var obj = req.body;
-      console.log("body: " + JSON.stringify(obj));
+      var email = req.header("X-header-email");
+      var token = req.header("X-header-token");
+      obj.menu = req.body;
+      obj.email = email;
       db.collection("col").insert(obj, null, function (error, results) {
         if (error) throw error;
         console.log("obj " + JSON.stringify(obj) + " added");
@@ -47,7 +33,14 @@ router
       res.json(obj);
     });
   })
-  .get('/list', function (req, res) {
+  .get('menus/list:menu_id', function (req, res) {
+    mongoExec(function (db) {
+      db.collection("col").findOne({_id:req.params.menu_id}).toArray(function (error, results) {
+        res.json(results);
+      });
+    });
+  })
+  .get('/menus/list', function (req, res) {
     mongoExec(function (db) {
       db.collection("col").find().toArray(function (error, results) {
         results.forEach(function (obj, i) {
