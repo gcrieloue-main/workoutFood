@@ -21,7 +21,7 @@ function mongoExec(cmd) {
 router
   .post('/menus/save', function (req, res) {
     mongoExec(function (db) {
-      var obj = req.body;
+      var obj = {};
       var email = req.header("X-header-email");
       var token = req.header("X-header-token");
       obj.menu = req.body;
@@ -33,7 +33,7 @@ router
       res.json(obj);
     });
   })
-  .get('menus/:menu_id', function (req, res) {
+  .get('/menus/:menu_id', function (req, res) {
     mongoExec(function (db) {
       db.collection("col").findOne({_id:req.params.menu_id}).toArray(function (error, results) {
         res.json(results);
