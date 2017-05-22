@@ -33,7 +33,7 @@ router
       res.json(obj);
     });
   })
-  .get('menus/list:menu_id', function (req, res) {
+  .get('menus/:menu_id', function (req, res) {
     mongoExec(function (db) {
       db.collection("col").findOne({_id:req.params.menu_id}).toArray(function (error, results) {
         res.json(results);
