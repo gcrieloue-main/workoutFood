@@ -2,15 +2,16 @@ var MongoClient = require("mongodb").MongoClient;
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
+var config = require('./config');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;
+var port = config.services.port;
 var router = express.Router();
 
 function mongoExec(cmd) {
-  MongoClient.connect("mongodb://localhost/tutoriel", function (error, db) {
+  MongoClient.connect(config.mongodb.db, function (error, db) {
     if (error) return funcCallback(error);
 
     console.log("Connecté à la base de données 'tutoriel'");
