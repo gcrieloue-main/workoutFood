@@ -21,6 +21,7 @@
     "src/main-aot.ts"
   ],
   "angularCompilerOptions" : {
+    "annotationsAs": "decorators",
     "genDir" : "aot",
     "skipMetadataEmit" : true
   }

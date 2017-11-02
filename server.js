@@ -10,7 +10,9 @@ app.use('/fonts', express.static(rootPath + '/src/assets/fonts'));
 app.use('/assets/fonts', express.static(rootPath + '/src/assets/fonts'));
 app.use('/img', express.static(rootPath + '/src/assets/img'));
 app.use('/assets/img', express.static(rootPath + '/src/assets/img'));
+app.use('/assets/', express.static(rootPath + '/src/assets/'));
 app.use('/sitemap.xml', express.static(rootPath + '/sitemap.xml'));
+app.use('/node_modules', express.static(rootPath + '/node_modules'));
 app.get('/*', function (req, res) {
   res.sendFile(appPath + '/index.html');
 });
