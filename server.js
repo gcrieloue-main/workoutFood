@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var port = 8080;
+var port = 80;
 var rootPath = path.normalize(__dirname);
 var appPath = rootPath + "/aot";
 
